@@ -9,7 +9,7 @@ This browser based web application to encourage reducing of carbon footprint lif
 List team members and/or short bio's here... 
 * Hi, my name is Gin
 * Hi, my name is David. I am excited for this project because I like the environment
-* Hello everyone!
+* Hello hi everyone!
 * Hi, my name is Sohee. This project is interesting.
 	
 ## 3. Technologies and Resources Used

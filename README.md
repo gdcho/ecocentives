@@ -10,7 +10,7 @@ List team members and/or short bio's here...
 * Hi, my name is Gin
 * Hi, my name is David. I am excited for this project because I like the environment
 * Hello everyone!
-* Hi, my name is Sohee
+* Hi, my name is Sohee. This project is interesting.
 	
 ## 3. Technologies and Resources Used
 List technologies (with version numbers), API's, icons, fonts, images, media or data sources, and other resources that were used.

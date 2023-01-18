@@ -1,5 +1,4 @@
 # Project Title
-Hello hello hello
 
 ## 1. Project Description
 State your app in a nutshell, or one-sentence pitch. Give some elaboration on what the core features are.  
@@ -7,9 +6,9 @@ This browser based web application to encourage reducing of carbon footprint lif
 
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
-* Hi, my name is Gin.
+* Hi, my name is Gin
 * Hi, my name is David. I am excited for this project because I like the environment
-* ...
+* Hello everyone!
 	
 ## 3. Technologies and Resources Used
 List technologies (with version numbers), API's, icons, fonts, images, media or data sources, and other resources that were used.

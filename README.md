@@ -2,14 +2,12 @@
 Project Title:
 
 ## 1. Project Description
-State your app in a nutshell, or one-sentence pitch. Give some elaboration on what the core features are.  
-This browser based web application to encourage reducing of carbon footprint lifestyle through incentives. 
+An app to encourage Canadians to practice environmentally-friendly habits with an incentive program, allowing users to complete recurring tasks while competing with one another to collect points for rewards.
 
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
-* Hi, my name is Gin
-* Hi, my name is David. I am excited for this project because I like the environment
-* Hello hi everyone!
+* Hi, my name is Gin. I am looking forward to the outcome of this project.
+* Hi, my name is David. I am excited for this project because I like the environment.
 * Hi, my name is Sohee. This project is interesting.
 	
 ## 3. Technologies and Resources Used

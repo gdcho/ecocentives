@@ -1,5 +1,5 @@
 # Project Title
-Project Title:
+BCIT CST COMP1800 Projects 1
 
 ## 1. Project Description
 An app to encourage Canadians to practice environmentally-friendly habits with an incentive program, allowing users to complete recurring tasks while competing with one another to collect points for rewards.

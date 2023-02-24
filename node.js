@@ -8,6 +8,13 @@ const app = express();
 app.use(express.json());
 const fs = require("fs");
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
+
 // just like a simple web server like Apache web server
 // we are mapping file system paths to the app's virtual paths
 app.use(express.static('app'));
@@ -20,7 +27,7 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/app/html/index.html');
   });
   
-  app.get('/task', (req, res) => {
+app.get('/task.html', (req, res) => {
     res.sendFile(__dirname + '/app/html/task.html');
   });
 

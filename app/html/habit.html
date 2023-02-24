@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Habit Tracker</title>
+    <link rel="stylesheet" href="/css/habit.css">
+    <link rel="script" href="/js/habit.js">
+  </head>
+  <body>
+    <h1>Habit Tracker</h1>
+    <form>
+      <label for="task-name">Task Name:</label>
+      <input type="text" id="task-name" name="task-name" required>
+      <label for="task-frequency">Task Frequency:</label>
+      <select id="task-frequency" name="task-frequency">
+        <option value="daily">Daily</option>
+        <option value="weekly">Weekly</option>
+        <option value="monthly">Monthly</option>
+      </select>
+      <button type="button" onclick="addTask()">Add Task</button>
+      <button type="button" onclick="deletTask()">Delete Task</button>
+    </form>
+    <table>
+      <thead>
+        <tr>
+          <th>Task Name</th>
+          <th>Task Frequency</th>
+          <th>Action</th>
+        </tr>
+
+      </thead>
+      <tbody id="task-list">
+        <tr>
+          <th>Walking</th>
+          <th>Daily</th>
+          <th>1</th>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

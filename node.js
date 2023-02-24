@@ -35,6 +35,10 @@ app.get('/habit.html', (req, res) => {
     res.sendFile(__dirname + '/app/html/habit.html');
   });
 
+app.get('/signin.html', (req, res) => {
+    res.sendFile(__dirname + '/app/html/signin.html');
+  });
+
 // // for resource not found (i.e., 404)
 // app.use(function (req, res, next) {
 //     // this could be a separate file too - but you'd have to make sure that you have the path

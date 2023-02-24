@@ -2,7 +2,7 @@ import { getApiKey } from '/js/api-keys.js';
 
 const endpoint = 'https://api.openai.com/v1/completions';
 const headers = {
-  'Content-Type': 'application/json',
+  'Content-Type': 'application/json'
   'Authorization': `Bearer ${getApiKey()}`
 };
 

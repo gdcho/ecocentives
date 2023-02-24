@@ -1,3 +1,3 @@
 export function getApiKey() {
-    return ;
+    return "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";
   }

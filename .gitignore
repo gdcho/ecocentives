@@ -2,4 +2,4 @@
 *.logs
 node_modules/
 .vscode/
-api-keys.js
+public/js/api-keys.js

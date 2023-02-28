@@ -3,3 +3,4 @@
 node_modules/
 .vscode/
 public/js/api-keys.js
+public/js/firebaseAPI_TEAM10.js

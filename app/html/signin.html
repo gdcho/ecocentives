@@ -36,7 +36,7 @@
     <link
       type="text/css"
       rel="stylesheet"
-      href="/css/signIn.css"
+      href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"
     />
 
     <!-------------------------------------------->
@@ -45,29 +45,22 @@
     <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
     <!-- <link rel="stylesheet" href="./styles/style.css"> -->
   </head>
+
   <body>
+
     <div class="container">
-      <div class="message">
-        <p>Sign in to Eco-Centives</p>
-      </div>
-      <form>
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required />
-
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required />
-
-        <input type="button" value="Sign In" onclick="validate()" />
-      </form>
-      <p id="message"></p>
+      <h1>Sign In</h1>
     </div>
+    <div id="firebaseui-auth-container"></div>
+    <div id="loader">Loading...</div>
+    
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
+    <script src="/js/firebaseAPI_TEAM10.js"></script>
+    <script src="/js/signIn.js"></script>
+    <script src="/js/authentication.js"></script>
+
   </body>
+
 </html>
-
-<!---------------------------------------------->
-<!-- Your own JavaScript functions go here    -->
-<!---------------------------------------------->
-<script src="/js/firebaseAPI_TEAM10.js"></script>
-<script src="/js/signIn.js"></script>
-<script src="/js/authentication.js"></script>
-

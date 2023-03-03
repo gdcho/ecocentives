@@ -22,7 +22,7 @@ var uiConfig = {
                  email: user.email,                         //with authenticated user's ID (user.uid)
                  country: "Canada",                      //optional default profile info      
                  school: "BCIT",
-                 point = 0                          //optional default profile info
+                 point: 0                          //optional default profile info
           }).then(function () {
                  console.log("New user added to firestore");
                  window.location.assign("main.html");       //re-direct to main.html after signup

@@ -53,4 +53,4 @@ function getPoint(point){
             // No user is signed in.
         }
     });
-
+}

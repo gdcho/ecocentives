@@ -35,22 +35,4 @@ function readQuote(day) {
 }
 readQuote("monday");        //calling the function
 
-function getPoint(point){
-    firebase.auth().onAuthStateChanged(user => {
-        // Check if a user is signed in:
-        if (user) {
-            // Do something for the currently logged-in user here: 
-            console.log(user.uid); //print the uid in the browser console
-            console.log(user.point);  //print the user name in the browser console
-            user_Name = user.point;
 
-            //method #1:  insert with html only
-            //document.getElementById("name-goes-here").innerText = user_Name;    //using javascript
-            //method #2:  insert using jquery
-            $("#point-goes-here").text(point); //using jquery
-
-        } else {
-            // No user is signed in.
-        }
-    });
-}

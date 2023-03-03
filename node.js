@@ -39,6 +39,10 @@ app.get('/signin.html', (req, res) => {
     res.sendFile(__dirname + '/app/html/signin.html');
   });
 
+  app.get('/signin.html', (req, res) => {
+    res.sendFile(__dirname + '/app/html/signOut.html');
+  });
+
 app.get('/main.html', (req, res) => {
   res.sendFile(__dirname + '/app/html/main.html');
 });

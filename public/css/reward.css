@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0;
+}
+
+.rewards-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.reward {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 10px;
+  text-align: center;
+  width: calc(33.33% - 10px);
+}
+
+.redeem-btn {
+  text-decoration: none;
+  font-size: 1rem;
+  color: black;
+  padding: 5px 10px 5px 10px;
+  margin: 20px;
+  
+}
+
+img {
+  max-width: 100%;
+  height: 50%;
+}
+
+.footer mt-auto py-3 bg-dark {
+  text-align: center;
+}
+
+
+
+@media only screen and (max-width: 550px) {
+  .rewards-list {
+    display: grid;
+    
+    grid-template-columns:1fr ;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+    "rewards-list"
+    "rewards-list"
+    "rewards-list"
+    "rewards-list"
+    "rewards-list"
+    "rewards-list";
+
+  }
+}

@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/app/html/index.html');
   });
   
-app.get('/task.html', (req, res) => {
+app.get('/tasks.html', (req, res) => {
     res.sendFile(__dirname + '/app/html/task.html');
   });
 

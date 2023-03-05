@@ -26,29 +26,41 @@ app.use("/img", express.static("./public/img"));
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/app/html/index.html');
   });
+
+  app.get('/signIn.html', (req, res) => {
+    res.sendFile(__dirname + '/app/html/signIn.html');
+  });
+
+  app.get('/signOut.html', (req, res) => {
+    res.sendFile(__dirname + '/app/html/signOut.html');
+  });
+
+  app.get('/main.html', (req, res) => {
+    res.sendFile(__dirname + '/app/html/main.html');
+  });
   
 app.get('/tasks.html', (req, res) => {
     res.sendFile(__dirname + '/app/html/tasks.html');
   });
-
+  
 app.get('/habit.html', (req, res) => {
     res.sendFile(__dirname + '/app/html/habit.html');
   });
 
-app.get('/signin.html', (req, res) => {
-    res.sendFile(__dirname + '/app/html/signin.html');
-  });
-
-  app.get('/signin.html', (req, res) => {
-    res.sendFile(__dirname + '/app/html/signOut.html');
-  });
-
-app.get('/main.html', (req, res) => {
-  res.sendFile(__dirname + '/app/html/main.html');
-});
-
 app.get('/profile.html', (req, res) => {
   res.sendFile(__dirname + '/app/html/profile.html');
+});
+
+app.get('/settings.html', (req, res) => {
+  res.sendFile(__dirname + '/app/html/settings.html');
+});
+
+app.get('/rewards.html', (req, res) => {
+  res.sendFile(__dirname + '/app/html/rewards.html');
+});
+
+app.get('/redemption.html', (req, res) => {
+  res.sendFile(__dirname + '/app/html/redemption.html');
 });
 
 // // for resource not found (i.e., 404)

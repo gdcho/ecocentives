@@ -44,8 +44,7 @@
     <!-------------------------------------------->
   </head>
 
-  <body>
-    
+  <body style="margin-top: 125px">
     <!-- Navbar starts here -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-success">
       <div class="container-fluid">
@@ -79,9 +78,7 @@
                 aria-labelledby="navbarDropdownMenuLink"
               >
                 <li>
-                  <a class="dropdown-item" href="tasks.html"
-                    >Tasks List</a
-                  >
+                  <a class="dropdown-item" href="tasks.html">Tasks List</a>
                 </li>
                 <li><a class="dropdown-item" href="#">Rewards List</a></li>
                 <li>
@@ -102,8 +99,12 @@
                 Profile
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="profile.html">My Profile</a></li>
-                <li><a class="dropdown-item" href="settings.html">Settings</a></li>
+                <li>
+                  <a class="dropdown-item" href="profile.html">My Profile</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="settings.html">Settings</a>
+                </li>
                 <li><hr class="dropdown-divider" /></li>
                 <li><a class="dropdown-item" href="signOut.html">Logout</a></li>
               </ul>
@@ -112,6 +113,53 @@
         </div>
       </div>
     </nav>
+
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <img
+              src="https://via.placeholder.com/150"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">User Name</h5>
+              <p class="card-text">
+                Add profile description here.
+              </p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Email: example@example.com</li>
+              <li class="list-group-item">Joined: March 5, 2023</li>
+              <li class="list-group-item">Points: 500</li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">Edit Profile</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Recent Activity</h5>
+              <ul class="list-group">
+                <li class="list-group-item">
+                  <span class="fw-bold">Task:</span> Complete the weekly
+                  recycling task
+                  <span class="float-end">+50 points</span>
+                </li>
+                <li class="list-group-item">
+                  <span class="fw-bold">Reward:</span> Redeem coupon for
+                  reusable water bottle
+                  <span class="float-end">-100 points</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->

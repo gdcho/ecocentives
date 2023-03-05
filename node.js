@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
   });
   
 app.get('/tasks.html', (req, res) => {
-    res.sendFile(__dirname + '/app/html/task.html');
+    res.sendFile(__dirname + '/app/html/tasks.html');
   });
 
 app.get('/habit.html', (req, res) => {
@@ -45,6 +45,10 @@ app.get('/signin.html', (req, res) => {
 
 app.get('/main.html', (req, res) => {
   res.sendFile(__dirname + '/app/html/main.html');
+});
+
+app.get('/profile.html', (req, res) => {
+  res.sendFile(__dirname + '/app/html/profile.html');
 });
 
 // // for resource not found (i.e., 404)

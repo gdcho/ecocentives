@@ -27,6 +27,10 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/app/html/index.html');
   });
 
+  app.get('/about.html', (req, res) => {
+    res.sendFile(__dirname + '/app/html/about.html');
+  });
+
   app.get('/signIn.html', (req, res) => {
     res.sendFile(__dirname + '/app/html/signIn.html');
   });

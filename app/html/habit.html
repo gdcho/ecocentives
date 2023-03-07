@@ -108,35 +108,42 @@
     <div class="container-fluid bg-light text-dark p-5">
       <div class="container bg-light p-5">
         <h1>Habit Tracker</h1>
-        <form>
-          <label for="task-name">Task Name:</label>
-          <input type="text" id="task-name" name="task-name" required />
-          <label for="task-frequency">Task Frequency:</label>
-          <select id="task-frequency" name="task-frequency">
-            <option value="daily">Daily</option>
-            <option value="weekly">Weekly</option>
-            <option value="monthly">Monthly</option>
-          </select>
-          <button type="button" onclick="addTask()">Add Task</button>
-          <button type="button" onclick="deletTask()">Delete Task</button>
-        </form>
-        <table>
-          <thead>
-            <tr>
-              <th>Task Name</th>
-              <th>Task Frequency</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody id="task-list">
-            <tr>
-              <th>Walking</th>
-              <th>Daily</th>
-              <th>1</th>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+        <p>Choose from the list of tasks to track your progress towards your goals and earn points!</p>
+	    <form>
+		    <fieldset>
+			  <legend>Select a task:</legend>
+			  <select id="task-list">
+				<option value="task-1">Turn off lights when leaving a room</option>
+				<option value="task-2">Use reusable water bottle</option>
+				<option value="task-3">Use reusable grocery bags</option>
+				<option value="task-4">Take shorter showers</option>
+				<option value="task-5">Plant a tree</option>
+			  </select>
+			  <label for="frequency">Recurring frequency:</label>
+			  <select id="frequency">
+				<option value="daily">Daily</option>
+				<option value="weekly">Weekly</option>
+				<option value="monthly">Monthly</option>
+			  </select>
+			  <input type="button" value="Add Task" onclick="addTask()">
+		  </fieldset>
+	  </form>
+	  <br>
+	  <table>
+		<thead>
+			<tr>
+				<th>Task</th>
+				<th>Frequency</th>
+				<th>Progress</th>
+			</tr>
+		</thead>
+		<tbody id="task-tracker">
+			
+		</tbody>
+	  </table>
+    <br>
+	  <div id="points">
+		<h2>Points: <span id="points-value">0</span></h2>
+	</div>
   </body>
 </html>

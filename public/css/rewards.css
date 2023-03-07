@@ -14,7 +14,12 @@ h1 {
 }
 
 .rewards-list {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+  "reward reward reward"
+  "reward reward reward";
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 20px;
@@ -28,6 +33,7 @@ h1 {
   padding: 10px;
   text-align: center;
   width: calc(33.33% - 10px);
+  grid-area: reward;
 }
 
 .redeem-btn {
@@ -49,20 +55,3 @@ img {
 }
 
 
-
-@media only screen and (max-width: 550px) {
-  .rewards-list {
-    display: grid;
-    
-    grid-template-columns:1fr ;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas: 
-    "rewards-list"
-    "rewards-list"
-    "rewards-list"
-    "rewards-list"
-    "rewards-list"
-    "rewards-list";
-
-  }
-}

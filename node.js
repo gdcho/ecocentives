@@ -39,8 +39,8 @@ app.get('/leaderboard.html', (req, res) => {
     res.sendFile(__dirname + '/app/html/leaderboard.html');
   });
 
-app.get('/task.html', (req, res) => {
-    res.sendFile(__dirname + '/app/html/task.html');
+app.get('/tasks.html', (req, res) => {
+    res.sendFile(__dirname + '/app/html/tasks.html');
   });
 
 app.get('/profile.html', (req, res) => {

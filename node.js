@@ -26,16 +26,44 @@ app.use("/img", express.static("./public/img"));
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/app/html/index.html');
   });
+
+app.get('/habit.html', (req, res) => {
+    res.sendFile(__dirname + '/app/html/habit.html');
+  });
+
+app.get('/about.html', (req, res) => {
+    res.sendFile(__dirname + '/app/html/about.html');
+  });
   
+app.get('/leaderboard.html', (req, res) => {
+    res.sendFile(__dirname + '/app/html/leaderboard.html');
+  });
+
 app.get('/task.html', (req, res) => {
     res.sendFile(__dirname + '/app/html/task.html');
   });
 
-  app.get('/signIn.html', (req, res) => {
+app.get('/profile.html', (req, res) => {
+    res.sendFile(__dirname + '/app/html/profile.html');
+  });
+
+app.get('/redemption.html', (req, res) => {
+    res.sendFile(__dirname + '/app/html/redemption.html');
+  });
+
+app.get('/rewards.html', (req, res) => {
+    res.sendFile(__dirname + '/app/html/rewards.html');
+  });
+
+app.get('/settings.html', (req, res) => {
+    res.sendFile(__dirname + '/app/html/settings.html');
+  });
+
+app.get('/signIn.html', (req, res) => {
     res.sendFile(__dirname + '/app/html/signIn.html');
   });
 
-  app.get('/signOut.html', (req, res) => {
+app.get('/signOut.html', (req, res) => {
     res.sendFile(__dirname + '/app/html/signOut.html');
   });
 

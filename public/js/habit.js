@@ -1,69 +1,64 @@
 // Initialize Firebase
 const firebaseConfig = {
-  // Your Firebase project config here
+  // your firebase config goes here
 };
 firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
 
+// Get a reference to the database service
+const database = firebase.database();
+
+// Get a reference to the task tracker table
+const taskTrackerTable = document.getElementById("task-tracker");
+
+// Get a reference to the points value span
+const pointsValueSpan = document.getElementById("points-value");
+
+// Define a function to add a new task to the task tracker
 function addTask() {
-  const taskName = document.getElementById("task-name").value;
-  const taskFrequency = document.getElementById("task-frequency").value;
-  db.collection("tasks").add({
-    name: taskName,
-    frequency: taskFrequency
-  })
-  .then(() => {
-    console.log("Task added to Firestore!");
-  })
-  .catch((error) => {
-    console.error("Error adding task: ", error);
+  // Get the selected task and frequency
+  const selectedTask = document.getElementById("task-list").value;
+  const selectedFrequency = document.getElementById("frequency").value;
+
+  // Add the task to the task tracker in the database
+  const newTaskRef = database.ref().child("taskTracker").push();
+  newTaskRef.set({
+    task: selectedTask,
+    frequency: selectedFrequency,
+    progress: 0,
   });
 }
 
-// Listen for changes to the tasks collection
-db.collection("tasks").onSnapshot((querySnapshot) => {
-  const taskList = document.getElementById("task-list");
-  taskList.innerHTML = "";
-  querySnapshot.forEach((doc) => {
-    const task = doc.data();
-    const taskRow = document.createElement("tr");
-    taskRow.innerHTML = `
-      <td>${task.name}</td>
-      <td>${task.frequency}</td>
-      <td>
-        <button type="button" onclick="editTask('${doc.id}', '${task.name}', '${task.frequency}')">Edit</button>
-        <button type="button" onclick="deleteTask('${doc.id}')">Delete</button>
-      </td>
-    `;
-    taskList.appendChild(taskRow);
-  });
-});
+// Define a function to update the task tracker table
+function updateTaskTracker(taskTracker) {
+  // Clear the task tracker table
+  taskTrackerTable.innerHTML = "";
 
-function editTask(taskId, taskName, taskFrequency) {
-  const newTaskName = prompt("Enter a new name for the task:", taskName);
-  if (newTaskName !== null) {
-    const newTaskFrequency = prompt("Enter a new frequency for the task:", taskFrequency);
-    if (newTaskFrequency !== null) {
-      db.collection("tasks").doc(taskId).update({
-        name: newTaskName,
-        frequency: newTaskFrequency
-      })
-      .then(() => {
-        console.log("Task updated in Firestore!");
-      })
-      .catch((error) => {
-        console.error("Error updating task: ", error);
-      });
-    }
+  // Loop through the task tracker and add each task to the table
+  let totalPoints = 0;
+  for (const [key, value] of Object.entries(taskTracker)) {
+    const task = value.task;
+    const frequency = value.frequency;
+    const progress = value.progress;
+    const points = progress * 10;
+    totalPoints += points;
+    const newRow = taskTrackerTable.insertRow();
+    const taskCell = newRow.insertCell();
+    taskCell.innerHTML = task;
+    const frequencyCell = newRow.insertCell();
+    frequencyCell.innerHTML = frequency;
+    const progressCell = newRow.insertCell();
+    progressCell.innerHTML = `${progress}/${frequency}`;
+    const pointsCell = newRow.insertCell();
+    pointsCell.innerHTML = points;
   }
+
+  // Update the points value span
+  pointsValueSpan.innerHTML = totalPoints;
 }
 
-function deleteTask(taskId) {
-  db.collection("tasks").doc(taskId).delete()
-  .then(() => {
-    console.log("Task deleted from Firestore!");
-  })
-  .catch((error) => {
-    console.error("Error deleting task: ", error);
-  });
-}
+// Listen for changes to the task tracker in the database
+const taskTrackerRef = database.ref("taskTracker");
+taskTrackerRef.on("value", (snapshot) => {
+  const taskTracker = snapshot.val();
+  updateTaskTracker(taskTracker);
+});

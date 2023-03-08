@@ -9,17 +9,27 @@ var firebaseConfig = {
       // Retrieve the leaderboard table element
       var leaderboardTable = document.getElementById("leaderboard-body");
       
+      // Initialize rank counter
+      var rank = 0;
+      var previousPoints = -1;
+      
       // Loop through each document in the collection
-      querySnapshot.forEach(function(doc, index) {
+      querySnapshot.forEach(function(doc) {
         // Get the data for each user document
         var user = doc.data();
+        var points = user.point;
+        
+        // Increment rank if points are lower than previous user's points
+        if (points !== previousPoints) {
+          rank++;
+        }
         
         // Create a new row for the user
         var row = document.createElement("tr");
         
         // Add the rank, name, and points to the row
         var rankCell = document.createElement("td");
-        rankCell.textContent = index + 1;
+        rankCell.textContent = rank;
         row.appendChild(rankCell);
   
         var nameCell = document.createElement("td");
@@ -27,14 +37,18 @@ var firebaseConfig = {
         row.appendChild(nameCell);
   
         var pointsCell = document.createElement("td");
-        pointsCell.textContent = doc.data().point;
+        pointsCell.textContent = points;
         row.appendChild(pointsCell);
-  
+        
         // Add the row to the leaderboard table
         leaderboardTable.appendChild(row);
+        
+        // Update previous points
+        previousPoints = points;
       });
     });
   }
   
   retrieveBoard(); // call the function
+  
   

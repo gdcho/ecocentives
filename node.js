@@ -58,8 +58,8 @@ app.get('/settings.html', (req, res) => {
     res.sendFile(__dirname + '/app/html/settings.html');
   });
 
-app.get('/signIn.html', (req, res) => {
-    res.sendFile(__dirname + '/app/html/signIn.html');
+app.get('/signin.html', (req, res) => {
+    res.sendFile(__dirname + '/app/html/signin.html');
   });
 
 app.get('/signOut.html', (req, res) => {

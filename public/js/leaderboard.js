@@ -3,7 +3,7 @@ var firebaseConfig = {
     // Your Firebase project configuration details
   };
 
-  function retrieveBoard() {
+function retrieveBoard() {
     // Retrieve the user collection data
     db.collection("users").orderBy("point", "desc").get().then(function(querySnapshot) {
       // Retrieve the leaderboard table element
@@ -49,6 +49,4 @@ var firebaseConfig = {
     });
   }
   
-  retrieveBoard(); // call the function
-  
-  
+retrieveBoard(); // call the function

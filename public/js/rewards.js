@@ -38,6 +38,14 @@ getRewardsData("$100 Best Buy Gift Card", bestbuyRewardContainer);
 const visaRewardContainer = document.querySelector('#visa');
 getRewardsData("$100 Visa Gift Card", visaRewardContainer);
 
+const steamRewardContainer = document.querySelector('#steam');
+getRewardsData("$50 Steam Gift Card", steamRewardContainer);
+
+const uberRewardContainer = document.querySelector('#uber');
+getRewardsData("$50 Uber Gift Card", uberRewardContainer);
+
+const playstationRewardContainer = document.querySelector('#playstation');
+getRewardsData("$50 PlayStation Gift Card", playstationRewardContainer);
 
 // Creates a redemptionDocID in Firestore Database.
 function saveRedemptionDocumentIDAndRedirect(docID) {

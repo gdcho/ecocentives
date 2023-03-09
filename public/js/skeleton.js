@@ -1,4 +1,3 @@
-
 //---------------------------------------------------
 // This function loads the parts of your skeleton 
 // (navbar, footer, and other things) into html doc. 
@@ -8,13 +7,16 @@ function loadSkeleton() {
         if (user) {
             // User is signed in.
             // Do something for the user here.
-            console.log($('#afterlogin').load('/nav_after_login.html'));
-            
+            $('#afterlogin').load('/nav_after_login.html', function() {
+                console.log("After login navbar loaded successfully.");
+            });
         } else {
             // No user is signed in.
-            console.log($('#beforelogin').load('/nav_before_login.html'));
+            $('#beforelogin').load('/nav_before_login.html', function() {
+                console.log("Before login navbar loaded successfully.");
+            });
         }
     });
 }
-loadSkeleton(); //invoke the function
 
+loadSkeleton(); //invoke the function

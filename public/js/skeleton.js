@@ -17,6 +17,10 @@ function loadSkeleton() {
             });
         }
     });
+    if ($('#beforelogin').length) {
+        $('#beforelogin').load('/nav_before_login.html', function() {
+            console.log("Before login navbar loaded successfully.");
+        });
+    }
 }
-
 loadSkeleton(); //invoke the function

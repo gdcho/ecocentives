@@ -39,7 +39,7 @@ What we'd like to build in the future:
 ## 7. Contents of Folder
 Content of the project folder:
 
-Testing webhook - david
+Testing webhook2 - david
 
 ```
  Top level of project folder: 

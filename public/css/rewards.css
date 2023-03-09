@@ -1,57 +1,60 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: Arial, sans-serif;
-}
-
 h1 {
-  font-size: 2em;
-  margin: 0;
+  text-align: center;
 }
 
 .rewards-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-template-areas:
-  "reward reward reward"
-  "reward reward reward";
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 20px;
 }
 
 .reward {
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-  padding: 10px;
+  width: calc(33.33% - 20px);
+  margin: auto;
+  margin-bottom: 40px;
   text-align: center;
-  width: calc(33.33% - 10px);
-  grid-area: reward;
+  background-color: white;
+  border: 1px solid #eee;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.reward img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.reward h2, .reward p {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.reward-name {
+  font-size: 24px;
+}
+
+.points {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 14px;
+  margin-top: 20px;
 }
 
 .redeem-btn {
-  text-decoration: none;
-  font-size: 1rem;
-  color: black;
-  padding: 5px 10px 5px 10px;
-  margin: 20px;
-  
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
 }
-
-img {
-  max-width: 100%;
-  height: 50%;
-}
-
-.footer mt-auto py-3 bg-dark {
-  text-align: center;
-}
-
-

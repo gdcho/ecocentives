@@ -58,8 +58,8 @@ app.get('/settings.html', (req, res) => {
     res.sendFile(__dirname + '/app/html/settings.html');
   });
 
-app.get('/signIn.html', (req, res) => {
-    res.sendFile(__dirname + '/app/html/signIn.html');
+app.get('/signin.html', (req, res) => {
+    res.sendFile(__dirname + '/app/html/signin.html');
   });
 
 app.get('/signOut.html', (req, res) => {
@@ -72,6 +72,14 @@ app.get('/main.html', (req, res) => {
 
 app.get('/confirmation.html', (req, res) => {
   res.sendFile(__dirname + '/app/html/confirmation.html');
+});
+
+app.get('/nav_before_login.html', (req, res) => {
+  res.sendFile(__dirname + '/app/html/text/nav_before_login.html');
+});
+
+app.get('/nav_after_login.html', (req, res) => {
+  res.sendFile(__dirname + '/app/html/text/nav_after_login.html');
 });
 
 // For resource not found (i.e., 404)

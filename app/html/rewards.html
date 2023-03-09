@@ -42,140 +42,144 @@
     <!-------------------------------------------->
     <!-- Other libraries and styles of your own -->
     <!-------------------------------------------->
-    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+    <link type="text/css" rel="stylesheet" href="/css/rewards.css" />
   </head>
 
-
   <body>
-
-
-
     <header>
       <!-- Navbar starts here -->
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-success">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="main.html">Eco-centives</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarCollapse"
-          aria-controls="navbarCollapse"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdownMenuLink"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Content
-              </a>
-              <ul
-                class="dropdown-menu"
-                aria-labelledby="navbarDropdownMenuLink"
-              >
-                <li>
-                  <a class="dropdown-item" href="tasks.html">Tasks List</a>
-                </li>
-                <li><a class="dropdown-item" href="rewards.html">Rewards List</a></li>
-                <li>
-                  <a class="dropdown-item" href="habit.html">Habit Tracker</a>
-                </li>
-                <li><a class="dropdown-item" href="leaderboard.html">Leaderboard</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Profile
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="profile.html">My Profile</a></li>
-                <li><a class="dropdown-item" href="settings.html">Settings</a></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="/">Logout</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-     </nav>
-
+      <nav id="afterlogin"></nav>
     </header>
 
-    <br>
-    <br>
-    <br>
+    <br />
+    <br />
+    <br />
+
     <h1>Rewards</h1>
     <main>
       <section class="rewards-list">
-        <article class="reward">
-          <img src="https://tse1.mm.bing.net/th?id=OIP.0OWxA3RrmUPUHfeXYxfuAQHaE8&pid=Api&P=0" alt="Reward Image" >
-          <h2>Free Coffee</h2>
-          <p class="points">250 points</p>
-          <p class="description">Enjoy a free coffee at participating coffee shops.</p>
-          <a><button class="redeem-btn" onclick="saveRedemptionDocumentIDAndRedirect()">Redeem Reward</button></a>
-        </article>
-        
-        <article class="reward">
-          <img src="https://tse1.mm.bing.net/th?id=OIP.8Oy2LVmeZBglR6N6vP0zrQHaFg&pid=Api&P=0" alt="Reward Image">
-          <h2>Free Yoga Class</h2>
-          <p class="points">1000 points</p>
-          <p class="description">Take a free yoga class at participating yoga studios.</p>
-          <a><button class="redeem-btn" onclick="saveRedemptionDocumentIDAndRedirect()">Redeem Reward</button></a>
-        </article>
+        <div class="row">
+          <article class="reward" id="steam">
+            <img
+              src="/img/steam.png"
+              alt="Reward Image"
+              style="width: 400px; height: 400px"
+            />
+            <h2 class="reward-name"></h2>
+            <p class="points"></p>
+            <p class="description"></p>
+            <a
+              ><button
+                class="redeem-btn"
+                onclick="saveRedemptionDocumentIDAndRedirect()"
+              >
+                Redeem Reward
+              </button></a
+            >
+          </article>
 
-        <article class="reward">
-          <img src="https://media.istockphoto.com/id/1177049680/vector/movie-tickets-vector-cinema-ticket-design.jpg?s=612x612&w=0&k=20&c=6gZIUIPsNas6jCs-Vh3SeX7kTu6zGFUEVZDLdQHDvCc=" alt="Reward Image" width="500" height="400">
-          <h2>Free Movie Ticket</h2>
-          <p class="points">1000 points</p>
-          <p class="description">See the latest blockbuster for free at participating movie theaters.</p>
-          <a><button class="redeem-btn" onclick="saveRedemptionDocumentIDAndRedirect()">Redeem Reward</button></a>
-        </article>
+          <article class="reward" id="uber">
+            <img
+              src="/img/uber.png"
+              alt="Reward Image"
+              style="width: 400px; height: 400px"
+            />
+            <h2 class="reward-name"></h2>
+            <p class="points"></p>
+            <p class="description"></p>
+            <a
+              ><button
+                class="redeem-btn"
+                onclick="saveRedemptionDocumentIDAndRedirect()"
+              >
+                Redeem Reward
+              </button></a
+            >
+          </article>
 
-        <article class="reward">
-          <img src="https://tse2.mm.bing.net/th?id=OIP.80LUYSyZcITo3Oi8ZD3nagHaE4&pid=Api&P=0" alt="Reward Image">
-          <h2>Free Massage</h2>
-          <p class="points">2000 points</p>
-          <p class="description">Relax with a free 1-hour massage at participating spas.</p>
-          <a><button class="redeem-btn" onclick="saveRedemptionDocumentIDAndRedirect()">Redeem Reward</button></a>
-        </article>
+          <article class="reward" id="playstation">
+            <img
+              src="/img/playstation.png"
+              alt="Reward Image"
+              style="width: 400px; height: 400px"
+            />
+            <h2 class="reward-name"></h2>
+            <p class="points"></p>
+            <p class="description"></p>
+            <a
+              ><button
+                class="redeem-btn"
+                onclick="saveRedemptionDocumentIDAndRedirect()"
+              >
+                Redeem Reward
+              </button></a
+            >
+          </article>
+        </div>
+        <div class="row">
+          <article class="reward" id="amazon">
+            <img
+              src="/img/amazon.png"
+              alt="Reward Image"
+              style="width: 400px; height: 400px"
+            />
+            <h2 class="reward-name"></h2>
+            <p class="points"></p>
+            <p class="description"></p>
+            <a
+              ><button
+                class="redeem-btn"
+                onclick="saveRedemptionDocumentIDAndRedirect()"
+              >
+                Redeem Reward
+              </button></a
+            >
+          </article>
 
-        <article class="reward">
-          <img src="https://img.grouponcdn.com/iam/2xwNQZybEg9bBeua9U2UTUJmdnDq/2x-2048x1229/v1/t600x362.jpg" alt="Reward Image" width="500 height=400">
-          <h2>Free Gym Membership</h2>
-          <p class="points">2000 points</p>
-          <p class="description">Get a free 1-month gym membership at participating fitness centers.</p>
-          <a><button class="redeem-btn" onclick="saveRedemptionDocumentIDAndRedirect()">Redeem Reward</button>
-        </article>
+          <article class="reward" id="bestbuy">
+            <img
+              src="/img/bestbuy.png"
+              alt="Reward Image"
+              style="width: 400px; height: 400px"
+            />
+            <h2 class="reward-name"></h2>
+            <p class="points"></p>
+            <p class="description"></p>
+            <a
+              ><button
+                class="redeem-btn"
+                onclick="saveRedemptionDocumentIDAndRedirect()"
+              >
+                Redeem Reward
+              </button></a
+            >
+          </article>
 
-        <article class="reward">
-          <img src="https://m.media-amazon.com/images/I/81Oh+ER4saL._AC_SX342_SY445_.jpg" alt="Reward Image">
-          <h2>$50 Amazon Gift Card</h2>
-          <p class="points">2000 points</p>
-          <p class="description">Get a $50 gift card to use on Amazon.com.</p>
-          <a><button class="redeem-btn" onclick="saveRedemptionDocumentIDAndRedirect()">Redeem Reward</button></a>
-        </article>
-
+          <article class="reward" id="visa">
+            <img
+              src="/img/visa.png"
+              alt="Reward Image"
+              style="width: 400px; height: 400px"
+            />
+            <h2 class="reward-name"></h2>
+            <p class="points"></p>
+            <p class="description"></p>
+            <a
+              ><button
+                class="redeem-btn"
+                onclick="saveRedemptionDocumentIDAndRedirect()"
+              >
+                Redeem Reward
+              </button></a
+            >
+          </article>
+        </div>
       </section>
     </main>
 
     <script src="/js/firebaseAPI_TEAM10.js"></script>
     <script src="/js/rewards.js"></script>
+    <script src="/js/skeleton.js"></script>
   </body>
 </html>

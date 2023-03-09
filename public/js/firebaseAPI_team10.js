@@ -2,12 +2,12 @@
 //  Your web app's Firebase configuration
 //----------------------------------------
 var firebaseConfig = {
-  apiKey: "AIzaSyAzbXxihj6MYUKXYVSwfKY6BBdw1Jfdft0",
-  authDomain: "comp1810-demo09.firebaseapp.com",
-  projectId: "comp1810-demo09",
-  storageBucket: "comp1810-demo09.appspot.com",
-  messagingSenderId: "2744707031",
-  appId: "1:2744707031:web:501adecfa930927fc50d92"
+  apiKey: "AIzaSyDIz8b63-RMVo2EGLH5B83vefU9YXrISLU",
+  authDomain: "comp1800-group10-bby.firebaseapp.com",
+  projectId: "comp1800-group10-bby",
+  storageBucket: "comp1800-group10-bby.appspot.com",
+  messagingSenderId: "788715568742",
+  appId: "1:788715568742:web:76b446df876cc5f0c137a7"
 };
 
 //--------------------------------------------
@@ -16,4 +16,5 @@ var firebaseConfig = {
 //--------------------------------------------
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
-const storage = firebase.storage();
+//const storage = firebase.storage();
+

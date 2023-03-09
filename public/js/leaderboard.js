@@ -7,7 +7,7 @@ function retrieveBoard() {
     // Retrieve the user collection data
     db.collection("users").orderBy("point", "desc").get().then(function(querySnapshot) {
       // Retrieve the leaderboard table element
-      var leaderboardTable = document.getElementById("leaderboard-body");
+      var leaderboardTable = document.getElementById("task-tracker");
       
       // Initialize rank counter
       var rank = 0;

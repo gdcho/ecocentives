@@ -1,17 +1,22 @@
 .navbar {
-  background-color: black;
+  height: 80px;
+  background-color: rgba(0, 0, 0, 0.25);
+  font-family: monospace;
 }
 
 .navbar-brand {
-  font-size: 36px;
-  margin-left: 16px;
+  font-size: 32px;
+  margin-left: 10px;
+  margin-bottom: 4px;
   color: white !important;
-}
-
-.material-symbols-outlined{
-  display: block !important;
 }
 
 .nav-link {
   text-align: center;
+}
+
+.navbar-logo {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 4px;
 }

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>Homepage</title>
     <meta name="comp1800 template" content="My 1800 App" />
 
@@ -44,45 +44,44 @@
     <!-------------------------------------------->
     <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
     <!-- <link rel="stylesheet" href="./styles/style.css"> -->
-    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
   </head>
 
   <body>
-    <!------------------------------>
-    <!-- Your HTML Layout go here -->
-    <!------------------------------>
-
-    <!-- our own navbar goes here -->
-    <nav id="afterlogin"></nav>
+    <header>
+      <!-- Navbar starts here -->
+      <nav id="afterlogin"></nav>
+    </header>
 
     <div class="container-fluid bg-light text-dark p-5">
-        <div class="container bg-light p-5">
-            <h1>Leaderboard</h1>
-            <table>
-            <thead>
-                <tr>
-                <th>Rank</th>
-                <th>Name</th>
-                <th>Points</th>
-                </tr>
-            </thead>
-            <tbody id="leaderboard-body">
-                <!-- Rows for each user will be added here -->
-            </tbody>
-            </table>
-            <hr>
-            <div class="col-md-4">
-              <p><span id="name-goes-here"></span>: <span id="point-goes-here"></span> points </p>
-            </div>   
+      <div class="container bg-light p-5">
+        <h1>Leaderboard</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Name</th>
+              <th>Points</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboard-body">
+            <!-- Rows for each user will be added here -->
+          </tbody>
+        </table>
+        <hr />
+        <div class="col-md-4">
+          <p>
+            <span id="name-goes-here"></span>:
+            <span id="point-goes-here"></span> points
+          </p>
         </div>
+      </div>
     </div>
-    
 
     <!-- Include Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-storage.js"></script>
-
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->

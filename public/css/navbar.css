@@ -1,0 +1,17 @@
+.navbar {
+  background-color: black;
+}
+
+.navbar-brand {
+  font-size: 36px;
+  margin-left: 16px;
+  color: white !important;
+}
+
+.material-symbols-outlined{
+  display: block !important;
+}
+
+.nav-link {
+  text-align: center;
+}

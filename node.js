@@ -75,11 +75,11 @@ app.get('/confirmation.html', (req, res) => {
 });
 
 app.get('/nav_before_login.html', (req, res) => {
-  res.sendFile(__dirname + '/app/html/text/nav_before_login.html');
+  res.sendFile(__dirname + '/text/nav_before_login.html');
 });
 
 app.get('/nav_after_login.html', (req, res) => {
-  res.sendFile(__dirname + '/app/html/text/nav_after_login.html');
+  res.sendFile(__dirname + '/text/nav_after_login.html');
 });
 
 // For resource not found (i.e., 404)

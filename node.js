@@ -70,6 +70,10 @@ app.get('/settings.html', (req, res) => {
   res.sendFile(__dirname + '/app/html/settings.html');
 });
 
+app.get('/footer.html', (req, res) => {
+  res.sendFile(__dirname + '/text/footer.html');
+});
+
 app.get('/nav_before_login.html', (req, res) => {
   res.sendFile(__dirname + '/text/nav_before_login.html');
 });

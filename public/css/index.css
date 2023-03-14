@@ -1,28 +1,41 @@
+body {
+  background-image: url("/img/gradient.png");
+  background-size: cover;
+  background-position: center;
+}
+
+a {
+  color: black;
+  font-size: 18px;
+}
+
+i {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
 .btn {
   background-color: rgba(0, 0, 0, 0.25);
 }
 
-.header {
+header {
   display: flex;
   height: 100vh;
   flex-direction: column;
-  background-image: url("/img/gradient.png");
-  background-size: cover;
-  background-position: center;
   align-items: center;
   justify-content: center;
   color: white;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-.header h1 {
+header h1 {
   font-size: 72px;
   position: relative;
   display: block;
   text-align: center;
 }
 
-.header p {
+header p {
   position: relative;
   display: block;
   text-align: center;
@@ -36,4 +49,44 @@
   justify-content: center;
   text-align: center;
   max-width: 1200px;
+}
+
+.purpose {
+  font-size: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 1200px;
+  height: 600px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.purpose h2 {
+  font-size: 48px;
+  position: relative;
+  display: block;
+  text-align: center;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  height: 80px;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.footer h6 {
+  margin: auto;
+  margin-left: 16px;
+  font-size: 18px;
 }

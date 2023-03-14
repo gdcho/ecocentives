@@ -1,0 +1,9 @@
+/* Universal CSS for all pages. */
+
+body {
+  background-color: #dddddd;
+}
+
+.custom-container {
+  margin-top: 100px;
+}

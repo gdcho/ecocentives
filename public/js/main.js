@@ -35,8 +35,8 @@ function readPoints() {
         .doc(user.uid)
         .onSnapshot((doc) => {
           console.log(doc.data());
-          const userPoint = doc.data().point;
-          document.getElementById("points-goes-here").innerHTML = userPoint;
+          const userPoints = doc.data().point;
+          document.getElementById("points-goes-here").innerHTML = userPoints;
         });
     } else {
     }

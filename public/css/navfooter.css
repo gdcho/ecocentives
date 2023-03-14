@@ -6,7 +6,7 @@
 }
 
 .navbar-brand {
-  font-size: 36px;
+  font-size: 32px;
   margin-left: 10px;
   margin-bottom: 6px;
   color: white !important;
@@ -46,5 +46,5 @@ i {
 .footer h6 {
   margin: auto;
   margin-left: 16px;
-  font-size: 18px;
+  font-size: 16px;
 }

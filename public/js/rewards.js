@@ -30,14 +30,14 @@ function getRewardsData(rewardName, rewardContainer) {
     });
 }
 
+const playstationRewardContainer = document.querySelector("#playstation");
+getRewardsData("$25 PlayStation Gift Card", playstationRewardContainer);
+
 const steamRewardContainer = document.querySelector("#steam");
 getRewardsData("$50 Steam Gift Card", steamRewardContainer);
 
 const uberRewardContainer = document.querySelector("#uber");
 getRewardsData("$50 Uber Gift Card", uberRewardContainer);
-
-const playstationRewardContainer = document.querySelector("#playstation");
-getRewardsData("$50 PlayStation Gift Card", playstationRewardContainer);
 
 const amazonRewardContainer = document.querySelector("#amazon");
 getRewardsData("$100 Amazon Gift Card", amazonRewardContainer);

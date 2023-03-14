@@ -1,5 +1,6 @@
 h1 {
   text-align: center;
+  margin-top: 120px;
 }
 
 .rewards-list {
@@ -8,7 +9,7 @@ h1 {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 45px;
 }
 
 .reward {
@@ -49,7 +50,8 @@ h1 {
 }
 
 .redeem-btn {
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   padding: 10px 20px;
   border: none;
   background-color: black;

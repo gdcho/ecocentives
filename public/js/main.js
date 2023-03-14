@@ -27,7 +27,7 @@ function readQuote(day) {
 }
 readQuote("monday");
 
-function readPoint() {
+function readPoints() {
   firebase.auth().onAuthStateChanged((user) => {
     // Check if a user is signed in:
     if (user) {
@@ -36,10 +36,10 @@ function readPoint() {
         .onSnapshot((doc) => {
           console.log(doc.data());
           const userPoint = doc.data().point;
-          document.getElementById("point-goes-here").innerHTML = userPoint;
+          document.getElementById("points-goes-here").innerHTML = userPoint;
         });
     } else {
     }
   });
 }
-readPoint();
+readPoints();

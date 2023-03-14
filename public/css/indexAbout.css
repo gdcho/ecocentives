@@ -36,7 +36,9 @@ body {
   text-align: center;
 }
 
-.btn {
+.custom-btn {
+  font-size: 24px;
+  padding: 12px 28px;
   background-color: rgba(0, 0, 0, 0.25);
 }
 
@@ -62,6 +64,10 @@ body {
 
 /* About CSS. */
 
+a {
+  color: white;
+}
+
 .about-header {
   display: flex;
   height: 100vh;
@@ -77,6 +83,7 @@ body {
   position: relative;
   display: block;
   text-align: center;
+  margin-bottom: 24px;
 }
 
 .about-header p {
@@ -94,7 +101,6 @@ body {
 
 .email {
   height: 80px;
-  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;

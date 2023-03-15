@@ -22,9 +22,10 @@ var uiConfig = {
           .set({
             name: user.displayName,
             email: user.email,
+            joined: firebase.firestore.Timestamp.now(),
             country: "Canada",
             school: "BCIT",
-            point: 0,
+            points: 0,
           })
           .then(function () {
             console.log("New user added to firestore");

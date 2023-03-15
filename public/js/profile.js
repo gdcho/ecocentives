@@ -31,6 +31,23 @@ function readEmail() {
 }
 readEmail();
 
+function readJoined() {
+  firebase.auth().onAuthStateChanged((user) => {
+    // Check if a user is signed in:
+    if (user) {
+      db.collection("users")
+        .doc(user.uid)
+        .onSnapshot((doc) => {
+          console.log(doc.data());
+          const userJoined = doc.data().joined;
+          document.getElementById("joined-goes-here").innerHTML = userJoined;
+        });
+    } else {
+    }
+  });
+}
+readJoined();
+
 function readPoints() {
   firebase.auth().onAuthStateChanged((user) => {
     // Check if a user is signed in:

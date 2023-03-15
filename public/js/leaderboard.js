@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
           querySnapshot.forEach(function(doc) {
               // Get the data for each user document
               var user = doc.data();
-              var points = user.point;
+              var points = user.points;
 
               // Increment rank if points are lower than previous user's points
               if (points !== previousPoints) {

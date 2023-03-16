@@ -1,62 +1,69 @@
-/* Style for the card container */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Style for the card container.
 .firebaseui-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f5f5f5;
-    }
-    
-    /* Style for the card */
-    .mdl-card {
-    width: 100%;
-    max-width: 400px;
-    }
-    
-    /* Style for the card header */
-    .firebaseui-card-header {
-    background-color: #2196f3;
-    color: #fff;
-    padding: 24px;
-    }
-    
-    /* Style for the card title */
-    .firebaseui-title {
-    font-size: 24px;
-    margin: 0;
-    }
-    
-    /* Style for the card content */
-    .firebaseui-card-content {
-    padding: 24px;
-    }
-    
-    /* Style for the text fields */
-    .mdl-textfield {
-    width: 100%;
-    margin-bottom: 16px;
-    }
-    
-    /* Style for the labels */
-    .firebaseui-label {
-    font-size: 14px;
-    color: #757575;
-    }
-    
-    /* Style for the form actions */
-    .firebaseui-form-actions {
-    display: flex;
-    justify-content: space-between;
-    }
-    
-    /* Style for the cancel button */
-    .firebaseui-id-secondary-link {
-    color: #757575;
-    }
-    
-    /* Style for the submit button */
-    .firebaseui-id-submit {
-    background-color: #2196f3;
-    color: #fff;
-    }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+} */
+
+/* Style for the card.
+.mdl-card {
+  width: 100%;
+  max-width: 400px;
+} */
+
+/* Style for the card header.
+.firebaseui-card-header {
+  background-color: #2196f3;
+  color: #fff;
+  padding: 24px;
+} */
+
+/* Style for the card title.
+.firebaseui-title {
+  font-size: 24px;
+  margin: 0;
+} */
+
+/* Style for the card content.
+.firebaseui-card-content {
+  padding: 24px;
+} */
+
+/* Style for the text fields.
+.mdl-textfield {
+  width: 100%;
+  margin-bottom: 16px;
+} */
+
+/* Style for the labels. 
+.firebaseui-label {
+  font-size: 14px;
+  color: #757575;
+} */
+
+/* Style for the form actions. 
+.firebaseui-form-actions {
+  display: flex;
+  justify-content: space-between;
+} */
+
+/* Style for the cancel button. 
+.firebaseui-id-secondary-link {
+  color: #757575;
+} */
+
+/* Style for the submit button. 
+.firebaseui-id-submit {
+  background-color: #2196f3;
+  color: #fff;
+} */

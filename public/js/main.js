@@ -2,11 +2,10 @@ function insertName() {
   firebase.auth().onAuthStateChanged((user) => {
     // Check if a user is signed in:
     if (user) {
-      // Do something for the currently logged-in user here:
-      console.log(user.uid); //print the uid in the browser console
-      console.log(user.displayName); //print the user name in the browser console
+      console.log(user.uid);
+      console.log(user.displayName);
       user_Name = user.displayName;
-      $("#name-goes-here").text(user_Name); //using jquery
+      $("#name-goes-here").text(user_Name);
     } else {
       // No user is signed in.
     }
@@ -14,8 +13,7 @@ function insertName() {
 }
 insertName();
 
-// Function to read the quote of the day from Firestore "quotes" collection
-// Input param is the String representing the day of the week, aka, the document name
+/* Display quote from Firestore Database. */
 function readQuote(day) {
   db.collection("quotes")
     .doc(day)
@@ -127,6 +125,7 @@ const ecoActions = [
   }
 ];
 
+/* Write eco-friendly actions to Firestore Database. */
 function writeEcoActions() {
   var ecoActionsRef = db.collection("ecoActions");
 

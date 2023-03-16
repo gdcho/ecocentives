@@ -1,0 +1,35 @@
+h1 {
+  text-align: center;
+  margin-top: 120px;
+}
+
+button {
+  margin-bottom: 10px;
+}
+
+img {
+  margin-top: 10px;
+}
+
+.container {
+  margin-top: 45px;
+}
+
+.img-label {
+  position: relative;
+  top: -60px;
+  left: 55px;
+  background-color:white;
+  color: black;
+  padding: 0.5rem; 
+  border-radius: 10px;
+  border: 2px solid black;
+  cursor: pointer;
+  margin-top: 1rem;
+  text-align: center;
+  width: 40px; 
+  height: 40px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

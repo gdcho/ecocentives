@@ -64,3 +64,10 @@ function readPoints() {
   });
 }
 readPoints();
+
+const saveBtn = document.getElementById("save-profile-btn");
+
+saveBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+  alert("Profile saved successfully!");
+});

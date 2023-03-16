@@ -1,3 +1,4 @@
+/* Display user name from Firestore Database. */
 function insertName() {
   firebase.auth().onAuthStateChanged((user) => {
     // Check if a user is signed in:
@@ -14,6 +15,7 @@ function insertName() {
 }
 insertName();
 
+/* Display date joined from Firestore Database. */
 function readEmail() {
   firebase.auth().onAuthStateChanged((user) => {
     // Check if a user is signed in:
@@ -31,23 +33,7 @@ function readEmail() {
 }
 readEmail();
 
-function readJoined() {
-  firebase.auth().onAuthStateChanged((user) => {
-    // Check if a user is signed in:
-    if (user) {
-      db.collection("users")
-        .doc(user.uid)
-        .onSnapshot((doc) => {
-          console.log(doc.data());
-          const userJoined = doc.data().joined;
-          document.getElementById("joined-goes-here").innerHTML = userJoined;
-        });
-    } else {
-    }
-  });
-}
-readJoined();
-
+/* Display points balance from Firestore Database. */
 function readPoints() {
   firebase.auth().onAuthStateChanged((user) => {
     // Check if a user is signed in:
@@ -65,9 +51,68 @@ function readPoints() {
 }
 readPoints();
 
+/* Alert message pop-up. */
 const saveBtn = document.getElementById("save-profile-btn");
 
 saveBtn.addEventListener("click", function (event) {
   event.preventDefault();
   alert("Profile saved successfully!");
+});
+
+/* Upload and store user profile picture in Firestore Storage. */
+const fileInput = document.getElementById("img-upload");
+const image = document.getElementById("img-goes-here");
+
+fileInput.addEventListener("change", function (e) {
+  const file = e.target.files[0];
+  const blob = URL.createObjectURL(file);
+  image.src = blob;
+});
+
+function saveImageToFirestore(file) {
+  const storageRef = firebase.storage().ref();
+  const imageRef = storageRef.child(`images/${file.name}`);
+
+  imageRef
+    .put(file)
+    .then((snapshot) => {
+      console.log("Image uploaded successfully");
+      imageRef
+        .getDownloadURL()
+        .then((url) => {
+          console.log("Image URL:", url);
+          const userRef = firebase
+            .firestore()
+            .collection("users")
+            .doc(currentUser.uid);
+          userRef
+            .update({
+              photoURL: url,
+            })
+            .then(() => {
+              console.log("Image URL saved to Firestore");
+            })
+            .catch((error) => {
+              console.error("Error updating document:", error);
+            });
+        })
+        .catch((error) => {
+          console.error("Error getting download URL:", error);
+        });
+    })
+    .catch((error) => {
+      console.error("Error uploading image:", error);
+    });
+}
+
+const form = document.querySelector("form");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const file = fileInput.files[0];
+  if (file) {
+    saveImageToFirestore(file);
+  } else {
+    console.error("No file selected");
+  }
 });

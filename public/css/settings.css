@@ -13,7 +13,11 @@ h1 {
     font-size: 1.5rem;
     margin-top: 20px;
     margin-bottom: 20px;
-  }
+}
+
+.settings input {
+  margin-right: 6px;
+}
 
 .settings label {
   font-size: 1.1rem;

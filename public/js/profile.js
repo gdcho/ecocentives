@@ -51,22 +51,28 @@ function readPoints() {
 }
 readPoints();
 
-/* Alert message pop-up. */
-const saveBtn = document.getElementById("save-profile-btn");
-
-saveBtn.addEventListener("click", function (event) {
-  event.preventDefault();
-  alert("Profile saved successfully!");
-});
-
 /* Upload and store user profile picture in Firestore Storage. */
 const fileInput = document.getElementById("img-upload");
 const image = document.getElementById("img-goes-here");
+const uploadButton = document.querySelector("label[for='img-upload']");
 
 fileInput.addEventListener("change", function (e) {
   const file = e.target.files[0];
   const blob = URL.createObjectURL(file);
   image.src = blob;
+  uploadButton.style.display = "none";
+});
+
+const form = document.querySelector("form");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const file = fileInput.files[0];
+  if (file) {
+    saveImageToFirestore(file);
+  } else {
+    console.error("No file selected");
+  }
 });
 
 function saveImageToFirestore(file) {
@@ -104,15 +110,3 @@ function saveImageToFirestore(file) {
       console.error("Error uploading image:", error);
     });
 }
-
-const form = document.querySelector("form");
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  const file = fileInput.files[0];
-  if (file) {
-    saveImageToFirestore(file);
-  } else {
-    console.error("No file selected");
-  }
-});

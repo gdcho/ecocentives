@@ -38,36 +38,36 @@ function addTask() {
   progressCell.innerHTML = "0%";
 }
 
-async function getEcoActions() {
-  const ecoActions = [];
-  const snapshot = await db.collection('ecoActions').get();
-  snapshot.forEach(doc => {
-    ecoActions.push(doc.data());
-  });
-  return ecoActions;
-}
+// async function getEcoActions() {
+//   const ecoActions = [];
+//   const snapshot = await db.collection('ecoActions').get();
+//   snapshot.forEach(doc => {
+//     ecoActions.push(doc.data());
+//   });
+//   return ecoActions;
+// }
 
-async function displayRandomTasks() {
-  const ecoActions = await getEcoActions();
-  const randomTasks = [];
+// async function displayRandomTasks() {
+//   const ecoActions = await getEcoActions();
+//   const randomTasks = [];
 
-  for (let i = 0; i < 3; i++) {
-    const randomIndex = Math.floor(Math.random() * ecoActions.length);
-    const randomTask = ecoActions[randomIndex];
-    randomTasks.push(randomTask);
-    ecoActions.splice(randomIndex, 1);
-  }
+//   for (let i = 0; i < 3; i++) {
+//     const randomIndex = Math.floor(Math.random() * ecoActions.length);
+//     const randomTask = ecoActions[randomIndex];
+//     randomTasks.push(randomTask);
+//     ecoActions.splice(randomIndex, 1);
+//   }
 
-  const taskList = document.getElementById('task-list');
-  taskList.innerHTML = '';
+//   const taskList = document.getElementById('task-list');
+//   taskList.innerHTML = '';
 
-  randomTasks.forEach(task => {
-    const option = document.createElement('option');
-    option.value = task.action;
-    option.textContent = `${task.action} (Score value: ${task.score} points)`;
-    taskList.appendChild(option);
-  });
-}
+//   randomTasks.forEach(task => {
+//     const option = document.createElement('option');
+//     option.value = task.action;
+//     option.textContent = `${task.action} (Score value: ${task.score} points)`;
+//     taskList.appendChild(option);
+//   });
+// }
 
-displayRandomTasks();
-setInterval(displayRandomTasks, 24 * 60 * 60 * 1000);
+// displayRandomTasks();
+// setInterval(displayRandomTasks, 24 * 60 * 60 * 1000);

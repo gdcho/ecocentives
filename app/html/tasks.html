@@ -80,35 +80,30 @@
       <nav id="afterlogin"></nav>
     </header>
 
-    <div class="container-fluid bg-light text-dark p-5">
-      <div class="container bg-light p-5">
-        <h1>Tasks</h1>
-        <p>
-          Choose from the list of tasks to track your progress towards your
-          goals and earn points!
-        </p>
-        <select id="task-list">
-          <!-- Options will be added dynamically by the JavaScript code -->
-        </select>
-        <button id="add-task">Add Task</button>
-        <table id="task-tracker">
-        </table>
-        <br />
-        <p>
-          Your current points balance is: <span id="points-goes-here"></span>
-        </p>
-      </div>
-
-      <div id="modal" class="modal">
-        <div class="modal-content">
-          <p id="modal-message"></p>
-        </div>
-      </div>
-
-      <script src="/js/firebaseAPI_TEAM10.js"></script>
-      <script src="/js/tasks.js"></script>
-      <script src="/js/skeleton.js"></script>
-      <script src="/js/main.js"></script> 
+    <div class="container bg-light p-5">
+      <h1>Tasks</h1>
+      <p>
+        Choose from the list of tasks to track your progress towards your goals
+        and earn points!
+      </p>
+      <select id="task-list">
+        <!-- Options will be added dynamically by the JavaScript code -->
+      </select>
+      <button id="add-task">Add Task</button>
+      <table id="task-tracker"></table>
+      <br />
+      <p>Your current points balance is: <span id="points-goes-here"></span></p>
     </div>
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <p id="modal-message"></p>
+      </div>
+    </div>
+
+    <script src="/js/firebaseAPI_TEAM10.js"></script>
+    <script src="/js/tasks.js"></script>
+    <script src="/js/skeleton.js"></script>
+    <script src="/js/main.js"></script>
   </body>
 </html>

@@ -60,7 +60,7 @@
       <div class="container bg-light p-5">
         <h1 class="display-4">Hello, <span id="name-goes-here"></span>!</h1>
         <hr />
-        <p>Eco-Tip of the day: <br /><span id="ecotip-goes-here"></span></p>
+        <p>Eco-Tip of the day: <span id="ecotip-goes-here"></span></p>
       </div>
       <div class="container bg-light p-5 points-container">
         <h1 class="display-6">Points Balance</h1>
@@ -74,15 +74,15 @@
     <div class="row align-items-stretch">
       <div class="container bg-light p-5">
         <div class="mx-auto">
-          <h1 class="display-6 h1-tasks">Current Tasks</h1>
-          <ul class="list-group ml-5">
-            <li class="list-group-item">Task 1</li>
-            <li class="list-group-item">Task 2</li>
-            <li class="list-group-item">Task 3</li>
-            <li class="list-group-item">Task 4</li>
-            <li class="list-group-item">Task 5</li>
-            <li class="list-group-item">Task 6</li>
-          </ul>
+          <h5 class="card-title">Current tasks</h5>
+              <div class="list-group">
+                <table id="task-tracker">
+                  <tr>
+                    <th>Task</th>
+                    <th>Score Value</th>
+                    <th>Progress</th>
+                  </tr>
+                </table>
         </div>
       </div>
     </div>    
@@ -92,6 +92,7 @@
     <!---------------------------------------------->
     <script src="/js/firebaseAPI_TEAM10.js"></script>
     <script src="/js/main.js"></script>
+    <script src="/js/tasks.js"></script>
     <script src="/js/skeleton.js"></script>
   </body>
 </html>

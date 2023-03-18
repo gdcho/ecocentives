@@ -33,4 +33,22 @@ body {
   padding: 0 100px; 
 }
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2%;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-image: url("/img/gradient-main.png");
+  background-size: cover;
+}
 

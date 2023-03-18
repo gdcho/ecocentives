@@ -35,10 +35,15 @@
 .row {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .footer i {
   font-size: 0.5rem;
   margin: 10px;
+}
+
+.footer h6 {
+  margin: auto;
 }
 

@@ -81,52 +81,34 @@
 
     <div class="container-fluid bg-light text-dark p-5">
       <div class="container bg-light p-5">
-        <h1>Habit Tracker</h1>
+        <h1>Tasks</h1>
         <p>
           Choose from the list of tasks to track your progress towards your
           goals and earn points!
         </p>
-        <form>
-          <fieldset>
-            <legend>Select a task:</legend>
-            <select id="task-list">
-              <option value="task-1">
-                Turn off lights when leaving a room
-              </option>
-              <option value="task-2">Use reusable water bottle</option>
-              <option value="task-3">Use reusable grocery bags</option>
-              <option value="task-4">Take shorter showers</option>
-              <option value="task-5">Plant a tree</option>
-            </select>
-            <label for="frequency">Recurring frequency:</label>
-            <select id="frequency">
-              <option value="daily">Daily</option>
-              <option value="weekly">Weekly</option>
-              <option value="monthly">Monthly</option>
-            </select>
-
-            <button type="button" class="add-task" onclick="addTask()">
-              Add Task
-            </button>
-          </fieldset>
-        </form>
-        <br />
-        <table>
+        <select id="task-list">
+          <!-- Options will be added dynamically by the JavaScript code -->
+        </select>
+      
+        <button id="add-task">Add Task</button>
+      
+        <table id="task-tracker">
           <thead>
             <tr>
               <th>Task</th>
-              <th>Frequency</th>
               <th>Progress</th>
             </tr>
           </thead>
-          <tbody id="task-tracker"></tbody>
+          <tbody>
+            <!-- Rows will be added dynamically by the JavaScript code -->
+          </tbody>
         </table>
         <br />
         <div id="points">
           <h2>Points: <span id="point-goes-here">0</span></h2>
         </div>
       </div>
-      <div id="task-list"></div>
+
 
       <script src="/js/firebaseAPI_TEAM10.js"></script>
       <script src="/js/habit.js"></script>

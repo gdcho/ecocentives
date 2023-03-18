@@ -104,6 +104,8 @@ fileInput.addEventListener("change", function (e) {
   const blob = URL.createObjectURL(file);
   image.src = blob;
   uploadButton.style.display = "none";
+
+  saveImageToFirestore(file);
 });
 
 const form = document.querySelector("form");

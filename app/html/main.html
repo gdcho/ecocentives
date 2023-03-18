@@ -56,11 +56,20 @@
       <nav id="afterlogin"></nav>
     </header>
 
-    <div class="container bg-light p-5">
-      <h1 class="display-4">Hello, <span id="name-goes-here"></span>!</h1>
-      <hr />
-      <p>Eco-Tip of the day: <span id="ecotip-goes-here"></span></p>
-    </div>
+    <div class="row align-items-stretch">
+      <div class="container bg-light p-5">
+        <h1 class="display-4">Hello, <span id="name-goes-here"></span>!</h1>
+        <hr />
+        <p>Eco-Tip of the day: <br /><span id="ecotip-goes-here"></span></p>
+      </div>
+      <div class="container bg-light p-5 points-container">
+        <h1 class="display-6">Points Balance</h1>
+        <hr />
+        <p>
+          Your current points balance is: <span id="points-goes-here"></span>
+        </p>
+      </div>
+    </div>    
 
     <div class="container-fluid text-dark p-5">
       <div class="row">
@@ -74,12 +83,6 @@
             <li class="list-group-item">Task 5</li>
             <li class="list-group-item">Task 6</li>
           </ul>
-        </div>
-        <div class="col-md-4">
-          <h2>Points Balance</h2>
-          <p>
-            Your current points balance is: <span id="points-goes-here"></span>
-          </p>
         </div>
       </div>
     </div>

@@ -1,3 +1,9 @@
+body {
+  background-image: url("/img/gradient-main.png");
+  background-size: cover;
+  background-position: center;
+}
+
 h1 {
   text-align: center;
   margin-top: 40px;

@@ -24,17 +24,11 @@
 
 /* Footer CSS. */
 
-i {
-  margin-left: 16px;
-  margin-right: 16px;
-}
-
 .footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: fixed;
+  bottom: 0;
   color: white;
-  height: 80px;
+  width: 100%;
   background-color: rgba(0, 0, 0, 0.25);
 }
 
@@ -43,8 +37,7 @@ i {
   align-items: center;
 }
 
-.footer h6 {
-  margin: auto;
-  margin-left: 16px;
-  font-size: 16px;
+.footer i {
+  font-size: 0.5rem;
 }
+

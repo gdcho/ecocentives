@@ -22,8 +22,8 @@ async function addTask() {
     currentUser.collection("tasks").where("task", "==", taskChoice).get()
     .then(function(querySnapshot) {
       if (querySnapshot.size > 0) {
-        console.log("Task already added");
-        // Display an error message or disable the add button
+        // Display an error message in a modal
+        displayModal("Task already added");
       } else {
         // Add the selected task to the user's collection with score value
         currentUser.collection("tasks").add({
@@ -31,48 +31,8 @@ async function addTask() {
           score: scoreValue,
           progress: false // Set progress as false by default, i.e., not completed
         }).then(function(docRef) {
-          console.log("Task added with ID: ", docRef.id);
-          // Add the selected values to the table
-          var row = table.insertRow();
-          var taskCell = row.insertCell(0);
-          var scoreCell = row.insertCell(1); // Add a new cell for the score value
-          var progressCell = row.insertCell(2);
-          taskCell.innerHTML = taskChoice;
-          scoreCell.innerHTML = scoreValue; // Add the score value to the table
-          progressCell.innerHTML = "Not completed"; // Set progress as not completed by default
-
-          // Add a click event listener to the progress cell to toggle completion status
-          progressCell.addEventListener("click", function() {
-            var currentUser = db.collection("users").doc(user.uid);
-            currentUser.collection("tasks").doc(docRef.id).update({
-              progress: !progress // Toggle progress status
-            }).then(function() {
-              console.log("Progress updated successfully");
-              updateProgressCell(!progress); // Update the progress cell accordingly
-              // Remove the task option from the dropdown if it's completed
-              if (progress) {
-                Array.from(taskList.options).forEach((option) => {
-                  if (option.value === taskChoice) {
-                    taskList.removeChild(option);
-                  }
-                });
-              }
-            }).catch(function(error) {
-              console.error("Error updating progress: ", error);
-            });
-          });
-          // Remove the task option from the dropdown
-          Array.from(taskList.options).forEach((option) => {
-            if (option.value === taskChoice) {
-              taskList.removeChild(option);
-            }
-          });
-          // Update the last selection time
-          lastSelectionTime = Date.now();
-
-          // Store the updated task list in the browser's local storage
-          const taskListArray = Array.from(taskList.options);
-          localStorage.setItem('taskList', JSON.stringify(taskListArray));
+          // Update the table after the task is added
+          updateTable();
         }).catch(function(error) {
           console.error("Error adding task: ", error);
         });
@@ -83,6 +43,7 @@ async function addTask() {
     });
   }
 }
+
 
 async function getEcoActions() {
   const ecoActions = [];
@@ -170,3 +131,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const button = document.getElementById('add-task');
   button.addEventListener('click', addTask);
 });
+
+// Display a modal message that automatically closes after 3 seconds
+function displayModal(message) {
+  var modal = document.getElementById("modal");
+  var modalMessage = document.getElementById("modal-message");
+
+  // Set the message and show the modal
+  modalMessage.innerHTML = message;
+  modal.classList.remove("modal-closed");
+  modal.classList.add("modal-open");
+
+  // Automatically close the modal after 3 seconds
+  setTimeout(function() {
+    modal.classList.remove("modal-open");
+    modal.classList.add("modal-closing");
+
+    // Reset the modal after the animation finishes
+    setTimeout(function() {
+      modal.classList.remove("modal-closing");
+      modal.classList.add("modal-closed");
+    }, 500); // Wait for the animation to finish (0.5 seconds)
+  }, 2000); // Close the modal after 3 seconds
+}

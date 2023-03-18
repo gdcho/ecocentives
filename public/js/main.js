@@ -125,17 +125,4 @@ const ecoActions = [
   }
 ];
 
-/* Write eco-friendly actions to Firestore Database. */
-function writeEcoActions() {
-  var ecoActionsRef = db.collection("ecoActions");
-
-  ecoActions.forEach(action => {
-    ecoActionsRef.add({
-      action: action.action,
-      score: action.score,
-    });
-  });
-}
-
-writeEcoActions();
 

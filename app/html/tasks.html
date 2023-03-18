@@ -79,37 +79,42 @@
       <nav id="afterlogin"></nav>
     </header>
 
-    <div class="container bg-light p-5">
-      <h1>Tasks</h1>
-      <p>
-        Choose from the list of tasks to track your progress towards your goals
-        and earn points!
-      </p>
-      <select id="task-list">
-        <!-- Options will be added dynamically by the JavaScript code -->
-      </select>
-
-      <button id="add-task">Add Task</button>
-
-      <table id="task-tracker">
-        <thead>
-          <tr>
-            <th>Task</th>
-            <th>Progress</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Rows will be added dynamically by the JavaScript code -->
-        </tbody>
-      </table>
-      <br />
-      <div id="points">
-        <h2>Points: <span id="points-goes-here"></span></h2>
+    <div class="container-fluid bg-light text-dark p-5">
+      <div class="container bg-light p-5">
+        <h1>Tasks</h1>
+        <p>
+          Choose from the list of tasks to track your progress towards your
+          goals and earn points!
+        </p>
+        <select id="task-list">
+          <!-- Options will be added dynamically by the JavaScript code -->
+        </select>
+      
+        <button id="add-task">Add Task</button>
+      
+        <table id="task-tracker">
+          <thead>
+            <tr>
+              <th>Task</th>
+              <th>Value</th>
+              <th>Progress</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Rows will be added dynamically by the JavaScript code -->
+          </tbody>
+        </table>
+        <br />
+        <p>
+          Your current points balance is: <span id="points-goes-here"></span>
+        </p>
       </div>
 
       <script src="/js/firebaseAPI_TEAM10.js"></script>
       <script src="/js/tasks.js"></script>
       <script src="/js/skeleton.js"></script>
+      <script src="/js/main.js"></script>
+      
     </div>
   </body>
 </html>

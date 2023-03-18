@@ -33,12 +33,14 @@ async function addTask() {
         }).then(function(docRef) {
           console.log("Task added with ID: ", docRef.id);
           // Add the selected values to the table
-          var row = table.insertRow();
-          var taskCell = row.insertCell(0);
-          var frequencyCell = row.insertCell(1);
-          var progressCell = row.insertCell(2);
-          taskCell.innerHTML = taskChoice;
-          progressCell.innerHTML = "Not completed"; // Set progress as not completed by default
+var row = table.insertRow();
+var taskCell = row.insertCell(0);
+var scoreCell = row.insertCell(1); // Add a new cell for the score value
+var progressCell = row.insertCell(2);
+taskCell.innerHTML = taskChoice;
+scoreCell.innerHTML = scoreValue; // Add the score value to the table
+progressCell.innerHTML = "Not completed"; // Set progress as not completed by default
+
           // Add a click event listener to the progress cell to toggle completion status
           progressCell.addEventListener("click", function() {
             var currentUser = db.collection("users").doc(user.uid);
@@ -112,6 +114,7 @@ async function displayRandomTasks() {
     option.textContent = `${task.action} (Score value: ${task.score} points)`;
     taskList.appendChild(option);
   });
+  
 
   // Get the current user's tasks and display them on the table
   var user = firebase.auth().currentUser;

@@ -33,13 +33,13 @@ async function addTask() {
         }).then(function(docRef) {
           console.log("Task added with ID: ", docRef.id);
           // Add the selected values to the table
-var row = table.insertRow();
-var taskCell = row.insertCell(0);
-var scoreCell = row.insertCell(1); // Add a new cell for the score value
-var progressCell = row.insertCell(2);
-taskCell.innerHTML = taskChoice;
-scoreCell.innerHTML = scoreValue; // Add the score value to the table
-progressCell.innerHTML = "Not completed"; // Set progress as not completed by default
+          var row = table.insertRow();
+          var taskCell = row.insertCell(0);
+          var scoreCell = row.insertCell(1); // Add a new cell for the score value
+          var progressCell = row.insertCell(2);
+          taskCell.innerHTML = taskChoice;
+          scoreCell.innerHTML = scoreValue; // Add the score value to the table
+          progressCell.innerHTML = "Not completed"; // Set progress as not completed by default
 
           // Add a click event listener to the progress cell to toggle completion status
           progressCell.addEventListener("click", function() {
@@ -69,6 +69,10 @@ progressCell.innerHTML = "Not completed"; // Set progress as not completed by de
           });
           // Update the last selection time
           lastSelectionTime = Date.now();
+
+          // Store the updated task list in the browser's local storage
+          const taskListArray = Array.from(taskList.options);
+          localStorage.setItem('taskList', JSON.stringify(taskListArray));
         }).catch(function(error) {
           console.error("Error adding task: ", error);
         });
@@ -114,42 +118,34 @@ async function displayRandomTasks() {
     option.textContent = `${task.action} (Score value: ${task.score} points)`;
     taskList.appendChild(option);
   });
-  
 
   // Get the current user's tasks and display them on the table
   var user = firebase.auth().currentUser;
+}
+
+function updateTable() {
+  var user = firebase.auth().currentUser;
   if (user) {
     var currentUser = db.collection("users").doc(user.uid);
-    currentUser.collection("tasks").where("progress", "==", false).get()
+    currentUser.collection("tasks").get()
     .then(function(querySnapshot) {
       var table = document.getElementById("task-tracker"); // Define the table here
+      table.innerHTML = ""; // Clear the table before adding new rows
+      
+      // Insert the labels row at the top of the table
+      var labelRow = "<tr><th>Task</th><th>Score</th><th>Progress</th></tr>";
+      table.insertAdjacentHTML('beforeend', labelRow);
+      
+      // Add the task data rows
+      var rows = [];
       querySnapshot.forEach(function(doc) {
         var task = doc.data().task;
-        var row = table.insertRow();
-        var taskCell = row.insertCell(0);
-        var frequencyCell = row.insertCell(1);
-        var progressCell = row.insertCell(2);
-        taskCell.innerHTML = task;
-        progressCell.innerHTML = "Not completed"; // Set progress as not completed by default
-        // Add a click event listener to the progress cell to toggle completion status
-        progressCell.addEventListener("click", function() {
-          var currentUser = db.collection("users").doc(user.uid);
-          currentUser.collection("tasks").doc(doc.id).update({
-            progress: true // Set progress as completed
-          }).then(function() {
-            console.log("Progress updated successfully");
-            progressCell.innerHTML = "Completed"; // Update the progress cell accordingly
-          }).catch(function(error) {
-            console.error("Error updating progress: ", error);
-          });
-        });
-        // Remove the task option from the dropdown
-        Array.from(taskList.options).forEach((option) => {
-          if (option.value === task) {
-            taskList.removeChild(option);
-          }
-        });
+        var score = doc.data().score;
+        var progress = doc.data().progress;
+        var row = `<tr><td>${task}</td><td>${score}</td><td>${progress ? "Completed" : "Not completed"}</td></tr>`;
+        rows.push(row);
       });
+      table.insertAdjacentHTML('beforeend', rows.join(''));
     })
     .catch(function(error) {
       console.log("Error getting documents: ", error);
@@ -157,6 +153,15 @@ async function displayRandomTasks() {
   }
 }
 
+// Update the task tracker table every time the user logs in
+firebase.auth().onAuthStateChanged(function(user) {
+if (user) {
+console.log("User is signed in");
+updateTable(); // Call the updateTable function when the user logs in
+} else {
+console.log("User is signed out");
+}
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   displayRandomTasks();
@@ -165,22 +170,3 @@ document.addEventListener('DOMContentLoaded', () => {
   const button = document.getElementById('add-task');
   button.addEventListener('click', addTask);
 });
-
-function readPoints() {
-  firebase.auth().onAuthStateChanged((user) => {
-    // Check if a user is signed in:
-    if (user) {
-      db.collection("users")
-        .doc(user.uid)
-        .onSnapshot((doc) => {
-          console.log(doc.data());
-          const userPoints = doc.data().points;
-          document.getElementById("points-goes-here").innerHTML = userPoints;
-        });
-    } else {
-    }
-  });
-}
-readPoints();
-
-

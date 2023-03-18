@@ -113,20 +113,25 @@
               <h5 class="card-title">Recent Activity</h5>
               <ul class="list-group">
                 <li class="list-group-item">
-                  <span class="fw-bold">Task:</span> Complete the weekly
-                  recycling task
+                  <span class="fw-bold">Task:</span> Complete the weekly recycling task
                   <span class="float-end">+50 points</span>
                 </li>
                 <li class="list-group-item">
-                  <span class="fw-bold">Reward:</span> Redeem coupon for
-                  reusable water bottle
+                  <span class="fw-bold">Reward:</span> Redeem coupon for reusable water bottle
                   <span class="float-end">-100 points</span>
                 </li>
               </ul>
+              <br>
+              <h5 class="card-title">Current tasks</h5>
+              <table id="task-table">
+                <tbody id="task-list">
+                  <!-- Tasks will be dynamically added here -->
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
-      </div>
+        
 
       <!-- Edit Profile Modal -->
       <div
@@ -186,6 +191,6 @@
     <script src="/js/firebaseAPI_TEAM10.js"></script>
     <script src="/js/profile.js"></script>
     <script src="/js/skeleton.js"></script>
-    <script></script>
+    <script src="/js/habit.js"></script>
   </body>
 </html>

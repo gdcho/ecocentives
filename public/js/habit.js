@@ -1,46 +1,3 @@
-// import { getApiKey } from '/js/api-keys.js';
-
-// const endpoint = 'https://api.openai.com/v1/completions';
-// const headers = {
-//   'Content-Type': 'application/json',
-//   'Authorization': `Bearer ${getApiKey()}`
-// };
-
-// const prompt = "Generate three random eco-friendly task.";
-// const data = JSON.stringify({
-//   prompt: prompt,
-//   temperature: 0.5,
-//   max_tokens: 50,
-//   model: "text-davinci-002"
-// });
-
-// const button = document.getElementById('generate-task');
-// const output = document.getElementById('output');
-
-// button.addEventListener('click', () => {
-//   fetch(endpoint, {
-//     method: 'POST',
-//     headers: headers,
-//     body: data
-//   })
-//   .then(response => response.json())
-//   .then(data => {
-//     console.log('Data:', data);
-//     const task = data.choices[0].text.trim();
-//     output.innerHTML = `Your random task for today is: ${task}`;
-//   })
-//   .catch(error => console.error(error));
-// });
-
-// async function getEcoActions() {
-//   const ecoActions = [];
-//   const snapshot = await db.collection('ecoActions').get();
-//   snapshot.forEach(doc => {
-//     ecoActions.push(doc.data());
-//   });
-//   return ecoActions;
-// }
-
 var table = document.getElementById("task-tracker");
 var lastSelectionTime = null; // Initialize the last selection time as null
 
@@ -198,7 +155,6 @@ async function displayRandomTasks() {
 }
 
 
-
 document.addEventListener('DOMContentLoaded', () => {
   displayRandomTasks();
   setInterval(displayRandomTasks, 24 * 60 * 60 * 1000);
@@ -206,6 +162,5 @@ document.addEventListener('DOMContentLoaded', () => {
   const button = document.getElementById('add-task');
   button.addEventListener('click', addTask);
 });
-
 
 

@@ -51,6 +51,7 @@ function readPoints() {
 }
 readPoints();
 
+/* Tasks list. */
 const ecoActions = [
   {
     action: "Using a clothesline to dry clothes instead of a dryer",

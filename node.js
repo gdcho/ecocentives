@@ -38,10 +38,6 @@ app.get('/main.html', (req, res) => {
   res.sendFile(__dirname + '/app/html/main.html');
 });
 
-app.get('/habit.html', (req, res) => {
-  res.sendFile(__dirname + '/app/html/habit.html');
-});
-
 app.get('/leaderboard.html', (req, res) => {
   res.sendFile(__dirname + '/app/html/leaderboard.html');
 });

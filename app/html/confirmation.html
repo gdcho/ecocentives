@@ -49,6 +49,7 @@
     <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
     <!-- <link rel="stylesheet" href="./styles/style.css"> -->
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+    <link href="/css/confirmation.css" rel="stylesheet" type="text/css" />
   </head>
 
   <body>
@@ -57,28 +58,26 @@
       <nav id="afterlogin"></nav>
     </header>
 
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-
-    <div class="card text-center">
-      <div class="card-header">Points redeemed successfully!</div>
-      <div class="card-body">
-        <h5 class="card-title">
-          You will receive a confirmation email shortly.
-        </h5>
-        <br />
-        <h5 class="card-title">
-          Your new points balance is: <span id="points-goes-here"></span>
-        </h5>
-        <br />
+    <div class="container bg-light p-5">
+      <h1>Points Redeemed Successfully!</h1>
+      <h5>You will receive a confirmation email shortly.</h5>
+      <br />
+      <h5>Redemption Details:</h5>
+      <br />
+      <p>Reward: <span id="reward"></span></p>
+      <p>Redemption ID: <span id="redemptionID"></span></p>
+      <p>Email: <span id="email"></span></p>
+      <p>Phone: <span id="phone"></span></p>
+      <br />
+      <h5>Your new points balance is: <span id="points-goes-here"></span></h5>
+      <div class="d-flex justify-content-center mt-5">
         <a href="rewards.html" class="btn btn-primary">See More Rewards</a>
       </div>
     </div>
 
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here ----->
+    <!---------------------------------------------->
     <script src="/js/firebaseAPI_TEAM10.js"></script>
     <script src="/js/confirmation.js"></script>
     <script src="/js/skeleton.js"></script>

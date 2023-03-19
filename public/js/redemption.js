@@ -51,10 +51,16 @@ function submitRedemption() {
           var redemptionData = {
             reward: selectedReward,
             redemptionDocID: redemptionDocID,
-            userID: userEmail,
+            email: userEmail,
             phone: phone,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
           };
+
+          localStorage.setItem(
+            "redemptionData",
+            JSON.stringify(redemptionData)
+          );
+
           newRedemptionRef
             .set(redemptionData)
             .then(() => {

@@ -48,8 +48,8 @@ getRewardsData("$100 Best Buy Gift Card", bestbuyRewardContainer);
 const visaRewardContainer = document.querySelector("#visa");
 getRewardsData("$100 Visa Gift Card", visaRewardContainer);
 
-// Creates a redemptionDocID in Firestore Database.
-function saveRedemptionDocumentIDAndRedirect(docID) {
-  localStorage.setItem("redemptionDocID", docID);
+// Redirect user to redemption page.
+function saveRedemptionDocumentIDAndRedirect(rewardDocID) {
+  localStorage.setItem("redemptionDocID", rewardDocID);
   window.location.href = "redemption.html";
 }

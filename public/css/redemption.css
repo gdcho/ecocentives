@@ -15,6 +15,11 @@ form {
 .container {
   margin-top: 80px;
   max-width: 1000px;
+  border-radius: 10px;
+}
+
+.btn-primary {
+  background-color: black;
 }
 
 .btn-primary:hover {

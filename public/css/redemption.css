@@ -1,0 +1,23 @@
+body {
+  background-image: url("/img/gradient-main.png");
+  background-size: cover;
+  background-position: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  margin-top: 30px;
+}
+
+.container {
+  margin-top: 80px;
+  max-width: 1000px;
+}
+
+.btn-primary:hover {
+  background-color: #95bb72;
+  border-color: #95bb72;
+}

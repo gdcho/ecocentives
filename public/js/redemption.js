@@ -30,6 +30,10 @@ function submitRedemption() {
       var currentUser = db.collection("users").doc(user.uid);
       var userID = user.uid;
 
+      // Generate a new redemption document with a unique ID.
+      var newRedemptionRef = db.collection("redeemed").doc();
+      var redemptionDocID = newRedemptionRef.id;
+
       currentUser
         .get()
         .then((userDoc) => {
@@ -41,8 +45,7 @@ function submitRedemption() {
             phone: phone,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
           };
-          db.collection("redeemed")
-            .add(redemptionData)
+          newRedemptionRef.set(redemptionData)
             .then(() => {
               console.log("Document successfully written!");
               window.location.href = "/html/confirmation.html";
@@ -60,3 +63,4 @@ function submitRedemption() {
     }
   });
 }
+

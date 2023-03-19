@@ -28,6 +28,10 @@ const selectedRewardInput = document.querySelector("#selectedReward");
 selectedRewardInput.value = selectedReward;
 
 function submitRedemption() {
+  if (!window.confirm("Are you sure you want to redeem your points?")) {
+    console.log("Redemption cancelled");
+    return;
+  }
   console.log("Confirm point redemption");
 
   firebase.auth().onAuthStateChanged((user) => {

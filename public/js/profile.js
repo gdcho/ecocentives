@@ -232,7 +232,7 @@ function updateName() {
   const newName = nameInput.value.trim();
 
   if (newName === "") {
-    // Name input is empty
+    // Name input is empty.
     return;
   }
 
@@ -273,7 +273,7 @@ function updateLocation() {
   const newLocation = locationInput.value.trim();
 
   if (newLocation === "") {
-    // Location input is empty
+    // Location input is empty.
     return;
   }
 
@@ -300,7 +300,7 @@ function updateEmail() {
   const newEmail = emailInput.value.trim();
 
   if (newEmail === "") {
-    // Email input is empty
+    // Email input is empty.
     return;
   }
 
@@ -337,10 +337,12 @@ function updateEmail() {
 function updatePhone() {
   const phoneInput = document.getElementById("phoneInput");
   const newPhone = phoneInput.value.trim();
+  const phoneRegex = /^\(\d{3}\) \d{3}\-\d{4}$/;
 
-  if (newPhone === "") {
-    // Phone input is empty
-    return;
+  if (!phoneRegex.test(newPhone)) {
+    // Phone input does not match the desired format.
+    alert("Phone number should be in the format (xxx) xxx-xxxx");
+    return false;
   }
 
   firebase.auth().onAuthStateChanged((user) => {
@@ -352,10 +354,13 @@ function updatePhone() {
         })
         .then(() => {
           console.log("Phone successfully updated!");
-          $('#editModal').modal('hide');
+          alert("Changes saved successfully!");
+          $("#editModal").modal("hide");
+          return true;
         })
         .catch((error) => {
           console.error("Error updating phone:", error);
+          return false;
         });
     }
   });
@@ -368,6 +373,3 @@ document.getElementById("saveChanges").addEventListener("click", () => {
   updatePhone();
 });
 
-document.getElementById("saveChanges").addEventListener("click", function () {
-  alert("Changes saved successfully!");
-});

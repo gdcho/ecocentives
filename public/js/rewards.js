@@ -12,16 +12,12 @@ function getRewardsData(rewardName, rewardContainer) {
         querySnapshot.forEach((doc) => {
           const data = doc.data();
           const points = data.points;
-          const description = data.description;
 
           const rewardNameElem = rewardContainer.querySelector(".reward-name");
           rewardNameElem.textContent = rewardName;
 
           const pointsElem = rewardContainer.querySelector(".points");
           pointsElem.textContent = `${points} points`;
-
-          const descriptionElem = rewardContainer.querySelector(".description");
-          descriptionElem.textContent = description;
         });
       }
     })
@@ -48,8 +44,39 @@ getRewardsData("$100 Best Buy Gift Card", bestbuyRewardContainer);
 const visaRewardContainer = document.querySelector("#visa");
 getRewardsData("$100 Visa Gift Card", visaRewardContainer);
 
-// Redirect user to redemption page.
-function saveRedemptionDocumentIDAndRedirect(rewardDocID) {
-  localStorage.setItem("redemptionDocID", rewardDocID);
+// Saves reward selection and redirects to redemption page.
+function saveRewardSelectionAndRedirect(rewardName) {
+  localStorage.setItem("selectedReward", rewardName);
   window.location.href = "redemption.html";
 }
+
+const playstationRedeemBtn = playstationRewardContainer.querySelector(".redeem-btn");
+playstationRedeemBtn.onclick = function() {
+  saveRewardSelectionAndRedirect("$25 PlayStation Gift Card");
+}
+
+const steamRedeemBtn = steamRewardContainer.querySelector(".redeem-btn");
+steamRedeemBtn.onclick = function() {
+  saveRewardSelectionAndRedirect("$50 Steam Gift Card");
+}
+
+const uberRedeemBtn = uberRewardContainer.querySelector(".redeem-btn");
+uberRedeemBtn.onclick = function() {
+  saveRewardSelectionAndRedirect("$50 Uber Gift Card");
+}
+
+const amazonRedeemBtn = amazonRewardContainer.querySelector(".redeem-btn");
+amazonRedeemBtn.onclick = function() {
+  saveRewardSelectionAndRedirect("$100 Amazon Gift Card");
+}
+
+const bestbuyRedeemBtn = bestbuyRewardContainer.querySelector(".redeem-btn");
+bestbuyRedeemBtn.onclick = function() {
+  saveRewardSelectionAndRedirect("$100 Best Buy Gift Card");
+}
+
+const visaRedeemBtn = visaRewardContainer.querySelector(".redeem-btn");
+visaRedeemBtn.onclick = function() {
+  saveRewardSelectionAndRedirect("$100 Visa Gift Card");
+}
+

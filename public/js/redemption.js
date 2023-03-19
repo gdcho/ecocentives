@@ -23,6 +23,10 @@ firebase.auth().onAuthStateChanged(function (user) {
   }
 });
 
+const selectedReward = localStorage.getItem("selectedReward");
+const selectedRewardInput = document.querySelector("#selectedReward");
+selectedRewardInput.value = selectedReward;
+
 function submitRedemption() {
   console.log("Confirm point redemption");
 
@@ -41,6 +45,7 @@ function submitRedemption() {
           var userEmail = userDoc.data().email;
           var phone = document.getElementById("phoneInput").value;
           var redemptionData = {
+            reward: selectedReward,
             redemptionDocID: redemptionDocID,
             userID: userEmail,
             phone: phone,

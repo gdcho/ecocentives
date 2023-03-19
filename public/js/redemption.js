@@ -10,6 +10,7 @@ firebase.auth().onAuthStateChanged(function (user) {
           // Populate the form fields with the user's data.
           document.getElementById("nameInput").value = userData.name;
           document.getElementById("emailInput").value = userData.email;
+          document.getElementById("phoneInput").value = userData.phone;
         } else {
           console.log("No such document!");
         }
@@ -31,7 +32,7 @@ function submitRedemption() {
       var userID = user.uid;
 
       // Generate a new redemption document with a unique ID.
-      var newRedemptionRef = db.collection("redeemed").doc();
+      var newRedemptionRef = currentUser.collection("redeemed").doc();
       var redemptionDocID = newRedemptionRef.id;
 
       currentUser
@@ -45,7 +46,8 @@ function submitRedemption() {
             phone: phone,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
           };
-          newRedemptionRef.set(redemptionData)
+          newRedemptionRef
+            .set(redemptionData)
             .then(() => {
               console.log("Document successfully written!");
               window.location.href = "/html/confirmation.html";
@@ -63,4 +65,3 @@ function submitRedemption() {
     }
   });
 }
-

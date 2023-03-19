@@ -52,6 +52,24 @@ function readLocation() {
 }
 readLocation();
 
+/* Display user phone number from Firestore Database. */
+function readPhone() {
+  firebase.auth().onAuthStateChanged((user) => {
+    // Check if a user is signed in:
+    if (user) {
+      db.collection("users")
+        .doc(user.uid)
+        .onSnapshot((doc) => {
+          console.log(doc.data());
+          const userPhone = doc.data().phone;
+          document.getElementById("phone-goes-here").innerHTML = userPhone;
+        });
+    } else {
+    }
+  });
+}
+readPhone();
+
 /* Display date joined from Firestore Database. */
 function readJoined() {
   firebase.auth().onAuthStateChanged((user) => {
@@ -316,10 +334,38 @@ function updateEmail() {
   });
 }
 
+function updatePhone() {
+  const phoneInput = document.getElementById("phoneInput");
+  const newPhone = phoneInput.value.trim();
+
+  if (newPhone === "") {
+    // Phone input is empty
+    return;
+  }
+
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      db.collection("users")
+        .doc(user.uid)
+        .update({
+          phone: newPhone,
+        })
+        .then(() => {
+          console.log("Phone successfully updated!");
+          $('#editModal').modal('hide');
+        })
+        .catch((error) => {
+          console.error("Error updating phone:", error);
+        });
+    }
+  });
+}
+
 document.getElementById("saveChanges").addEventListener("click", () => {
   updateName();
   updateLocation();
   updateEmail();
+  updatePhone();
 });
 
 document.getElementById("saveChanges").addEventListener("click", function () {

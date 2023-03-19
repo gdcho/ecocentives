@@ -22,15 +22,9 @@ th {
   background-size: cover;
   color: black;
   padding: 10px 10px;
-  border-radius: 3px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
-}
-
-#add-task:hover {
-  background-color: #0062cc;
-  border-color: #005cbf;
-  color: #fff;
 }
 
 #task-list {

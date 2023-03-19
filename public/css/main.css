@@ -4,11 +4,29 @@ body {
   background-size: cover;
   background-position: center;
   overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .container {
+  position: relative;
+  z-index: 1;
   margin-top: 80px;
   max-width: 1000px;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/img/gradient-main.png");
+  opacity: 0.2;
+  border-radius: 10px;
 }
 
 .points-container {
@@ -16,11 +34,20 @@ body {
   max-width: 400px;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
 }
 
 .tasks-container {
   display: flex;
-  max-width: 1200px;
+  max-width: 900px;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 16%;
+}
+
+.leaderboard-container{
+  display: flex;
+  max-width: 1100px;
   flex-direction: column;
   justify-content: center;
 }

@@ -43,7 +43,8 @@ function readLocation() {
         .onSnapshot((doc) => {
           console.log(doc.data());
           const userLocation = doc.data().location;
-          document.getElementById("location-goes-here").innerHTML = userLocation;
+          document.getElementById("location-goes-here").innerHTML =
+            userLocation;
         });
     } else {
     }
@@ -96,16 +97,12 @@ readPoints();
 
 /* Upload and store user profile picture in Firestore Storage. */
 const fileInput = document.getElementById("img-upload");
-const image = document.getElementById("img-goes-here");
 const uploadButton = document.querySelector("label[for='img-upload']");
 
 fileInput.addEventListener("change", function (e) {
   const file = e.target.files[0];
-  const blob = URL.createObjectURL(file);
-  image.src = blob;
   uploadButton.style.display = "none";
-
-  saveImageToFirestore(file);
+  saveImageToFirestore(file, firebase.auth().currentUser);
 });
 
 const form = document.querySelector("form");
@@ -114,13 +111,13 @@ form.addEventListener("submit", (e) => {
 
   const file = fileInput.files[0];
   if (file) {
-    saveImageToFirestore(file);
+    saveImageToFirestore(file, firebase.auth().currentUser);
   } else {
     console.error("No file selected");
   }
 });
 
-function saveImageToFirestore(file) {
+function saveImageToFirestore(file, currentUser) {
   const storageRef = firebase.storage().ref();
   const imageRef = storageRef.child(`images/${file.name}`);
 
@@ -142,6 +139,21 @@ function saveImageToFirestore(file) {
             })
             .then(() => {
               console.log("Image URL saved to Firestore");
+              firebase
+                .auth()
+                .currentUser.updateProfile({
+                  photoURL: url,
+                })
+                .then(() => {
+                  console.log("Image URL saved to Firebase Authentication");
+                  displayProfilePicture();
+                })
+                .catch((error) => {
+                  console.error(
+                    "Error updating Firebase Authentication profile:",
+                    error
+                  );
+                });
             })
             .catch((error) => {
               console.error("Error updating document:", error);
@@ -155,6 +167,46 @@ function saveImageToFirestore(file) {
       console.error("Error uploading image:", error);
     });
 }
+
+/* Get the user's photoURL from Firestore and display it on the profile page. */
+function displayProfilePicture() {
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      const profilePicture = document.getElementById("profile-picture");
+      if (!user.photoURL) {
+        const userRef = firebase.firestore().collection("users").doc(user.uid);
+        userRef
+          .get()
+          .then((doc) => {
+            if (doc.exists) {
+              const photoURL = doc.data().photoURL;
+              if (photoURL) {
+                profilePicture.src = photoURL;
+              } else {
+                console.log("No photoURL found in Firestore");
+              }
+            } else {
+              console.log("No such document!");
+            }
+          })
+          .catch((error) => {
+            console.log("Error getting document:", error);
+          });
+      }
+    }
+  });
+}
+
+firebase.auth().onAuthStateChanged((user) => {
+  const profilePicture = document.getElementById("profile-picture");
+  if (user) {
+    if (user.photoURL) {
+      profilePicture.src = user.photoURL;
+    }
+  } else {
+    // No user is signed in.
+  }
+});
 
 /* Edit profile and update in Firestore Database. */
 function updateName() {
@@ -270,8 +322,6 @@ document.getElementById("saveChanges").addEventListener("click", () => {
   updateEmail();
 });
 
-document.getElementById("saveChanges").addEventListener("click", function() {
+document.getElementById("saveChanges").addEventListener("click", function () {
   alert("Changes saved successfully!");
 });
-
-

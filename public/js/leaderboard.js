@@ -28,7 +28,10 @@ function retrieveBoard() {
         row.appendChild(rankCell);
   
         var nameCell = document.createElement("td");
-        nameCell.textContent = user.name;
+        if (user.displayName == undefined){
+          nameCell.textContent = user.name;
+        } else {
+        nameCell.textContent = user.displayName;}
         row.appendChild(nameCell);
   
         var pointsCell = document.createElement("td");

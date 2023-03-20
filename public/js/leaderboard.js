@@ -1,16 +1,11 @@
 function retrieveBoard() {
-  // Retrieve the user collection data
   db.collection("users").orderBy("points", "desc").get().then(function(querySnapshot) {
-    // Retrieve the leaderboard table element
     var leaderboardTable = document.getElementById("leaderboard-body");
 
-    // Initialize rank counter
     var rank = 0;
     var previousPoints = -1;
 
-    // Loop through each document in the collection
     querySnapshot.forEach(function(doc) {
-      // Get the data for each user document
       var user = doc.data();
       var points = user.points;
 
@@ -19,10 +14,8 @@ function retrieveBoard() {
         rank++;
       }
 
-      // Create a new row for the user
       var row = document.createElement("tr");
 
-      // Add the rank, name, and points to the row
       var rankCell = document.createElement("td");
       rankCell.textContent = rank;
       row.appendChild(rankCell);
@@ -47,7 +40,11 @@ function retrieveBoard() {
         console.error("Could not find leaderboard-body element");
       }
 
-      // Update previous points
+      // Highlight the current user in red
+      if (firebase.auth().currentUser && firebase.auth().currentUser.uid === doc.id) {
+        row.style.border = "2px solid #c4b60f";
+      }
+
       previousPoints = points;
     });
   });

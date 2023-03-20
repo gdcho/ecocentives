@@ -89,3 +89,6 @@ th {
   background-size: cover;
 }
 
+#task-tracker tr {
+  border-bottom: 1px solid #ddd;
+}

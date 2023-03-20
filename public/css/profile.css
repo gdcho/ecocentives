@@ -92,3 +92,16 @@ th {
 #task-tracker tr {
   border-bottom: 1px solid #ddd;
 }
+
+.task {
+  padding: 5px 8px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.task:hover {
+  background-color: #3e8e41;
+}

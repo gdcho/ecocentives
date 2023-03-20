@@ -1,12 +1,10 @@
 var table = document.getElementById("task-tracker");
-var lastSelectionTime = null; // Initialize the last selection time as null
+var lastSelectionTime = null; 
 
 async function addTask() {
-  // Get the selected values from the dropdown
   var taskList = document.getElementById("task-list");
   var taskChoice = taskList.options[taskList.selectedIndex].value;
   
-  // Get the selected task's score value
   var scoreValue = 0;
   const ecoActions = await getEcoActions();
   ecoActions.forEach(task => {
@@ -15,7 +13,6 @@ async function addTask() {
     }
   });
 
-  // Check if the task is already in the user's collection
   var user = firebase.auth().currentUser;
   if (user) {
     var currentUser = db.collection("users").doc(user.uid);
@@ -25,11 +22,10 @@ async function addTask() {
         // Display an error message in a modal
         displayModal("Task already added");
       } else {
-        // Add the selected task to the user's collection with score value
         currentUser.collection("tasks").add({
           task: taskChoice,
           score: scoreValue,
-          progress: false // Set progress as false by default, i.e., not completed
+          progress: false 
         }).then(function(docRef) {
           // Update the table after the task is added
           updateTable();
@@ -59,7 +55,6 @@ async function displayRandomTasks() {
   const now = new Date();
   const seed = now.getFullYear() + now.getMonth() + now.getDate();
 
-  // Use the seed value to generate the random task selection
   const ecoActions = await getEcoActions();
   const randomTasks = [];
 
@@ -80,7 +75,6 @@ async function displayRandomTasks() {
     taskList.appendChild(option);
   });
 
-  // Get the current user's tasks and display them on the table
   var user = firebase.auth().currentUser;
 }
 
@@ -90,23 +84,24 @@ function updateTable() {
     var currentUser = db.collection("users").doc(user.uid);
     currentUser.collection("tasks").get()
     .then(function(querySnapshot) {
-      var table = document.getElementById("task-tracker"); // Define the table here
-      table.innerHTML = ""; // Clear the table before adding new rows
+      var table = document.getElementById("task-tracker"); 
+      table.innerHTML = ""; 
       
-      // Insert the labels row at the top of the table
-      var labelRow = "<tr><th>Task</th><th>Score</th><th>Progress</th></tr>";
+      var labelRow = "<tr><th>Task</th><th>Score</th><th>Progress</th><th>Complete task</th></tr>";
       table.insertAdjacentHTML('beforeend', labelRow);
       
-      // Add the task data rows
       var rows = [];
       querySnapshot.forEach(function(doc) {
         var task = doc.data().task;
         var score = doc.data().score;
         var progress = doc.data().progress;
-        var row = `<tr><td>${task}</td><td>${score}</td><td>${progress ? "Completed" : "Not completed"}</td></tr>`;
+        var image = doc.data().image ? `<img src="${doc.data().image}" alt="Task Image">` : `<button data-task-id="${doc.id}" class="task">Upload image</button>`;
+        var row = `<tr><td>${task}</td><td>${score}</td><td>${progress ? "Completed" : "Not completed"}</td><td>${image}</td></tr>`;
         rows.push(row);
       });
       table.insertAdjacentHTML('beforeend', rows.join(''));
+
+      attachImageUploadToTasks();
     })
     .catch(function(error) {
       console.log("Error getting documents: ", error);
@@ -114,13 +109,51 @@ function updateTable() {
   }
 }
 
-// Update the task tracker table every time the user logs in
+function attachImageUploadToTasks() {
+  const taskElements = document.querySelectorAll('.task');
+
+  taskElements.forEach(taskElement => {
+    taskElement.addEventListener('click', async () => {
+      const file = await pickFile();
+
+      if (!file) {
+        return;
+      }
+
+      const uploadTask = firebase.storage().ref().child(`uploads/${file.name}`).put(file);
+
+      uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, null, null, async () => {
+        const downloadURL = await uploadTask.snapshot.ref.getDownloadURL();
+        const taskId = taskElement.dataset.taskId;
+
+        await firebase.firestore().collection('tasks').doc(taskId).update({ image: downloadURL });
+
+        updateTable();
+      });
+    });
+  });
+}
+
+async function pickFile() {
+  return new Promise(resolve => {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'image/*';
+    input.addEventListener('change', event => {
+      const file = event.target.files[0];
+      resolve(file);
+    });
+    input.click();
+  });
+}
+
+
 firebase.auth().onAuthStateChanged(function(user) {
 if (user) {
-console.log("User is signed in");
-updateTable(); // Call the updateTable function when the user logs in
+  console.log("User is signed in");
+  updateTable(); 
 } else {
-console.log("User is signed out");
+  console.log("User is signed out");
 }
 });
 
@@ -132,25 +165,21 @@ document.addEventListener('DOMContentLoaded', () => {
   button.addEventListener('click', addTask);
 });
 
-// Display a modal message that automatically closes after 3 seconds
 function displayModal(message) {
   var modal = document.getElementById("modal");
   var modalMessage = document.getElementById("modal-message");
 
-  // Set the message and show the modal
   modalMessage.innerHTML = message;
   modal.classList.remove("modal-closed");
   modal.classList.add("modal-open");
 
-  // Automatically close the modal after 3 seconds
   setTimeout(function() {
     modal.classList.remove("modal-open");
     modal.classList.add("modal-closing");
 
-    // Reset the modal after the animation finishes
     setTimeout(function() {
       modal.classList.remove("modal-closing");
       modal.classList.add("modal-closed");
-    }, 500); // Wait for the animation to finish (0.5 seconds)
-  }, 2000); // Close the modal after 3 seconds
+    }, 500); 
+  }, 2000); 
 }

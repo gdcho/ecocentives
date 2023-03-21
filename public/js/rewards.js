@@ -1,3 +1,4 @@
+/* Display rewards from Firestore Database. */
 const datastore = firebase.firestore();
 
 function getRewardsData(rewardName, rewardContainer) {

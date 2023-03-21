@@ -1,3 +1,4 @@
+/* Display user name from Firestore Database. */
 function insertName() {
   firebase.auth().onAuthStateChanged((user) => {
     // Check if a user is signed in:
@@ -33,7 +34,7 @@ function readEcoTip() {
 }
 readEcoTip();
 
-/* Display points from Firestore Database. */
+/* Display user points from Firestore Database. */
 function readPoints() {
   firebase.auth().onAuthStateChanged((user) => {
     // Check if a user is signed in:

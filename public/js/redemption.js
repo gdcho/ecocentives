@@ -1,3 +1,4 @@
+/* Auto-populate user information from Firestore Database. */
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     const userRef = db.collection("users").doc(user.uid);

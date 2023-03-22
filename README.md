@@ -34,7 +34,7 @@ Here are some known bugs:
 
 ## 6. Features for Future
 What we'd like to build in the future:
-* ...
+* Add in progress bars for each task that increments whenever proof of completion images are uploaded.
 * ...
 * ...
 	
@@ -42,7 +42,8 @@ What we'd like to build in the future:
 Content of the project folder:
 
 ```
- Top level of project folder: 
+ Top level of project folder:
+
 ├── app                      # Firebase and HTML files
 ├── node_modules             # Module files
 ├── public                   # CSS, JS, and img files
@@ -52,17 +53,6 @@ Content of the project folder:
 ├── package-lock.json        # JSON files
 ├── package.json             # JSON files
 └── README.md                # Project description
-
-It has the following subfolders and files:
-├── .git                     # Folder for git repo
-├── images                   # Folder for images
-    /blah.jpg                # Acknowledge source
-├── scripts                  # Folder for scripts
-    /blah.js                 # 
-├── styles                   # Folder for styles
-    /blah.css                # 
-
-
 
 ```
 

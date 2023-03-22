@@ -22,6 +22,20 @@
   margin-bottom: 4px;
 }
 
+.material-symbols-outlined{
+  display: block !important;
+}
+
+.profile-nav {
+  display: flex;
+  align-items: center;
+}
+
+.profile-nav .material-symbols-outlined {
+  margin-right: 8px;
+  transform: translateX(-16px);
+}
+
 /* Footer CSS. */
 
 .footer {

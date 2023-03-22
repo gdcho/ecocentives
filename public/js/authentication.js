@@ -64,3 +64,21 @@ var uiConfig = {
 };
 
 ui.start("#firebaseui-auth-container", uiConfig);
+
+// 로그아웃 버튼 클릭 시 실행되는 함수
+function logout() {
+  // 세션 스토리지에 저장된 로그인 정보 삭제
+  sessionStorage.removeItem('isLoggedIn');
+  // 로그인 페이지로 이동
+  window.location.href = 'login.html';
+}
+
+// 현재 페이지가 뒤로가기되면 실행되는 함수
+window.onpageshow = function(event) {
+  // 이전 페이지에서 캐시된 데이터를 삭제
+  if (event.persisted) {
+    // 세션 스토리지에 저장된 로그인 정보 삭제
+    sessionStorage.removeItem('isLoggedIn');
+  }
+};
+

@@ -61,6 +61,10 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <!-- TensorFlow-->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.1"></script>
+    <!-- TensorFlow pretrained model-->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@1.0.0"></script>
     <link
       type="text/css"
       rel="stylesheet"
@@ -73,12 +77,35 @@
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
     <link href="/css/main.css" rel="stylesheet" type="text/css" />
     <link href="/css/tasks.css" rel="stylesheet" type="text/css" />
+    <link href="/css/tensorflow.css" rel="stylesheet" type="text/css" />
   </head>
-  <body>
+  <body class="loading">
     <header>
       <!-- Navbar starts here -->
       <nav id="afterlogin"></nav>
     </header>
+
+    <main>
+
+      <div class="loader">
+        <h2>Loading ...</h2>
+    </div>
+
+    <section class="image-section">
+        <img src="" id="image" />
+        <div class="image-prediction" id="prediction"></div>
+    </section>
+
+    <section class="file-section">
+        <div class="file-group">
+            <label for="file-input" accept="image/x-png,image/gif,image/jpeg">Upload a picture</label>
+            <input type="file" id="file-input" />
+            <div class="error" id="input-error">An error occured. Is your file really an image ?</div>
+        </div>
+    </section>
+    </main>
+  
+    
     <div class="container bg-light p-5">
       <h1>Tasks</h1>
       <p>
@@ -101,10 +128,9 @@
     </div>
 
     <script src="/js/firebaseAPI_TEAM10.js"></script>
+    <script src="/js/tensorflow.js"></script>
     <script src="/js/tasks.js"></script>
     <script src="/js/skeleton.js"></script>
     <script src="/js/main.js"></script>
-
-
   </body>
 </html>

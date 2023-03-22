@@ -40,7 +40,7 @@ function retrieveBoard() {
         console.error("Could not find leaderboard-body element");
       }
 
-      // Highlight the current user in red
+      // Highlight the current user
       if (firebase.auth().currentUser && firebase.auth().currentUser.uid === doc.id) {
         row.style.border = "2px solid #c4b60f";
       }

@@ -70,6 +70,10 @@ app.get('/footer.html', (req, res) => {
   res.sendFile(__dirname + '/text/footer.html');
 });
 
+app.get('/tensorflow.html', (req, res) => {
+  res.sendFile(__dirname + '/app/html/tensorflow.html');
+});
+
 app.get('/nav_before_login.html', (req, res) => {
   res.sendFile(__dirname + '/text/nav_before_login.html');
 });

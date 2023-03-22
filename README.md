@@ -15,14 +15,16 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 * HTML, CSS, JavaScript
 * Bootstrap 5.0 (Frontend library)
 * Firebase 8.0 (BAAS - Backend as a Service)
-* ...
+* TensorFlow 
 
 ## 4. Complete setup/installion/usage
 State what a user needs to do when they come to your project.  How do others start using your code or application?
 Here are the steps ...
-* ...
-* ...
-* ...
+* Create an account or login with your existing credentials.
+* Update profile information on profile page.
+* Browse through the tasks list and select tasks to complete.
+* Upload proof of completion for each task to earn points.
+* Browse through the rewards and select a reward to redeem.
 
 ## 5. Known Bugs and Limitations
 Here are some known bugs:
@@ -32,31 +34,25 @@ Here are some known bugs:
 
 ## 6. Features for Future
 What we'd like to build in the future:
-* ...
+* Add in progress bars for each task that increments whenever proof of completion images are uploaded.
 * ...
 * ...
 	
 ## 7. Contents of Folder
 Content of the project folder:
 
-Testing webhook2 - david
-
 ```
- Top level of project folder: 
+ Top level of project folder:
+
+├── app                      # Firebase and HTML files
+├── node_modules             # Module files
+├── public                   # CSS, JS, and img files
+├── text                     # Navbar and footer files
 ├── .gitignore               # Git ignore file
-├── index.html               # landing HTML file, this is what users see when you come to url
-└── README.md
-
-It has the following subfolders and files:
-├── .git                     # Folder for git repo
-├── images                   # Folder for images
-    /blah.jpg                # Acknowledge source
-├── scripts                  # Folder for scripts
-    /blah.js                 # 
-├── styles                   # Folder for styles
-    /blah.css                # 
-
-
+├── node.js                  # Serves the website on Port 8000
+├── package-lock.json        # JSON files
+├── package.json             # JSON files
+└── README.md                # Project description
 
 ```
 

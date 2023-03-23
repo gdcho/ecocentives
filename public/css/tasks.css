@@ -1,3 +1,23 @@
+body {
+  height: 120vh;
+  background-image: url("/img/gradient-main.png");
+  background-size: cover;
+  background-position: center;
+  overflow-x: hidden;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.container {
+  position: relative;
+  margin-top: 40px;
+  max-width: 1000px;
+  border-radius: 10px;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -7,7 +27,8 @@ table {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-th, td {
+th,
+td {
   padding: 10px;
   text-align: center;
 }
@@ -46,7 +67,8 @@ th {
   border-bottom: 1px solid #ddd;
 }
 
-#task-list:hover, #task-list:focus {
+#task-list:hover,
+#task-list:focus {
   border-color: #007bff;
   outline: none;
 }
@@ -59,7 +81,7 @@ th {
 .task {
   padding: 5px 8px;
   border: none;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   cursor: pointer;
   border-radius: 4px;
@@ -69,26 +91,25 @@ th {
   background-color: #3e8e41;
 }
 
-
 /* The Modal (background) */
 .modal {
-  display: none; 
-  position: fixed; 
-  z-index: 1; 
+  display: none;
+  position: fixed;
+  z-index: 1;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto; 
+  margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; 
+  width: 80%;
   text-align: center;
 }
 

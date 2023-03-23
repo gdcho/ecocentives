@@ -1,15 +1,70 @@
+body {
+  height: 120vh;
+  background-image: url("/img/gradient-main.png");
+  background-size: cover;
+  background-position: center;
+  overflow-x: hidden;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.container {
+  position: relative;
+  margin-top: 40px;
+  max-width: 1000px;
+  border-radius: 10px;
+}
+
 td img {
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center center;
-    background-color: white;
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-  }
-  
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center center;
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
 #leaderboard-body tr {
-    border-bottom: 1px solid #ccc;
-  }
-  
-  
+  border-bottom: 1px solid #ccc;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2%;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-image: url("/img/gradient-main.png");
+  background-size: cover;
+}
+
+#task-tracker tr {
+  border-bottom: 1px solid #ddd;
+}
+
+.task {
+  padding: 5px 8px;
+  border: none;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.task:hover {
+  background-color: #3e8e41;
+}

@@ -24,10 +24,27 @@ firebase.auth().onAuthStateChanged(function (user) {
   }
 });
 
+/* Retrieves the selected reward's String from Firestore Database. */
 const selectedReward = localStorage.getItem("selectedReward");
 const selectedRewardInput = document.querySelector("#selectedReward");
 selectedRewardInput.value = selectedReward;
 
+/* Retrieve the selected reward's points from Firestore Database. */
+const rewardsRef = db.collection("rewards");
+rewardsRef
+  .where("name", "==", selectedReward)
+  .get()
+  .then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      const selectedRewardPoints = doc.data().points;
+      console.log(`Selected reward points: ${selectedRewardPoints}`);
+    });
+  })
+  .catch((error) => {
+    console.error("Error getting selected reward points: ", error);
+  });
+
+/* Reward redemption submission. */
 function submitRedemption() {
   if (!window.confirm("Are you sure you want to redeem your points?")) {
     console.log("Redemption cancelled");
@@ -40,41 +57,51 @@ function submitRedemption() {
       var currentUser = db.collection("users").doc(user.uid);
       var userID = user.uid;
 
-      // Generate a new redemption document with a unique ID.
-      var newRedemptionRef = currentUser.collection("redeemed").doc();
-      var redemptionDocID = newRedemptionRef.id;
+      // Retrieve the current points balance.
+      currentUser.get().then((userDoc) => {
+        var currentPoints = userDoc.data().points;
 
-      currentUser
-        .get()
-        .then((userDoc) => {
-          var userEmail = userDoc.data().email;
-          var phone = document.getElementById("phoneInput").value;
-          var redemptionData = {
-            reward: selectedReward,
-            redemptionDocID: redemptionDocID,
-            email: userEmail,
-            phone: phone,
-            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-          };
+        // Calculate the new points balance after deducting the redeemed reward points.
+        var newPoints = currentPoints - selectedReward.points;
 
-          localStorage.setItem(
-            "redemptionData",
-            JSON.stringify(redemptionData)
-          );
+        // Update the user's document with the new points balance.
+        currentUser
+          .update({
+            points: newPoints,
+          })
+          .then(() => {
+            console.log("Points balance updated successfully!");
+            var newRedemptionRef = currentUser.collection("redeemed").doc();
+            var redemptionDocID = newRedemptionRef.id;
+            var userEmail = userDoc.data().email;
+            var phone = document.getElementById("phoneInput").value;
+            var redemptionData = {
+              reward: selectedReward,
+              redemptionDocID: redemptionDocID,
+              email: userEmail,
+              phone: phone,
+              timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            };
 
-          newRedemptionRef
-            .set(redemptionData)
-            .then(() => {
-              console.log("Document successfully written!");
-              window.location.href = "/html/confirmation.html";
-            })
-            .catch((error) => {
-              console.error("Error writing document: ", error);
-            });
-        })
-        .catch((error) => {
-          console.error("Error getting document: ", error);
-        });
+            localStorage.setItem(
+              "redemptionData",
+              JSON.stringify(redemptionData)
+            );
+
+            newRedemptionRef
+              .set(redemptionData)
+              .then(() => {
+                console.log("Redemption document successfully written!");
+                window.location.href = "/html/confirmation.html";
+              })
+              .catch((error) => {
+                console.error("Error writing redemption document: ", error);
+              });
+          })
+          .catch((error) => {
+            console.error("Error updating points balance: ", error);
+          });
+      });
     } else {
       console.log("No user is signed in");
       window.location.href = "redemption.html";

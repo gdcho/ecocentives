@@ -46,6 +46,10 @@ app.get('/tasks.html', (req, res) => {
   res.sendFile(__dirname + '/app/html/tasks.html');
 });
 
+app.get('/tensorflow.html', (req, res) => {
+  res.sendFile(__dirname + '/app/html/tensorflow.html');
+});
+
 app.get('/rewards.html', (req, res) => {
   res.sendFile(__dirname + '/app/html/rewards.html');
 });
@@ -68,10 +72,6 @@ app.get('/settings.html', (req, res) => {
 
 app.get('/footer.html', (req, res) => {
   res.sendFile(__dirname + '/text/footer.html');
-});
-
-app.get('/tensorflow.html', (req, res) => {
-  res.sendFile(__dirname + '/app/html/tensorflow.html');
 });
 
 app.get('/nav_before_login.html', (req, res) => {

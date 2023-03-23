@@ -87,7 +87,7 @@ function updateTable() {
       var table = document.getElementById("task-tracker"); 
       table.innerHTML = ""; 
       
-      var labelRow = "<tr><th>Task</th><th>Score</th><th>Progress</th><th>Complete task</th></tr>";
+      var labelRow = "<tr><th>Task</th><th>Score</th><th>Progress</th><th>Complete Task</th></tr>";
       table.insertAdjacentHTML('beforeend', labelRow);
       
       var rows = [];
@@ -95,7 +95,7 @@ function updateTable() {
         var task = doc.data().task;
         var score = doc.data().score;
         var progress = doc.data().progress;
-        var image = doc.data().image ? `<img src="${doc.data().image}" alt="Task Image">` : `<button data-task-id="${doc.id}" class="task">Upload image</button>`;
+        var image = doc.data().image ? `<img src="${doc.data().image}" alt="Task Image">` : `<button data-task-id="${doc.id}" class="task">Upload Image</button>`;
         var row = `<tr><td>${task}</td><td>${score}</td><td>${progress ? "Completed" : "Not completed"}</td><td>${image}</td></tr>`;
         rows.push(row);
       });

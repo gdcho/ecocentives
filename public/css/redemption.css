@@ -19,10 +19,10 @@ form {
 }
 
 .btn-primary {
-  background-color: black;
+  background-color: #4caf50;
 }
 
 .btn-primary:hover {
-  background-color: #95bb72;
-  border-color: #95bb72;
+  background-color: #3e8e41;
+  border-color: #3e8e41;
 }

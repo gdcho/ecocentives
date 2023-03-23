@@ -18,6 +18,7 @@ body {
   flex-direction: column;
   justify-content: center;
   max-width: 1000px;
+  margin-left: 28px;
 }
 
 .points-container {
@@ -25,6 +26,7 @@ body {
   flex-direction: column;
   justify-content: center;
   max-width: 400px;
+  margin-left: 28px;
 }
 
 .leaderboard-container {

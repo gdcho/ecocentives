@@ -50,7 +50,6 @@ loadSkeleton(); // Invoke the function
 // Call this function when the "logout" button is clicked
 //-------------------------------------------------
 function logout() {
-<<<<<<< HEAD
     firebase.auth().signOut().then(() => {
         // Sign-out successful.
         console.log("logging out user");
@@ -58,17 +57,4 @@ function logout() {
       }).catch((error) => {
         // An error happened.
       });
-=======
-  firebase
-    .auth()
-    .signOut()
-    .then(() => {
-      // Sign-out successful.
-      console.log("logging out user");
-      window.location.href = "login.html";
-    })
-    .catch((error) => {
-      // An error happened.
-    });
->>>>>>> bf08a51ed35bcba2a35caa4067fe5022603a2bb2
 }

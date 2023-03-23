@@ -10,7 +10,7 @@ function loadSkeleton() {
   }
 
   $("#footerPlaceholder").load(
-    "./footer.html",
+    "/footer.html",
     function (response, status, xhr) {
       console.log("Loaded footer:", status);
       if (status == "error") {
@@ -31,7 +31,6 @@ function loadSkeleton() {
     }
   });
 }
-
 loadSkeleton(); // Invoke the function
 
 //------------------------------------------------

@@ -35,8 +35,9 @@ rewardsRef
   .where("name", "==", selectedReward)
   .get()
   .then((querySnapshot) => {
+    let selectedRewardPoints;
     querySnapshot.forEach((doc) => {
-      const selectedRewardPoints = doc.data().points;
+      selectedRewardPoints = doc.data().points;
       console.log(`Selected reward points: ${selectedRewardPoints}`);
     });
   })
@@ -54,53 +55,69 @@ function submitRedemption() {
 
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      var currentUser = db.collection("users").doc(user.uid);
-      var userID = user.uid;
+      const currentUser = db.collection("users").doc(user.uid);
+      const userID = user.uid;
 
       // Retrieve the current points balance.
       currentUser.get().then((userDoc) => {
-        var currentPoints = userDoc.data().points;
 
-        // Calculate the new points balance after deducting the redeemed reward points.
-        var newPoints = currentPoints - selectedReward.points;
+        // Retrieve the selected reward's points from Firestore Database.
+        const rewardsRef = db.collection("rewards");
+        rewardsRef
+          .where("name", "==", selectedReward)
+          .get()
+          .then((querySnapshot) => {
+            let selectedRewardPoints;
+            querySnapshot.forEach((doc) => {
+              selectedRewardPoints = doc.data().points;
+              console.log(`Selected reward points: ${selectedRewardPoints}`);
+            });
+          
+            // Calculate the new points balance after deducting the redeemed reward points.
+            const points = userDoc.data().points - selectedRewardPoints;
 
-        // Update the user's document with the new points balance.
-        currentUser
-          .update({
-            points: newPoints,
-          })
-          .then(() => {
-            console.log("Points balance updated successfully!");
-            var newRedemptionRef = currentUser.collection("redeemed").doc();
-            var redemptionDocID = newRedemptionRef.id;
-            var userEmail = userDoc.data().email;
-            var phone = document.getElementById("phoneInput").value;
-            var redemptionData = {
-              reward: selectedReward,
-              redemptionDocID: redemptionDocID,
-              email: userEmail,
-              phone: phone,
-              timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-            };
-
-            localStorage.setItem(
-              "redemptionData",
-              JSON.stringify(redemptionData)
-            );
-
-            newRedemptionRef
-              .set(redemptionData)
+            // Update the user's document with the new points balance.
+            currentUser
+              .update({
+                points:points,
+              })
               .then(() => {
-                console.log("Redemption document successfully written!");
-                window.location.href = "/html/confirmation.html";
+                console.log("Points balance updated successfully!");
+                var newRedemptionRef = currentUser.collection("redeemed").doc();
+                var redemptionDocID = newRedemptionRef.id;
+                var userEmail = userDoc.data().email;
+                var phone = document.getElementById("phoneInput").value;
+                var redemptionData = {
+                  reward: selectedReward,
+                  redemptionDocID: redemptionDocID,
+                  email: userEmail,
+                  phone: phone,
+                  timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                };
+
+                localStorage.setItem(
+                  "redemptionData",
+                  JSON.stringify(redemptionData)
+                );
+
+                newRedemptionRef
+                  .set(redemptionData)
+                  .then(() => {
+                    console.log("Redemption document successfully written!");
+                    window.location.href = "/html/confirmation.html";
+                  })
+                  .catch((error) => {
+                    console.error("Error writing redemption document: ", error);
+                  });
               })
               .catch((error) => {
-                console.error("Error writing redemption document: ", error);
+                console.error("Error updating points balance: ", error);
               });
           })
           .catch((error) => {
-            console.error("Error updating points balance: ", error);
+            console.error("Error getting selected reward points: ", error);
           });
+
       });
     } else {
       console.log("No user is signed in");

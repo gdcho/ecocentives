@@ -6,19 +6,40 @@ body {
 
 h1 {
   text-align: center;
-  margin-top: 40px;
+}
+
+h4 {
+  text-align: center;
 }
 
 .container {
-  display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 80px;
+  max-width: 1000px;
+  border-radius: 10px;
+}
+
+.btn {
+  margin-bottom: 10px;
+  background-color: #4caf50;
+  border: none;
+}
+
+.btn:hover {
+  background-color: #3e8e41;
+  border-color: #3e8e41;
+}
+
+.btn-container {
+  margin-top: 24px;
+  text-align: center;
 }
 
 .settings h4 {
-    font-size: 1.5rem;
-    margin-top: 20px;
-    margin-bottom: 20px;
+  font-size: 1.5rem;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .settings input {
@@ -29,21 +50,6 @@ h1 {
   font-size: 1.1rem;
   font-weight: bold;
   margin-bottom: 10px;
-}
-
-.settings button[type="submit"] {
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    cursor: pointer;
-  }
-
-.settings button[type="submit"]:hover {
-  background-color: #95bb72;
-}
-
-.btn-container {
-  margin-top: 24px;
   text-align: center;
 }
+

@@ -1,3 +1,5 @@
+import { API_KEY } from '/js/api-key.js';
+
 /* Display user points from Firestore Database. */
 function readPoints() {
   firebase.auth().onAuthStateChanged((user) => {

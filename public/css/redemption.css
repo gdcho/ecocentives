@@ -20,6 +20,7 @@ form {
 
 .btn-primary {
   background-color: #4caf50;
+  border: none;
 }
 
 .btn-primary:hover {

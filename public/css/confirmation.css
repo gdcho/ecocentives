@@ -28,6 +28,7 @@ p {
 .btn {
   margin-bottom: 10px;
   background-color: #4caf50;
+  border: none;
 }
 
 .btn:hover {

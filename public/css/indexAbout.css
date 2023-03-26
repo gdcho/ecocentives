@@ -13,7 +13,6 @@ body {
   align-items: center;
   justify-content: center;
   color: white;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .index-header h1 {
@@ -21,6 +20,7 @@ body {
   position: relative;
   display: block;
   text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .index-header p {
@@ -33,13 +33,31 @@ body {
   max-width: 1200px;
   position: relative;
   display: block;
-  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-.custom-btn {
-  font-size: 20px;
-  padding: 10px 20px;
-  background-color: rgba(0, 0, 0, 0.25);
+.btn {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: rgba(255, 255, 255, 0.5);
+  align-items: center;
+  justify-content: center;
+  color: black;
+  margin-top: 6px;
+}
+
+.btn:hover {
+  background-color: #3e8e41;
+}
+
+.image-container {
+  float: right;
+}
+
+.image-container img {
+  width: 500px;
+  height: 500px;
+  height: auto;
+  margin-left: 40%;
 }
 
 .purpose {
@@ -52,6 +70,8 @@ body {
   text-align: center;
   max-width: 1200px;
   height: 600px;
+  margin-top: -200px;
+  margin-left: 10%;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
@@ -60,19 +80,6 @@ body {
   position: relative;
   display: block;
   text-align: center;
-}
-
-.image-container {
-  justify-content: center;
-  position: absolute;
-  bottom: -150px;
-}
-
-.image-container img {
-  width: 500px;
-  height: 500px;
-  max-width: 100%;
-  height: auto;
 }
 
 /* About CSS. */
@@ -88,6 +95,7 @@ a {
   align-items: center;
   justify-content: center;
   color: white;
+  margin-top: 80px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
@@ -99,17 +107,27 @@ a {
   margin-bottom: 24px;
 }
 
-.about-header p {
-  font-size: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  max-width: 1200px;
+.about-header h3 {
+  font-size: 32px;
   position: relative;
   display: block;
   text-align: center;
+  margin-top: 6px;
+  margin-bottom: 24px;
+}
+
+.about {
+  font-size: 20px;
+  max-width: 800px;
+  position: relative;
+  display: block;
+}
+
+.instructions {
+  font-size: 20px;
+  max-width: 800px;
+  position: relative;
+  display: block;
 }
 
 .email {

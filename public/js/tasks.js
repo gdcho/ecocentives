@@ -124,9 +124,11 @@ function updateTable() {
           var task = doc.data().task;
           var score = doc.data().score;
           var progress = doc.data().progress;
-          var image = doc.data().image
-            ? `<img src="${doc.data().image}" alt="Task Image">`
-            : `<button data-task-id="${doc.id}" class="task">Upload Image</button>`;
+          var image = `<button data-task-id="${doc.id}" class="task">Upload Image</button>`;
+          if (doc.data().image) {
+            image += `<br><img class="hidden" src="${doc.data().image}" alt="Task Image">`;
+          }
+
           var row = `<tr><td>${task}</td><td>${score}</td><td>${
             progress ? "Completed" : "Not completed"
           }</td><td>${image}</td></tr>`;
@@ -203,7 +205,7 @@ async function attachImageUploadToTasks() {
           const descriptions = labelAnnotations.map((label) => {
             return label.description;
           });
-          const score = labelAnnotations[0].score;
+          const scoreVal = labelAnnotations[0].score;
           const topicality = labelAnnotations[0].topicality;
 
           // Update the Firestore document with the task data and descriptions
@@ -216,14 +218,14 @@ async function attachImageUploadToTasks() {
             .doc(taskId);
           taskRef
             .set(
-          {
-            image: imageUrl,
-            descriptions: descriptions,
-            score: score,
-            topicality: topicality,
-          },
-          { merge: true }
-        )
+              {
+                image: imageUrl,
+                descriptions: descriptions,
+                scoreVal: scoreVal,
+                topicality: topicality,
+              },
+              { merge: true }
+            )
         .then(() => {
             // Check if any ecoActions match the descriptions and update user points accordingly
             const currentUser = firebase.auth().currentUser;
@@ -238,43 +240,35 @@ async function attachImageUploadToTasks() {
               .collection("tasks")
               .doc(taskId);
 
-              taskDescRef.get().then(async (doc) => {
+              taskRef.get().then(async (doc) => {
                 if (doc.exists) {
-                  const descriptions = doc
-                    .data()
-                    .descriptions.map((description) =>
-                      description.toLowerCase()
-                    );
+                  const descriptions = labelAnnotations.flatMap((label) => {
+                    return label.description.split(" ");
+                  }).map((word) => {
+                    return word.toLowerCase();
+                  });
                   let pointsToAdd = 0;
                   let actionWords = [];
-
+              
                   if (Array.isArray(descriptions)) {
                     const flatDescriptions = descriptions.flat();
-
-                    ecoActions.forEach((action) => {
-                      actionWords = action.action
-                        .split(" ")
-                        .map((word) => word.toLowerCase());
+              
+                    const tasksRef = firebase.firestore().collection("users").doc(currentUser.uid).collection("tasks");
+                    const taskDoc = await tasksRef.doc(taskId).get();
+                    const taskData = taskDoc.data();
+              
+                    taskData.task.split(",").forEach((action) => {
+                      actionWords = action.split(/[\s-]+/).map((word) => word.toLowerCase());
                       let actionPointsToAdd = 0;
-
+              
                       actionWords.forEach((word) => {
                         if (flatDescriptions.includes(word)) {
-                          actionPointsToAdd += action.score;
+                          actionPointsToAdd += taskData.pointValue;
                         }
                       });
                       pointsToAdd += actionPointsToAdd;
                     });
-
-                    // Get the task data
-                    const taskData = await taskDescRef.get().then((doc) => {
-                      if (doc.exists) {
-                        return doc.data();
-                      }
-                    });
-
-                    // Add the task's point value to the points to add
-                    pointsToAdd += taskData.pointValue;
-
+              
                     if (pointsToAdd > 0) {
                       // Update the user's points
                       userRef
@@ -300,6 +294,8 @@ async function attachImageUploadToTasks() {
                   }
                 }
               });
+              
+                            
 
               updateTable();
             })

@@ -2,8 +2,8 @@
 *.logs
 node_modules/
 .vscode/
-public/js/api-keys.js
-public/js/firebaseAPI_TEAM10.js
+public/js/api-key.js
+public/js/firebaseAPI_team10.js
 
 # Logs
 logs

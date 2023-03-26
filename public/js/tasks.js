@@ -1,3 +1,5 @@
+import { API_KEY } from '/js/api-key.js';
+
 var table = document.getElementById("task-tracker");
 var lastSelectionTime = null;
 
@@ -122,7 +124,7 @@ function updateTable() {
   }
 }
 
-function attachImageUploadToTasks() {
+async function attachImageUploadToTasks() {
   const taskElements = document.querySelectorAll(".task");
 
   taskElements.forEach((taskElement) => {
@@ -133,32 +135,77 @@ function attachImageUploadToTasks() {
         return;
       }
 
-      const uploadTask = firebase
-        .storage()
-        .ref()
-        .child(`uploads/${file.name}`)
-        .put(file);
+      // Upload the image to Firebase Storage
+      const storageRef = firebase.storage().ref();
+      const fileRef = storageRef.child(`uploads/${file.name}`);
+      const uploadTask = fileRef.put(file);
 
       uploadTask.on(
         firebase.storage.TaskEvent.STATE_CHANGED,
         null,
         null,
         async () => {
-          const downloadURL = await uploadTask.snapshot.ref.getDownloadURL();
-          const taskId = taskElement.dataset.taskId;
+          // Get the download URL of the uploaded image
+          const imageUrl = await fileRef.getDownloadURL();
 
-          await firebase
-            .firestore()
-            .collection("tasks")
-            .doc(taskId)
-            .update({ image: downloadURL });
+          // Call the Google Vision API to analyze the image
+          const apiKey = API_KEY;
+          const url = `https://vision.googleapis.com/v1/images:annotate?key=${apiKey}`;
+          const data = {
+            requests: [
+              {
+                image: {
+                  source: {
+                    imageUri: imageUrl,
+                  },
+                },
+                features: [
+                  {
+                    type: 'LABEL_DETECTION',
+                  },
+                ],
+              },
+            ],
+          };
 
-          updateTable();
+          const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+          });
+
+          const json = await response.json();
+
+          // Convert the Blob to a plain JavaScript object
+          const reader = new FileReader();
+          reader.onload = () => {
+            const taskData = {
+              image: reader.result,
+              apiResponse: json,
+            };
+
+            // Update the Firestore document with the task data
+            const taskId = taskElement.dataset.taskId;
+            const taskRef = firebase.firestore().collection('tasks').doc(taskId);
+            taskRef.set(taskData)
+              .then(() => {
+                updateTable();
+              })
+              .catch((error) => {
+                console.error("Error adding task: ", error);
+              });
+          };
+          reader.readAsDataURL(file);
         }
       );
     });
   });
 }
+
+
+
 
 async function pickFile() {
   return new Promise((resolve) => {

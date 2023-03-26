@@ -373,3 +373,26 @@ document.getElementById("saveChanges").addEventListener("click", () => {
   updatePhone();
 });
 
+/** Display the most recent redemption activity. */
+firebase.auth().onAuthStateChanged(function (user) {
+  if (user) {
+    const currentUser = firebase.auth().currentUser;
+    const redeemedRef = db
+      .collection("users")
+      .doc(currentUser.uid)
+      .collection("redeemed");
+
+    redeemedRef
+      .orderBy("timestamp", "desc")
+      .limit(1)
+      .get()
+      .then(function (querySnapshot) {
+        if (!querySnapshot.empty) {
+          const data = querySnapshot.docs[0].data();
+          document.getElementById("redeemed-reward").textContent = data.reward;
+        }
+      });
+  } else {
+    // No user is signed in.
+  }
+});

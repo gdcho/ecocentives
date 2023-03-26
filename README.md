@@ -1,5 +1,5 @@
 # Project Title
-BCIT CST COMP1800 Projects 1
+BCIT CST COMP 1800 Projects 1
 
 ## 1. Project Description
 A web-based application to encourage Canadians to practice environmentally-friendly habits with an incentive program, allowing users to complete recurring tasks while competing with one another to collect points for reward redemption.
@@ -15,11 +15,19 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 * HTML, CSS, JavaScript
 * Bootstrap 5.0 (Frontend library)
 * Firebase 8.0 (BAAS - Backend as a Service)
-* TensorFlow 
+* Google Vision API
 
 ## 4. Complete setup/installion/usage
 State what a user needs to do when they come to your project.  How do others start using your code or application?
 Here are the steps ...
+Installation
+* Download this entire project folder and navigate to the root folder using Command Prompt or Terminal.
+* Install node.js by running this in Command Prompt or Terminal → npm install -g npm 
+* Check to make sure node was installed successfully → node -v
+* Check to make sure npm was installed successfully → npm -v
+* Navigate to the root folder for this app and run this Command Prompt or Terminal → node node.js
+* Open a web browser and type this in the address bar → localhost:8000 or 127.0.0.1:8000
+Usage Steps
 * Create an account or login with your existing credentials.
 * Update profile information on profile page.
 * Browse through the tasks list and select tasks to complete.

@@ -6,13 +6,17 @@ body {
 
 h1 {
   text-align: center;
+  margin-bottom: 30px;
 }
 
-h4 {
-  text-align: center;
+select {
+  margin-top: 8px;
+  margin-bottom: 18px;
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 80px;
@@ -20,25 +24,18 @@ h4 {
   border-radius: 10px;
 }
 
-.btn {
-  margin-bottom: 10px;
+.btn-primary {
   background-color: #4caf50;
   border: none;
 }
 
-.btn:hover {
+.btn-primary:hover {
   background-color: #3e8e41;
   border-color: #3e8e41;
 }
 
-.btn-container {
-  margin-top: 24px;
-  text-align: center;
-}
-
 .settings h4 {
   font-size: 1.5rem;
-  margin-top: 20px;
   margin-bottom: 20px;
 }
 
@@ -50,6 +47,4 @@ h4 {
   font-size: 1.1rem;
   font-weight: bold;
   margin-bottom: 10px;
-  text-align: center;
 }
-

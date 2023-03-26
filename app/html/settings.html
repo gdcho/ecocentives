@@ -66,63 +66,60 @@
 
     <div class="container bg-light p-5">
       <h1>Settings</h1>
-      <div class="container">
-        <div class="settings">
-          <form action="#" method="POST">
-            <h4>Notification Preferences</h4>
-            <label for="notification-types">Notification Types:</label><br />
-            <input type="checkbox" id="new-rewards" name="new-rewards" />
-            <label for="new-rewards">New Rewards</label><br />
-            <input
-              type="checkbox"
-              id="recycling-reminders"
-              name="recycling-reminders"
-            />
-            <label for="recycling-reminders">Reminders to Recycle</label><br />
-            <input
-              type="checkbox"
-              id="progress-updates"
-              name="progress-updates"
-            />
-            <label for="progress-updates">Updates on Your Progress</label><br />
+      <div class="settings">
+        <form action="#" method="POST">
+          <h4>Notification Preferences</h4>
+          <label for="notification-types">Notification Types:</label><br />
+          <input type="checkbox" id="new-rewards" name="new-rewards" />
+          <label for="new-rewards">New Rewards</label><br />
+          <input
+            type="checkbox"
+            id="recycling-reminders"
+            name="recycling-reminders"
+          />
+          <label for="recycling-reminders">Reminders to Recycle</label><br />
+          <input
+            type="checkbox"
+            id="progress-updates"
+            name="progress-updates"
+          />
+          <label for="progress-updates">Updates on Your Progress</label><br />
 
-            <label for="notification-frequency">Notification Frequency:</label
-            ><br />
-            <select id="notification-frequency" name="notification-frequency">
-              <option value="daily">Daily</option>
-              <option value="weekly">Weekly</option>
-              <option value="monthly">Monthly</option></select
-            ><br />
+          <label for="notification-frequency">Notification Frequency:</label
+          ><br />
+          <select id="notification-frequency" name="notification-frequency">
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option></select
+          ><br />
 
-            <h4>Social Media Integration</h4>
-            <input
-              type="checkbox"
-              id="connect_facebook"
-              name="connect_facebook"
-              value="connect_facebook"
-            />
-            <label for="connect_facebook">Connect with Facebook</label><br />
-            <input
-              type="checkbox"
-              id="connect_instagram"
-              name="connect_instagram"
-              value="connect_instagram"
-            />
-            <label for="connect_instagram">Connect with Instagram</label><br />
-            <input
-              type="checkbox"
-              id="connect_twitter"
-              name="connect_twitter"
-              value="connect_twitter"
-            />
-            <label for="connect_twitter">Connect with Twitter</label><br />
-            <div class="btn-container">
-              <button type="button" class="btn btn-primary" id="save-settings-btn">
-                Save Changes
-              </button>
-            </div>
-          </form>
-        </div>
+          <h4>Social Media Integration</h4>
+          <input
+            type="checkbox"
+            id="connect_facebook"
+            name="connect_facebook"
+            value="connect_facebook"
+          />
+          <label for="connect_facebook">Connect with Facebook</label><br />
+          <input
+            type="checkbox"
+            id="connect_instagram"
+            name="connect_instagram"
+            value="connect_instagram"
+          />
+          <label for="connect_instagram">Connect with Instagram</label><br />
+          <input
+            type="checkbox"
+            id="connect_twitter"
+            name="connect_twitter"
+            value="connect_twitter"
+          />
+          <label for="connect_twitter">Connect with Twitter</label><br />
+
+          <div class="d-flex justify-content-center mt-4">
+            <a id="save-settings-btn" class="btn btn-primary">Save Changes</a>
+          </div>
+        </form>
       </div>
     </div>
 

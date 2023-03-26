@@ -19,15 +19,15 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 
 ## 4. Complete setup/installion/usage
 State what a user needs to do when they come to your project.  How do others start using your code or application?
-Here are the steps ...
-Installation
+Here are the steps ...  
+Installation <br />
 * Download this entire project folder and navigate to the root folder using Command Prompt or Terminal.
 * Install node.js by running this in Command Prompt or Terminal → npm install -g npm 
 * Check to make sure node was installed successfully → node -v
 * Check to make sure npm was installed successfully → npm -v
 * Navigate to the root folder for this app and run this Command Prompt or Terminal → node node.js
-* Open a web browser and type this in the address bar → localhost:8000 or 127.0.0.1:8000
-Usage Steps
+* Open a web browser and type this in the address bar → localhost:8000 or 127.0.0.1:8000  
+Usage Steps <br />
 * Create an account or login with your existing credentials.
 * Update profile information on profile page.
 * Browse through the tasks list and select tasks to complete.

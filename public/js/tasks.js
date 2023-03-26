@@ -1,4 +1,20 @@
-import { API_KEY } from '/js/api-key.js';
+/* Display user points from Firestore Database. */
+function readPoints() {
+  firebase.auth().onAuthStateChanged((user) => {
+    // Check if a user is signed in:
+    if (user) {
+      db.collection("users")
+        .doc(user.uid)
+        .onSnapshot((doc) => {
+          console.log(doc.data());
+          const userPoints = doc.data().points;
+          document.getElementById("points-goes-here").innerHTML = userPoints;
+        });
+    } else {
+    }
+  });
+}
+readPoints();
 
 var table = document.getElementById("task-tracker");
 var lastSelectionTime = null;
@@ -161,7 +177,7 @@ async function attachImageUploadToTasks() {
                 },
                 features: [
                   {
-                    type: 'LABEL_DETECTION',
+                    type: "LABEL_DETECTION",
                   },
                 ],
               },
@@ -169,9 +185,9 @@ async function attachImageUploadToTasks() {
           };
 
           const response = await fetch(url, {
-            method: 'POST',
+            method: "POST",
             headers: {
-              'Content-Type': 'application/json',
+              "Content-Type": "application/json",
             },
             body: JSON.stringify(data),
           });
@@ -190,22 +206,36 @@ async function attachImageUploadToTasks() {
 
           // Update the Firestore document with the task data and descriptions
           const taskId = taskElement.dataset.taskId;
-          const taskRef = firebase.firestore().collection('tasks').doc(taskId);
-          taskRef.set({
-            image: imageUrl,
-            descriptions: descriptions,
-            score: score,
-            topicality: topicality,
-          }, { merge: true })
+          const taskRef = firebase.firestore().collection("tasks").doc(taskId);
+          taskRef
+            .set(
+              {
+                image: imageUrl,
+                descriptions: descriptions,
+                score: score,
+                topicality: topicality,
+              },
+              { merge: true }
+            )
             .then(() => {
               // Check if any ecoActions match the descriptions and update user points accordingly
               const currentUser = firebase.auth().currentUser;
-              const userRef = firebase.firestore().collection('users').doc(currentUser.uid);
-              const taskDescRef = firebase.firestore().collection('tasks').doc(taskId);
+              const userRef = firebase
+                .firestore()
+                .collection("users")
+                .doc(currentUser.uid);
+              const taskDescRef = firebase
+                .firestore()
+                .collection("tasks")
+                .doc(taskId);
 
               taskDescRef.get().then(async (doc) => {
                 if (doc.exists) {
-                  const descriptions = doc.data().descriptions.map((description) => description.toLowerCase());
+                  const descriptions = doc
+                    .data()
+                    .descriptions.map((description) =>
+                      description.toLowerCase()
+                    );
                   let pointsToAdd = 0;
                   let actionWords = [];
 
@@ -213,7 +243,9 @@ async function attachImageUploadToTasks() {
                     const flatDescriptions = descriptions.flat();
 
                     ecoActions.forEach((action) => {
-                      actionWords = action.action.split(" ").map((word) => word.toLowerCase());
+                      actionWords = action.action
+                        .split(" ")
+                        .map((word) => word.toLowerCase());
                       let actionPointsToAdd = 0;
 
                       actionWords.forEach((word) => {
@@ -223,7 +255,6 @@ async function attachImageUploadToTasks() {
                       });
                       pointsToAdd += actionPointsToAdd;
                     });
-
 
                     // Get the task data
                     const taskData = await taskDescRef.get().then((doc) => {
@@ -239,7 +270,10 @@ async function attachImageUploadToTasks() {
                       // Update the user's points
                       userRef
                         .update({
-                          points: firebase.firestore.FieldValue.increment(pointsToAdd),
+                          points:
+                            firebase.firestore.FieldValue.increment(
+                              pointsToAdd
+                            ),
                         })
                         .then(function () {
                           console.log("User points updated successfully!");
@@ -259,8 +293,6 @@ async function attachImageUploadToTasks() {
               });
 
               updateTable();
-           
-
             })
             .catch((error) => {
               console.error("Error adding task: ", error);
@@ -270,10 +302,6 @@ async function attachImageUploadToTasks() {
     });
   });
 }
-
-
-
-
 
 async function pickFile() {
   return new Promise((resolve) => {

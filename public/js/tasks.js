@@ -198,7 +198,69 @@ async function attachImageUploadToTasks() {
             topicality: topicality,
           }, { merge: true })
             .then(() => {
+              // Check if any ecoActions match the descriptions and update user points accordingly
+              const currentUser = firebase.auth().currentUser;
+              const userRef = firebase.firestore().collection('users').doc(currentUser.uid);
+              const taskDescRef = firebase.firestore().collection('tasks').doc(taskId);
+
+              taskDescRef.get().then(async (doc) => {
+                if (doc.exists) {
+                  const descriptions = doc.data().descriptions.map((description) => description.toLowerCase());
+                  let pointsToAdd = 0;
+                  let actionWords = [];
+
+                  if (Array.isArray(descriptions)) {
+                    const flatDescriptions = descriptions.flat();
+
+                    ecoActions.forEach((action) => {
+                      actionWords = action.action.split(" ").map((word) => word.toLowerCase());
+                      let actionPointsToAdd = 0;
+
+                      actionWords.forEach((word) => {
+                        if (flatDescriptions.includes(word)) {
+                          actionPointsToAdd += action.score;
+                        }
+                      });
+                      pointsToAdd += actionPointsToAdd;
+                    });
+
+
+                    // Get the task data
+                    const taskData = await taskDescRef.get().then((doc) => {
+                      if (doc.exists) {
+                        return doc.data();
+                      }
+                    });
+
+                    // Add the task's point value to the points to add
+                    pointsToAdd += taskData.pointValue;
+
+                    if (pointsToAdd > 0) {
+                      // Update the user's points
+                      userRef
+                        .update({
+                          points: firebase.firestore.FieldValue.increment(pointsToAdd),
+                        })
+                        .then(function () {
+                          console.log("User points updated successfully!");
+                        })
+                        .catch(function (error) {
+                          console.error("Error updating user points: ", error);
+                        });
+                    } else {
+                      console.log("User points failed to update.");
+                      console.log(actionWords);
+                      console.log(flatDescriptions);
+                    }
+                  } else {
+                    console.error("Error: descriptions is not an array.");
+                  }
+                }
+              });
+
               updateTable();
+           
+
             })
             .catch((error) => {
               console.error("Error adding task: ", error);
@@ -208,6 +270,10 @@ async function attachImageUploadToTasks() {
     });
   });
 }
+
+
+
+
 
 async function pickFile() {
   return new Promise((resolve) => {

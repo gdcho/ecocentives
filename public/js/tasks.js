@@ -178,34 +178,36 @@ async function attachImageUploadToTasks() {
 
           const json = await response.json();
 
-          // Convert the Blob to a plain JavaScript object
-          const reader = new FileReader();
-          reader.onload = () => {
-            const taskData = {
-              image: reader.result,
-              apiResponse: json,
-            };
+          // Extract the label annotations from the API response
+          const labelAnnotations = json.responses[0].labelAnnotations;
 
-            // Update the Firestore document with the task data
-            const taskId = taskElement.dataset.taskId;
-            const taskRef = firebase.firestore().collection('tasks').doc(taskId);
-            taskRef.set(taskData)
-              .then(() => {
-                updateTable();
-              })
-              .catch((error) => {
-                console.error("Error adding task: ", error);
-              });
-          };
-          reader.readAsDataURL(file);
+          // Extract the description, score, and topicality values from the label annotations
+          const descriptions = labelAnnotations.map((label) => {
+            return label.description;
+          });
+          const score = labelAnnotations[0].score;
+          const topicality = labelAnnotations[0].topicality;
+
+          // Update the Firestore document with the task data and descriptions
+          const taskId = taskElement.dataset.taskId;
+          const taskRef = firebase.firestore().collection('tasks').doc(taskId);
+          taskRef.set({
+            image: imageUrl,
+            descriptions: descriptions,
+            score: score,
+            topicality: topicality,
+          }, { merge: true })
+            .then(() => {
+              updateTable();
+            })
+            .catch((error) => {
+              console.error("Error adding task: ", error);
+            });
         }
       );
     });
   });
 }
-
-
-
 
 async function pickFile() {
   return new Promise((resolve) => {

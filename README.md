@@ -26,7 +26,7 @@ Installation:
 * Install node.js by running this in Command Prompt or Terminal → npm install -g npm  
 * Check to make sure node was installed successfully → node -v
 * Check to make sure npm was installed successfully → npm -v
-* Navigate to the root folder for this app and run this Command Prompt or Terminal → node node.js
+* Navigate to the root folder for this app and run this in Command Prompt or Terminal → node node.js
 * Open a web browser and type this in the address bar → localhost:8000 or 127.0.0.1:8000
 
 Instructions:

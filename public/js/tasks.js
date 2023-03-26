@@ -208,28 +208,35 @@ async function attachImageUploadToTasks() {
 
           // Update the Firestore document with the task data and descriptions
           const taskId = taskElement.dataset.taskId;
-          const taskRef = firebase.firestore().collection("tasks").doc(taskId);
+          const taskRef = firebase
+            .firestore()
+            .collection("users")
+            .doc(firebase.auth().currentUser.uid)
+            .collection("tasks")
+            .doc(taskId);
           taskRef
             .set(
-              {
-                image: imageUrl,
-                descriptions: descriptions,
-                score: score,
-                topicality: topicality,
-              },
-              { merge: true }
-            )
-            .then(() => {
-              // Check if any ecoActions match the descriptions and update user points accordingly
-              const currentUser = firebase.auth().currentUser;
-              const userRef = firebase
-                .firestore()
-                .collection("users")
-                .doc(currentUser.uid);
-              const taskDescRef = firebase
-                .firestore()
-                .collection("tasks")
-                .doc(taskId);
+          {
+            image: imageUrl,
+            descriptions: descriptions,
+            score: score,
+            topicality: topicality,
+          },
+          { merge: true }
+        )
+        .then(() => {
+            // Check if any ecoActions match the descriptions and update user points accordingly
+            const currentUser = firebase.auth().currentUser;
+            const userRef = firebase
+              .firestore()
+              .collection("users")
+              .doc(currentUser.uid);
+            const taskDescRef = firebase
+              .firestore()
+              .collection("users")
+              .doc(currentUser.uid)
+              .collection("tasks")
+              .doc(taskId);
 
               taskDescRef.get().then(async (doc) => {
                 if (doc.exists) {

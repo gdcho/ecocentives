@@ -110,3 +110,15 @@ th {
 .hidden {
   display: none;
 }
+
+.list-group-item {
+  position: relative;
+}
+
+#points-goes-here {
+  float: right;
+}
+
+.right-aligned {
+  text-align: right;
+}

@@ -1,22 +1,43 @@
 import { API_KEY } from '/js/api-key.js';
 
-/* Display user points from Firestore Database. */
 function readPoints() {
   firebase.auth().onAuthStateChanged((user) => {
-    // Check if a user is signed in:
     if (user) {
       db.collection("users")
         .doc(user.uid)
         .onSnapshot((doc) => {
-          console.log(doc.data());
           const userPoints = doc.data().points;
-          document.getElementById("points-goes-here").innerHTML = userPoints;
+          document.getElementById("points-goes-here").innerHTML = userPoints + " points";
         });
     } else {
+      // No user is signed in.
     }
   });
 }
+
 readPoints();
+
+
+
+async function displayCompletedTasks() {
+  const user = firebase.auth().currentUser;
+  if (user) {
+    const currentUser = db.collection("users").doc(user.uid);
+    const querySnapshot = await currentUser.collection("tasks").where("progress", "==", true).get();
+    const tableBody = document.getElementById("completed-tasks-table");
+    tableBody.innerHTML = "";
+
+    querySnapshot.forEach(function (doc) {
+      const task = doc.data().task;
+      const score = doc.data().score;
+
+      const row = `<tr><td>${task}</td><td>${score}</td></tr>`;
+      tableBody.insertAdjacentHTML("beforeend", row);
+    });
+  }
+}
+
+displayCompletedTasks();
 
 var table = document.getElementById("task-tracker");
 var lastSelectionTime = null;
@@ -75,6 +96,10 @@ async function getEcoActions() {
   });
   return ecoActions;
 }
+
+
+
+
 
 async function displayRandomTasks() {
   // Generate a random seed value for the day
@@ -377,3 +402,4 @@ function displayModal(message) {
     }, 500);
   }, 2000);
 }
+

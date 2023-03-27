@@ -103,10 +103,6 @@
                     <h5>Joined</h5>
                     <p><span id="joined-goes-here"></span></p>
                   </div>
-                  <div class="points">
-                    <h5>Points</h5>
-                    <p><span id="points-goes-here"></span></p>
-                  </div>
                   <button
                     class="btn btn-primary"
                     data-bs-toggle="modal"
@@ -127,16 +123,26 @@
               </h5>
               <ul class="list-group">
                 <li class="list-group-item">
-                  <span class="fw-bold">Completed:</span> Composting food waste
-                  instead of throwing it away
-                  <span class="float-end">+30 points</span>
-                </li>
+                  <span class="fw-bold">Current Points: </span>
+                  <span class="right-aligned" id="points-goes-here"></span>
+                </li>                               
                 <li class="list-group-item">
-                  <span class="fw-bold">Redeemed: </span
-                  ><span id="redeemed-reward"></span>
+                  <span class="fw-bold">Redeemed: </span>
+                  <span id="redeemed-reward"></span>
                   <span class="float-end">-5000 points</span>
                 </li>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Completed Task</th>
+                      <th scope="col">Points</th>
+                    </tr>
+                  </thead>
+                  <tbody id="completed-tasks-table">
+                  </tbody>
+                </table>                
               </ul>
+              
               <br />
               <h5 class="card-title">Current Tasks</h5>
               <div class="list-group">
@@ -213,9 +219,9 @@
     <!-- Your own JavaScript functions go here ----->
     <!---------------------------------------------->
     <script src="/js/firebaseAPI_TEAM10.js"></script>
-    <script src="/js/profile.js"></script>
-    <script src="/js/skeleton.js"></script>
     <script type="module" src="/js/api-key.js"></script>
     <script type="module" src="/js/tasks.js"></script>
+    <script src="/js/profile.js"></script>
+    <script src="/js/skeleton.js"></script>
   </body>
 </html>

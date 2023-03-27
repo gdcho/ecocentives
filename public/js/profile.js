@@ -1,3 +1,22 @@
+/* Display points balance from Firestore Database. */
+function readPoints() {
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      db.collection("users")
+        .doc(user.uid)
+        .onSnapshot((doc) => {
+          const userPoints = doc.data().points;
+          document.getElementById("points-goes-here").innerHTML = userPoints + " points";
+        });
+    } else {
+      // No user is signed in.
+    }
+  });
+}
+
+readPoints();
+
+
 /* Display user name from Firestore Database. */
 function insertName() {
   firebase.auth().onAuthStateChanged((user) => {
@@ -78,14 +97,18 @@ function readJoined() {
         .doc(user.uid)
         .onSnapshot((doc) => {
           const userJoined = doc.data().joined;
-          const dateJoined = new Date(userJoined.toDate());
-          const options = { year: "numeric", month: "long", day: "numeric" };
-          const formattedDateJoined = dateJoined.toLocaleDateString(
-            "en-US",
-            options
-          );
-          document.getElementById("joined-goes-here").innerHTML =
-            formattedDateJoined;
+          if (userJoined) {
+            const dateJoined = new Date(userJoined.toDate());
+            const options = { year: "numeric", month: "long", day: "numeric" };
+            const formattedDateJoined = dateJoined.toLocaleDateString(
+              "en-US",
+              options
+            );
+            document.getElementById("joined-goes-here").innerHTML =
+              formattedDateJoined;
+          } else {
+            console.log("No joined date found for user");
+          }
         });
     } else {
       // No user is signed in.
@@ -94,24 +117,6 @@ function readJoined() {
 }
 readJoined();
 
-/* Display points balance from Firestore Database. */
-function readPoints() {
-  firebase.auth().onAuthStateChanged((user) => {
-    // Check if a user is signed in:
-    if (user) {
-      db.collection("users")
-        .doc(user.uid)
-        .onSnapshot((doc) => {
-          console.log(doc.data());
-          const userPoints = doc.data().points;
-          document.getElementById("points-goes-here").innerHTML = userPoints;
-        });
-    } else {
-      // No user is signed in.
-    }
-  });
-}
-readPoints();
 
 /* Upload and store user profile picture in Firestore Storage. */
 const fileInput = document.getElementById("img-upload");

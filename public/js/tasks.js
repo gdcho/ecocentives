@@ -128,12 +128,15 @@ function updateTable() {
           if (doc.data().image) {
             image += `<br><img class="hidden" src="${doc.data().image}" alt="Task Image">`;
           }
-
-          var row = `<tr><td>${task}</td><td>${score}</td><td>${
-            progress ? "Completed" : "Not completed"
-          }</td><td>${image}</td></tr>`;
-          rows.push(row);
+        
+          if (!progress) { // Only add the row if the task is not completed
+            var row = `<tr><td>${task}</td><td>${score}</td><td>${
+              progress ? "Completed" : "Not completed"
+            }</td><td>${image}</td></tr>`;
+            rows.push(row);
+          }
         });
+        
         table.insertAdjacentHTML("beforeend", rows.join(""));
 
         attachImageUploadToTasks();
@@ -274,6 +277,18 @@ async function attachImageUploadToTasks() {
                     console.log("flatDescriptions:", flatDescriptions);
               
                     if (pointsToAdd > 0) {
+
+                      // Mark the task as completed
+                      taskDescRef.update({ progress: true })
+                      .then(() => console.log("Task marked as completed."))
+                      .catch((error) => console.error("Error marking task as completed:", error));
+
+                      // Remove the completed task from the table
+                      var completedTask = document.querySelector(`[data-task-id="${taskId}"]`);
+                      if (completedTask) {
+                      completedTask.parentNode.parentNode.remove();
+                      }
+
                       // Update the user's points
                       userRef
                       .update({
@@ -281,6 +296,11 @@ async function attachImageUploadToTasks() {
                       })
                       .then(function () {
                         console.log("User points updated successfully!");
+                        // Remove the completed task from the table
+                        var completedTask = document.querySelector(`[data-task-id="${taskId}"]`);
+                        if (completedTask) {
+                          completedTask.parentNode.parentNode.remove();
+                        }
                         // Display success modal
                         displayModal("Task passed! Points added successfully.");
                         updateTable();

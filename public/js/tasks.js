@@ -263,11 +263,15 @@ async function attachImageUploadToTasks() {
               
                       actionWords.forEach((word) => {
                         if (flatDescriptions.includes(word)) {
-                          actionPointsToAdd += taskData.pointValue;
+                          actionPointsToAdd += taskData.score;
                         }
                       });
                       pointsToAdd += actionPointsToAdd;
                     });
+              
+                    console.log("pointsToAdd:", pointsToAdd);
+                    console.log("actionWords:", actionWords);
+                    console.log("flatDescriptions:", flatDescriptions);
               
                     if (pointsToAdd > 0) {
                       // Update the user's points
@@ -286,8 +290,6 @@ async function attachImageUploadToTasks() {
                         });
                     } else {
                       console.log("User points failed to update.");
-                      console.log(actionWords);
-                      console.log(flatDescriptions);
                     }
                   } else {
                     console.error("Error: descriptions is not an array.");
@@ -295,8 +297,6 @@ async function attachImageUploadToTasks() {
                 }
               });
               
-                            
-
               updateTable();
             })
             .catch((error) => {

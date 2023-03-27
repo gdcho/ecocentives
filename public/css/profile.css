@@ -112,7 +112,9 @@ th {
 }
 
 .list-group-item {
-  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #points-goes-here {

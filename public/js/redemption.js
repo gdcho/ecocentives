@@ -95,6 +95,7 @@ function submitRedemption() {
                     redemptionDocID: redemptionDocID,
                     email: userEmail,
                     phone: phone,
+                    points: selectedRewardPoints,
                     timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                   };
 
@@ -135,3 +136,4 @@ function submitRedemption() {
     }
   });
 }
+

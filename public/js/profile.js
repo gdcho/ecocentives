@@ -115,7 +115,6 @@ function readJoined() {
 }
 readJoined();
 
-
 /* Upload and store user profile picture in Firestore Storage. */
 const fileInput = document.getElementById("img-upload");
 const uploadButton = document.querySelector("label[for='img-upload']");
@@ -376,7 +375,6 @@ document.getElementById("saveChanges").addEventListener("click", () => {
   updatePhone();
 });
 
-/** Display the most recent redemption activity. */
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     const currentUser = firebase.auth().currentUser;
@@ -392,7 +390,8 @@ firebase.auth().onAuthStateChanged(function (user) {
       .then(function (querySnapshot) {
         if (!querySnapshot.empty) {
           const data = querySnapshot.docs[0].data();
-          document.getElementById("redeemed-reward").textContent = data.reward;
+          document.getElementById("redeemed-reward").textContent = "("+data.reward+")";
+          document.getElementById("redeemed-score").textContent = "-" + data.points +" points";
         }
       });
   } else {

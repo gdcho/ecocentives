@@ -111,13 +111,11 @@ th {
   display: none;
 }
 
-.list-group-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+#points-goes-here {
+  float: right;
 }
 
-#points-goes-here {
+#redeemed-points {
   float: right;
 }
 

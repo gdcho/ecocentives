@@ -391,7 +391,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         if (!querySnapshot.empty) {
           const data = querySnapshot.docs[0].data();
           document.getElementById("redeemed-reward").textContent = "("+data.reward+")";
-          document.getElementById("redeemed-score").textContent = "-" + data.points +" points";
+          document.getElementById("redeemed-points").textContent = "-" + data.points +" points";
         }
       });
   } else {

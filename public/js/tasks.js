@@ -276,20 +276,22 @@ async function attachImageUploadToTasks() {
                     if (pointsToAdd > 0) {
                       // Update the user's points
                       userRef
-                        .update({
-                          points:
-                            firebase.firestore.FieldValue.increment(
-                              pointsToAdd
-                            ),
-                        })
-                        .then(function () {
-                          console.log("User points updated successfully!");
-                        })
-                        .catch(function (error) {
-                          console.error("Error updating user points: ", error);
-                        });
+                      .update({
+                        points: firebase.firestore.FieldValue.increment(pointsToAdd),
+                      })
+                      .then(function () {
+                        console.log("User points updated successfully!");
+                        // Display success modal
+                        displayModal("Task passed! Points added successfully.");
+                        updateTable();
+                      })
+                      .catch(function (error) {
+                        console.error("Error updating user points: ", error);
+                      });
                     } else {
-                      console.log("User points failed to update.");
+                      // Display error modal
+                      displayModal("Task failed. No points added.");
+                      updateTable();
                     }
                   } else {
                     console.error("Error: descriptions is not an array.");
@@ -297,7 +299,6 @@ async function attachImageUploadToTasks() {
                 }
               });
               
-              updateTable();
             })
             .catch((error) => {
               console.error("Error adding task: ", error);

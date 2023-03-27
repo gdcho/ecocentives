@@ -17,28 +17,6 @@ function readPoints() {
 
 readPoints();
 
-
-
-async function displayCompletedTasks() {
-  const user = firebase.auth().currentUser;
-  if (user) {
-    const currentUser = db.collection("users").doc(user.uid);
-    const querySnapshot = await currentUser.collection("tasks").where("progress", "==", true).get();
-    const tableBody = document.getElementById("completed-tasks-table");
-    tableBody.innerHTML = "";
-
-    querySnapshot.forEach(function (doc) {
-      const task = doc.data().task;
-      const score = doc.data().score;
-
-      const row = `<tr><td>${task}</td><td>${score}</td></tr>`;
-      tableBody.insertAdjacentHTML("beforeend", row);
-    });
-  }
-}
-
-displayCompletedTasks();
-
 var table = document.getElementById("task-tracker");
 var lastSelectionTime = null;
 
@@ -96,10 +74,6 @@ async function getEcoActions() {
   });
   return ecoActions;
 }
-
-
-
-
 
 async function displayRandomTasks() {
   // Generate a random seed value for the day
@@ -354,6 +328,30 @@ async function attachImageUploadToTasks() {
   });
 }
 
+async function displayCompletedTasks() {
+  const user = firebase.auth().currentUser;
+  if (user) {
+    const currentUser = db.collection("users").doc(user.uid);
+    const querySnapshot = await currentUser.collection("tasks").where("progress", "==", true).get();
+    const tableBody = document.getElementById("completed-tasks-table");
+    tableBody.innerHTML = "";
+
+    querySnapshot.forEach(function (doc) {
+      const task = doc.data().task;
+      const score = doc.data().score;
+      const image = doc.data().image;
+
+      const row = `<tr><td>${task}</td><td>${score}</td><td><img src="${image}" alt="Task Image"></td></tr>`;
+      tableBody.insertAdjacentHTML("beforeend", row);
+    });
+    if (querySnapshot.empty) {
+      console.log("No completed tasks found");
+    } else {
+      console.log(`Found ${querySnapshot.size} completed tasks`);
+    }
+  }
+}
+
 async function pickFile() {
   return new Promise((resolve) => {
     const input = document.createElement("input");
@@ -371,6 +369,7 @@ firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     console.log("User is signed in");
     updateTable();
+    displayCompletedTasks();
   } else {
     console.log("User is signed out");
   }
@@ -382,6 +381,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const button = document.getElementById("add-task");
   button.addEventListener("click", addTask);
+
 });
 
 function displayModal(message) {

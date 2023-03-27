@@ -13,9 +13,7 @@ function readPoints() {
     }
   });
 }
-
 readPoints();
-
 
 /* Display user name from Firestore Database. */
 function insertName() {

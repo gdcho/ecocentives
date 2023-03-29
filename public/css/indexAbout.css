@@ -55,10 +55,20 @@ body {
 }
 
 .image-container img {
-  width: 500px;
-  height: 500px;
+  width: 200px;
+  height: 200px;
   height: auto;
-  margin-left: 40%;
+  
+}
+
+.card-img-top{
+  width: 50%;
+  height: auto;
+  margin: auto;
+}
+
+#img-background{
+  background-color: transparent;
 }
 
 .purpose {

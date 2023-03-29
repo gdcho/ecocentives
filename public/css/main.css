@@ -1,5 +1,6 @@
 body {
   height: 120vh;
+  font-family: 'Inter', sans-serif;
   background-image: url("/img/gradient-main.png");
   background-size: cover;
   background-position: center;

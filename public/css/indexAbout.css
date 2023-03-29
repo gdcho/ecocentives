@@ -1,7 +1,7 @@
 /* Index CSS. */
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   background-image: url("/img/gradient.png");
   background-size: cover;
   background-position: center;
@@ -55,20 +55,10 @@ body {
 }
 
 .image-container img {
-  width: 200px;
-  height: 200px;
+  width: 500px;
+  height: 500px;
   height: auto;
-  
-}
-
-.card-img-top{
-  width: 50%;
-  height: auto;
-  margin: auto;
-}
-
-#img-background{
-  background-color: transparent;
+  margin-left: 160px;
 }
 
 .purpose {
@@ -149,4 +139,14 @@ a {
   width: 33%;
   font-size: 16px;
   text-align: center;
+}
+
+.card-img-top {
+  width: 50%;
+  height: auto;
+  margin: auto;
+}
+
+#img-background {
+  background-color: transparent;
 }

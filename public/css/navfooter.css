@@ -53,3 +53,52 @@
   margin: auto;
 }
 
+/* Media query */ 
+
+@media only screen and (max-width: 768px) {
+
+  .navbar-brand{
+    font-size: 30px;
+    margin-left: -10%;
+  }
+
+.button{
+  margin-left: -5%;
+}
+
+  /* Dropdown menu */
+.dropdown-menu {
+  background-color: #343a40;
+}
+
+.dropdown-item:hover {
+  background-color: #adb5bd;
+}
+
+/* Mobile dropdown */
+.dropdown-toggle::after {
+  display: none;
+}
+
+.dropdown-toggle::before {
+  content: '\25bc';
+  display: inline-block;
+  margin-right: 0.5em;
+  vertical-align: middle;
+}
+
+.dropdown-toggle {
+  color: #ffffff;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+}
+
+.dropdown-toggle:focus {
+  color: #ffffff;
+  outline: none;
+  box-shadow: none;
+}
+
+
+
+}

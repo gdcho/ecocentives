@@ -150,3 +150,39 @@ a {
 #img-background {
   background-color: transparent;
 }
+
+@media screen and (max-width: 768px) {
+  /* styles for screens smaller than 768px */
+
+  body {
+    padding-top: 80px; /* Replace 56px with the height of your navbar */
+  }
+
+  .landing .purpose {
+    height: 100vh;
+    margin-top: -30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .landing h1 {
+    font-size: 40px;
+  }
+  .landing p {
+    font-size: 18px;
+  }
+
+
+  .image-container {
+    float: left;
+  }
+
+  .image-container img {
+    width: 400px;
+    height: 400px;
+    height: auto;
+    margin-left: -10%;
+  }
+}

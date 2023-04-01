@@ -22,6 +22,7 @@ select {
   margin-top: 80px;
   max-width: 1000px;
   border-radius: 10px;
+  margin-bottom: 80px;
 }
 
 .btn-primary {
@@ -47,4 +48,18 @@ select {
   font-size: 1.1rem;
   font-weight: bold;
   margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+    max-width: 380px;
+    border-radius: 10px;
+    margin-bottom: 80px;
+  }
+
 }

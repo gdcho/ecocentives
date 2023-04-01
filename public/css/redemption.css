@@ -27,3 +27,12 @@ form {
   background-color: #3e8e41;
   border-color: #3e8e41;
 }
+
+@media only screen and (max-width: 768px) {
+  .container {
+    margin-top: 80px;
+    max-width: 380px;
+    border-radius: 10px;
+  }
+
+}

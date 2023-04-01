@@ -68,3 +68,15 @@ th {
 .task:hover {
   background-color: #3e8e41;
 }
+
+@media only screen and (max-width: 768px) {
+
+  body {
+    font-size: 14px;
+    height: 100vh;
+  }
+
+
+  
+
+}

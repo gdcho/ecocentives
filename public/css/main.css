@@ -121,10 +121,11 @@ th {
   }
 
   table {
+    width: 330px;
     border-collapse: collapse;
     margin-top: 2%;
     border-radius: 3px;
-    margin-left: -10px;
+    margin-left: -7%;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   }

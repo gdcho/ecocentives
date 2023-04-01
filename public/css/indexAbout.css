@@ -206,4 +206,43 @@ a {
     height: auto;
     margin-left: -10%;
   }
+
+  .about-header {
+    padding: 0 20px; 
+  }
+
+  .about-header h2 {
+    font-size: 30px; 
+    margin-top: 50%;
+  }
+
+  .about-header h3 {
+    font-size: 24px; 
+  }
+
+  .about-header p {
+    font-size: 16px; 
+  }
+
+  .card-group {
+    flex-direction: column; 
+    margin-top: 35%;
+  }
+
+  .card {
+    margin-bottom: 20px; 
+    
+  }
+  
+  .email {
+    display: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .email-text {
+    margin-bottom: 10px;
+  }
 }
+

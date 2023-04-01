@@ -158,19 +158,40 @@ a {
     padding-top: 80px; /* Replace 56px with the height of your navbar */
   }
 
-  .landing .purpose {
-    height: 100vh;
+  .landing {
     margin-top: -30%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .landing h1 {
+    font-size: 40px;
+    
+  }
+  
+  .landing p {
+    font-size: 18px;
+    padding-right: 8%;
+    padding-left: 13%;
+    text-align: left;
+  }
+
+  .purpose {
+    margin-top: -40%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
 
-  .landing h1 {
+  .purpose h2{
     font-size: 40px;
+    margin-left:-10%;
   }
-  .landing p {
+
+  .purpose p {
     font-size: 18px;
   }
 

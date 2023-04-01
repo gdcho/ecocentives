@@ -98,6 +98,7 @@ a {
 }
 
 .about-header h2 {
+  margin-top: 10%;
   font-size: 48px;
   position: relative;
   display: block;
@@ -119,6 +120,10 @@ a {
   max-width: 900px;
   position: relative;
   display: block;
+}
+
+.card-group{
+  margin-top: 10%;
 }
 
 .instructions {
@@ -150,6 +155,8 @@ a {
 #img-background {
   background-color: transparent;
 }
+
+
 
 @media screen and (max-width: 768px) {
   /* styles for screens smaller than 768px */

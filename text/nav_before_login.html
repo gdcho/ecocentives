@@ -9,37 +9,28 @@
     <div class="container-fluid">
       <img src="/img/logo.png" alt="Logo" class="navbar-logo" />
       <a class="navbar-brand" href="index.html">Ecocentives</a>
-      <div class="position-relative">
-        <button class="navbar-toggler" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start small-dropdown">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html"><span class="material-symbols-outlined"> home </span>Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html"><span class="material-symbols-outlined"> info </span>About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="login.html">
-                <span class="material-symbols-outlined" style="font-size: 30px"> login </span> Log-in
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html"><span class="material-symbols-outlined"> Home </span>Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html"><span class="material-symbols-outlined"> info </span>About</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">
+              <span class="material-symbols-outlined" style="font-size: 30px"> login </span> Log-in
+            </a>
+          </li>
+        </ul>
+      </div>           
     </div>
-  </nav>  
+  </nav>
 </div>
-
-<script>
-  $(document).ready(function () {
-    $(".navbar-toggler").on("click", function () {
-      $(".small-dropdown").slideToggle();
-    });
-  });
-</script>
-
-
 

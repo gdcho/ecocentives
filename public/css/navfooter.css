@@ -1,5 +1,13 @@
 /* Navbar CSS. */
 
+html{
+  overflow-x: hidden;
+}
+
+body{
+  overflow-x: hidden;
+}
+
 .navbar {
   font-family: 'Exo', sans-serif;
   height: 80px;

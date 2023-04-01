@@ -82,6 +82,10 @@ app.get('/nav_after_login.html', (req, res) => {
   res.sendFile(__dirname + '/text/nav_after_login.html');
 });
 
+app.get('/footer_after_login.html', (req, res) => {
+  res.sendFile(__dirname + '/text/footer_after_login.html');
+});
+
 // For resource not found (i.e., 404)
 app.use(function (req, res, next) {
   res.status(404).send("<html><head><title>Page not found!</title></head><body><p>Nothing here.</p></body></html>");

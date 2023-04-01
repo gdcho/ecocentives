@@ -99,33 +99,20 @@ body{
   }
 
   .navbar-nav {
-    position: absolute;
-    margin-top: 0;
-    right: 5%;
-    top: 100%;
-    z-index: 999;
-    float: none;
-    max-width: 250px;
-    box-sizing: border-box;
-    border-radius: 3px;
+    margin-top: 5px;
   }
 
-  .navbar-nav > li {
+  .navbar-nav .nav-item {
     display: block;
     text-align: right;
-    margin-bottom: 0;
+    margin-right: 20px;
+    margin-bottom: 10px; 
   }
 
-  .navbar-nav > li > a {
-    margin-top: 5%;
-    display: inline-block;
-  }
-
-  .navbar-toggler:hover .navbar-toggler-icon {
-    width: 31px;
-    height: 31px;
-    border: 2px solid rgb(199, 199, 199);
-    border-radius: 3px;
+  .navbar-nav .nav-link {
+    padding: 5px 0; /* Adjust padding to prevent overlapping */
+    display: block;
+    text-align: right;
   }
 
   .small-dropdown {

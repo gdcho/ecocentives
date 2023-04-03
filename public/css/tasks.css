@@ -1,5 +1,5 @@
 body {
-  height: 120vh;
+  height: 100vh;
   background-image: url("/img/gradient-main.png");
   background-size: cover;
   background-position: center;
@@ -140,16 +140,21 @@ th {
   animation-fill-mode: forwards;
 }
 
-@media only screen and (max-width: 768px) {
-  body {
-    font-size: 14px;
-  }
+#footerapp{
+  display:none;
+}
 
+@media only screen and (max-width: 768px) {
+  html, body {
+    font-size: 14px;
+    height: 100vh;
+    width: auto;
+  }
 
   .container {
     margin-top: 30px;
     max-width: 380px;
-    margin-bottom: 30px;
+    margin-bottom: 30%;
   }
 
   table {
@@ -174,6 +179,33 @@ th {
     font-size: 12px;
     padding: 8px 28px 8px 12px;
     margin-left: -7%;
+  }
+
+  #wrapper {
+    min-height: 100%;
+    position: relative;
+  }
+  #content {
+    padding-bottom: 60px; 
+  }
+
+  #footerapp{
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    background-image: url("/img/gradient-main.png");
+    width: 100%;
+    height: 80px;
+    border-top: 3px solid yellowgreen; 
+    padding-top: 10px; 
+  }
+
+  .material-symbols-outlined{
+    color: white;
+  }
+
+  .nav-link{
+    color:white;
   }
 }
 

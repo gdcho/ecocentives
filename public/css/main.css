@@ -1,5 +1,5 @@
 body {
-  height: 120vh;
+  height: 100vh;
   font-family: 'Inter', sans-serif;
   background-image: url("/img/gradient-main.png");
   background-size: cover;
@@ -119,7 +119,7 @@ th {
     flex-direction: column;
     justify-content: center;
     max-width: 380px;
-    margin-bottom: 20%;
+    margin-bottom: 30%;
   }
 
   .row.align-items-stretch {

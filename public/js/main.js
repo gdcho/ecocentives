@@ -3,8 +3,6 @@ function insertName() {
   firebase.auth().onAuthStateChanged((user) => {
     // Check if a user is signed in:
     if (user) {
-      console.log(user.uid);
-      console.log(user.displayName);
       user_Name = user.displayName;
       $("#name-goes-here").text(user_Name);
     } else {
@@ -25,11 +23,9 @@ function readEcoTip() {
         document.getElementById("ecotip-goes-here").innerHTML =
           tipDoc.data().tip;
       } else {
-        console.log("No tip found for " + dayOfWeek);
       }
     })
     .catch((error) => {
-      console.error("Error getting tip: ", error);
     });
 }
 readEcoTip();
@@ -42,7 +38,6 @@ function readPoints() {
       db.collection("users")
         .doc(user.uid)
         .onSnapshot((doc) => {
-          console.log(doc.data());
           const userPoints = doc.data().points;
           document.getElementById("points-goes-here").innerHTML = userPoints;
         });

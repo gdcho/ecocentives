@@ -87,6 +87,22 @@ th {
   display: none;
 }
 
+#completed-tasks-table{
+  display: none;
+}
+
+#task-list{
+  display: none;
+}
+
+.table{
+  display: none;
+}
+
+#add-task {
+  display: none;
+}
+
 #footerapp{
   display: none;
 }

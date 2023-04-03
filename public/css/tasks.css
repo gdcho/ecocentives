@@ -108,6 +108,14 @@ th {
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
+.table{
+  display:none;
+}
+
+#completed-tasks-table{
+  display: none;
+}
+
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;

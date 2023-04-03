@@ -97,6 +97,22 @@
             <th>Progress</th>
           </tr>
         </table>
+        <select id="task-list">
+          <!-- Options will be added dynamically by the JavaScript code -->
+        </select>
+        <!-- Hidden by css -->
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Completed Task</th>
+              <th scope="col">Points</th>
+              <th scope="col">Image</th>
+            </tr>
+          </thead>
+          <tbody id="completed-tasks-table"></tbody>
+        </table>
+        <table id="task-tracker"></table>
+        <button id="add-task">Add Task</button>
       </div>
     </div>
 

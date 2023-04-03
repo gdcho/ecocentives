@@ -35,6 +35,7 @@ body{
 
 .material-symbols-outlined{
   display: block !important;
+  text-align:center;
 }
 
 /* Footer CSS. */

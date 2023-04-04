@@ -28,28 +28,27 @@ form {
   border-color: #3e8e41;
 }
 
-#footerapp{
-  display:none;
+#footerapp {
+  display: none;
 }
 
-#navmobile{
-  display:none;
+#navmobile {
+  display: none;
 }
-
 
 @media only screen and (max-width: 768px) {
-
-  html, body {
+  html,
+  body {
     font-size: 14px;
     height: 100vh;
     width: auto;
   }
 
-  #afterlogin{
-    display:none;
+  #afterlogin {
+    display: none;
   }
 
-  #navmobile{
+  #navmobile {
     display: inline-block;
   }
 
@@ -64,26 +63,24 @@ form {
     position: relative;
   }
   #content {
-    padding-bottom: 60px; 
+    padding-bottom: 60px;
   }
 
-  #footerapp{
+  #footerapp {
     display: flex;
     position: absolute;
     bottom: 0;
     background-image: url("/img/gradient-main.png");
     width: 100%;
     height: 80px;
-    border-top: 3px solid yellowgreen; 
-    padding-top: 10px; 
+    padding-top: 10px;
   }
 
-  .material-symbols-outlined{
+  .material-symbols-outlined {
     color: white;
   }
 
-  .nav-link{
-    color:white;
+  .nav-link {
+    color: white;
   }
-
 }

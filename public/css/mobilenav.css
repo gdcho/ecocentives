@@ -1,30 +1,25 @@
 #navmobile {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1;
-    background-color: #3e8e41;
-    border-bottom: 2px solid yellowgreen;
-  }
-  
-#nav-brand-mobile{
-    padding-top: 10px;
-    margin-left: -35px;
+  width: 100%;
+  z-index: 1;
+}
+
+#nav-brand-mobile {
+  padding-top: 10px;
+  margin-left: -35px;
 }
 
 .navbar-nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
-  
+
 .nav-link-mobile {
-    display: inline-block;
-    text-align: center;
-    margin-top: 5px;
-    margin-right: 5px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    background-color: transparent;
-    text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  margin-top: 5px;
+  margin-right: 5px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  background-color: transparent;
+  text-decoration: none;
 }
-  

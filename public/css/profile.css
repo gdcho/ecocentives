@@ -81,7 +81,8 @@ table {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-th, td {
+th,
+td {
   padding: 10px;
   text-align: center;
 }
@@ -95,14 +96,14 @@ th {
   border-bottom: 1px solid #ddd;
 }
 
-#add-task{
-  display:none;
+#add-task {
+  display: none;
 }
 
 .task {
   padding: 5px 8px;
   border: none;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   cursor: pointer;
   border-radius: 4px;
@@ -116,7 +117,7 @@ th {
   display: none;
 }
 
-.container{
+.container {
   margin-bottom: 5%;
 }
 
@@ -132,8 +133,8 @@ th {
   text-align: right;
 }
 
-#task-list{
-  display:none;
+#task-list {
+  display: none;
 }
 
 img {
@@ -141,12 +142,12 @@ img {
   height: auto;
 }
 
-#footerapp{
-  display:none;
+#footerapp {
+  display: none;
 }
 
-#navmobile{
-  display:none;
+#navmobile {
+  display: none;
 }
 
 #task-tracker th:last-child {
@@ -158,7 +159,8 @@ img {
 }
 
 @media only screen and (max-width: 768px) {
-  html, body {
+  html,
+  body {
     font-size: 14px;
     height: 100vh;
     width: auto;
@@ -168,29 +170,29 @@ img {
     margin-top: 30%;
   }
 
-  #afterlogin{
-    display:none;
+  #afterlogin {
+    display: none;
   }
 
-  #navmobile{
+  #navmobile {
     display: inline-block;
   }
 
   table {
     width: 330px;
     margin-top: 5%;
-    
   }
 
-  .container{
+  .container {
     margin-bottom: 30%;
   }
 
-  .card{
+  .card {
     margin-bottom: 30px;
   }
 
-  th, td {
+  th,
+  td {
     padding: 8px;
   }
 
@@ -205,26 +207,24 @@ img {
   }
 
   #content {
-    padding-bottom: 60px; 
+    padding-bottom: 60px;
   }
 
-  #footerapp{
+  #footerapp {
     display: flex;
     position: absolute;
     bottom: 0;
     background-image: url("/img/gradient-main.png");
     width: 100%;
     height: 80px;
-    border-top: 3px solid yellowgreen; 
-    padding-top: 10px; 
+    padding-top: 10px;
   }
 
-  .material-symbols-outlined{
+  .material-symbols-outlined {
     color: white;
   }
 
-  .nav-link{
-    color:white;
+  .nav-link {
+    color: white;
   }
-
 }

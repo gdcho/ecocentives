@@ -21,8 +21,6 @@ function insertName() {
     // Check if a user is signed in:
     if (user) {
       // Do something for the currently logged-in user here:
-      console.log(user.uid);
-      console.log(user.displayName);
       user_Name = user.displayName;
       $("#name-goes-here").text(user_Name);
     } else {
@@ -40,7 +38,6 @@ function readEmail() {
       db.collection("users")
         .doc(user.uid)
         .onSnapshot((doc) => {
-          console.log(doc.data());
           const userEmail = doc.data().email;
           document.getElementById("email-goes-here").innerHTML = userEmail;
         });
@@ -58,7 +55,6 @@ function readLocation() {
       db.collection("users")
         .doc(user.uid)
         .onSnapshot((doc) => {
-          console.log(doc.data());
           const userLocation = doc.data().location;
           document.getElementById("location-goes-here").innerHTML =
             userLocation;
@@ -77,7 +73,6 @@ function readPhone() {
       db.collection("users")
         .doc(user.uid)
         .onSnapshot((doc) => {
-          console.log(doc.data());
           const userPhone = doc.data().phone;
           document.getElementById("phone-goes-here").innerHTML = userPhone;
         });
@@ -105,7 +100,6 @@ function readJoined() {
             document.getElementById("joined-goes-here").innerHTML =
               formattedDateJoined;
           } else {
-            console.log("No joined date found for user");
           }
         });
     } else {
@@ -133,7 +127,6 @@ form.addEventListener("submit", (e) => {
   if (file) {
     saveImageToFirestore(file, firebase.auth().currentUser);
   } else {
-    console.error("No file selected");
   }
 });
 
@@ -144,11 +137,9 @@ function saveImageToFirestore(file, currentUser) {
   imageRef
     .put(file)
     .then((snapshot) => {
-      console.log("Image uploaded successfully");
       imageRef
         .getDownloadURL()
         .then((url) => {
-          console.log("Image URL:", url);
           const userRef = firebase
             .firestore()
             .collection("users")
@@ -158,33 +149,24 @@ function saveImageToFirestore(file, currentUser) {
               photoURL: url,
             })
             .then(() => {
-              console.log("Image URL saved to Firestore");
               firebase
                 .auth()
                 .currentUser.updateProfile({
                   photoURL: url,
                 })
                 .then(() => {
-                  console.log("Image URL saved to Firebase Authentication");
                   displayProfilePicture();
                 })
                 .catch((error) => {
-                  console.error(
-                    "Error updating Firebase Authentication profile:",
-                    error
-                  );
                 });
             })
             .catch((error) => {
-              console.error("Error updating document:", error);
             });
         })
         .catch((error) => {
-          console.error("Error getting download URL:", error);
         });
     })
     .catch((error) => {
-      console.error("Error uploading image:", error);
     });
 }
 
@@ -203,14 +185,11 @@ function displayProfilePicture() {
               if (photoURL) {
                 profilePicture.src = photoURL;
               } else {
-                console.log("No photoURL found in Firestore");
               }
             } else {
-              console.log("No such document!");
             }
           })
           .catch((error) => {
-            console.log("Error getting document:", error);
           });
       }
     }
@@ -246,11 +225,9 @@ function updateName() {
           displayName: newName,
         })
         .then(() => {
-          console.log("Name successfully updated!");
           insertName();
         })
         .catch((error) => {
-          console.error("Error updating name:", error);
         });
 
       user
@@ -258,13 +235,8 @@ function updateName() {
           displayName: newName,
         })
         .then(() => {
-          console.log("User's name updated in authentication profile");
         })
         .catch((error) => {
-          console.error(
-            "Error updating user's name in authentication profile:",
-            error
-          );
         });
     }
   });
@@ -287,11 +259,8 @@ function updateLocation() {
           location: newLocation,
         })
         .then(() => {
-          console.log("Location successfully updated!");
-          // Do something after successful update, if needed
         })
         .catch((error) => {
-          console.error("Error updating location:", error);
         });
     }
   });
@@ -314,23 +283,16 @@ function updateEmail() {
           email: newEmail,
         })
         .then(() => {
-          console.log("Email successfully updated!");
           readEmail();
         })
         .catch((error) => {
-          console.error("Error updating email:", error);
         });
 
       user
         .updateEmail(newEmail)
         .then(() => {
-          console.log("User's email updated in authentication profile");
         })
         .catch((error) => {
-          console.error(
-            "Error updating user's email in authentication profile:",
-            error
-          );
         });
     }
   });
@@ -355,13 +317,11 @@ function updatePhone() {
           phone: newPhone,
         })
         .then(() => {
-          console.log("Phone successfully updated!");
           alert("Changes saved successfully!");
           $("#editModal").modal("hide");
           return true;
         })
         .catch((error) => {
-          console.error("Error updating phone:", error);
           return false;
         });
     }

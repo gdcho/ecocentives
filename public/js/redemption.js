@@ -13,14 +13,11 @@ firebase.auth().onAuthStateChanged(function (user) {
           document.getElementById("emailInput").value = userData.email;
           document.getElementById("phoneInput").value = userData.phone;
         } else {
-          console.log("No such document!");
         }
       })
       .catch((error) => {
-        console.log("Error getting document:", error);
       });
   } else {
-    console.log("No user is currently logged in!");
   }
 });
 
@@ -38,7 +35,6 @@ rewardsRef
     let selectedRewardPoints;
     querySnapshot.forEach((doc) => {
       selectedRewardPoints = doc.data().points;
-      console.log(`Selected reward points: ${selectedRewardPoints}`);
     });
   })
   .catch((error) => {
@@ -48,10 +44,8 @@ rewardsRef
 /* Reward redemption submission. */
 function submitRedemption() {
   if (!window.confirm("Are you sure you want to redeem your points?")) {
-    console.log("Redemption cancelled");
     return;
   }
-  console.log("Confirm point redemption");
 
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
@@ -69,7 +63,6 @@ function submitRedemption() {
             let selectedRewardPoints;
             querySnapshot.forEach((doc) => {
               selectedRewardPoints = doc.data().points;
-              console.log(`Selected reward points: ${selectedRewardPoints}`);
             });
 
             const currentPoints = userDoc.data().points;
@@ -83,7 +76,6 @@ function submitRedemption() {
                   points: points,
                 })
                 .then(() => {
-                  console.log("Points balance updated successfully!");
                   var newRedemptionRef = currentUser
                     .collection("redeemed")
                     .doc();
@@ -107,7 +99,6 @@ function submitRedemption() {
                   newRedemptionRef
                     .set(redemptionData)
                     .then(() => {
-                      console.log("Redemption document successfully written!");
                       window.location.href = "/html/confirmation.html";
                     })
                     .catch((error) => {
@@ -121,7 +112,6 @@ function submitRedemption() {
                   console.error("Error updating points balance: ", error);
                 });
             } else {
-              console.log("Insufficient points");
               const message = `You don't have enough points to redeem ${selectedReward}. Your current points balance is ${currentPoints}.`;
               alert(message);
             }
@@ -131,7 +121,6 @@ function submitRedemption() {
           });
       });
     } else {
-      console.log("No user is signed in");
       window.location.href = "redemption.html";
     }
   });

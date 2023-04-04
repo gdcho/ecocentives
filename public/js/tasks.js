@@ -10,7 +10,6 @@ function readPoints() {
           document.getElementById("points-goes-here").innerHTML = userPoints + " points";
         });
     } else {
-      // No user is signed in.
     }
   });
 }
@@ -345,7 +344,6 @@ async function displayCompletedTasks() {
       tableBody.insertAdjacentHTML("beforeend", row);
     });
     if (querySnapshot.empty) {
-      console.log("No completed tasks found");
     } else {
       console.log(`Found ${querySnapshot.size} completed tasks`);
     }
@@ -367,11 +365,9 @@ async function pickFile() {
 
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
-    console.log("User is signed in");
     updateTable();
     displayCompletedTasks();
   } else {
-    console.log("User is signed out");
   }
 });
 

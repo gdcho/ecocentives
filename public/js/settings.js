@@ -55,15 +55,12 @@ firebase.auth().onAuthStateChanged(async function (user) {
           connectInstagram: connectInstagram,
           connectTwitter: connectTwitter,
         });
-        console.log("Settings saved successfully!");
         alert("Settings saved successfully!");
       } catch (error) {
-        console.error("Error saving settings: ", error);
       }
     });
   } else {
     // User is not authenticated.
-    console.log("User is not authenticated.");
   }
 });
 

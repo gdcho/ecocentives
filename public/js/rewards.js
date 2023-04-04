@@ -8,7 +8,6 @@ function getRewardsData(rewardName, rewardContainer) {
     .get()
     .then((querySnapshot) => {
       if (querySnapshot.empty) {
-        console.log("No matching documents.");
       } else {
         querySnapshot.forEach((doc) => {
           const data = doc.data();
@@ -23,7 +22,6 @@ function getRewardsData(rewardName, rewardContainer) {
       }
     })
     .catch((error) => {
-      console.error("Error getting reward document: ", error);
     });
 }
 

@@ -95,6 +95,10 @@ th {
   border-bottom: 1px solid #ddd;
 }
 
+#add-task{
+  display:none;
+}
+
 .task {
   padding: 5px 8px;
   border: none;

@@ -111,6 +111,14 @@ th {
   display:none;
 }
 
+#task-tracker th:last-child {
+  display: none;
+}
+
+#task-tracker td:last-child {
+  display: none;
+}
+
 @media only screen and (max-width: 768px) {
 
   html, body {

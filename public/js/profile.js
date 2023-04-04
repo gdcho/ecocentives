@@ -6,7 +6,8 @@ function readPoints() {
         .doc(user.uid)
         .onSnapshot((doc) => {
           const userPoints = doc.data().points;
-          document.getElementById("points-goes-here").innerHTML = userPoints + " points";
+          document.getElementById("points-goes-here").innerHTML =
+            userPoints + " points";
         });
     } else {
       // No user is signed in.
@@ -157,17 +158,13 @@ function saveImageToFirestore(file, currentUser) {
                 .then(() => {
                   displayProfilePicture();
                 })
-                .catch((error) => {
-                });
+                .catch((error) => {});
             })
-            .catch((error) => {
-            });
+            .catch((error) => {});
         })
-        .catch((error) => {
-        });
+        .catch((error) => {});
     })
-    .catch((error) => {
-    });
+    .catch((error) => {});
 }
 
 /* Get the user's photoURL from Firestore and display it on the profile page. */
@@ -189,8 +186,7 @@ function displayProfilePicture() {
             } else {
             }
           })
-          .catch((error) => {
-          });
+          .catch((error) => {});
       }
     }
   });
@@ -227,17 +223,14 @@ function updateName() {
         .then(() => {
           insertName();
         })
-        .catch((error) => {
-        });
+        .catch((error) => {});
 
       user
         .updateProfile({
           displayName: newName,
         })
-        .then(() => {
-        })
-        .catch((error) => {
-        });
+        .then(() => {})
+        .catch((error) => {});
     }
   });
 }
@@ -258,10 +251,8 @@ function updateLocation() {
         .update({
           location: newLocation,
         })
-        .then(() => {
-        })
-        .catch((error) => {
-        });
+        .then(() => {})
+        .catch((error) => {});
     }
   });
 }
@@ -285,15 +276,12 @@ function updateEmail() {
         .then(() => {
           readEmail();
         })
-        .catch((error) => {
-        });
+        .catch((error) => {});
 
       user
         .updateEmail(newEmail)
-        .then(() => {
-        })
-        .catch((error) => {
-        });
+        .then(() => {})
+        .catch((error) => {});
     }
   });
 }
@@ -350,8 +338,10 @@ firebase.auth().onAuthStateChanged(function (user) {
       .then(function (querySnapshot) {
         if (!querySnapshot.empty) {
           const data = querySnapshot.docs[0].data();
-          document.getElementById("redeemed-reward").textContent = "("+data.reward+")";
-          document.getElementById("redeemed-points").textContent = "-" + data.points +" points";
+          document.getElementById("redeemed-reward").textContent =
+            "(" + data.reward + ")";
+          document.getElementById("redeemed-points").textContent =
+            "-" + data.points + " points";
         }
       });
   } else {

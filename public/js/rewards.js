@@ -21,8 +21,7 @@ function getRewardsData(rewardName, rewardContainer) {
         });
       }
     })
-    .catch((error) => {
-    });
+    .catch((error) => {});
 }
 
 const playstationRewardContainer = document.querySelector("#playstation");
@@ -49,33 +48,33 @@ function saveRewardSelectionAndRedirect(rewardName) {
   window.location.href = "redemption.html";
 }
 
-const playstationRedeemBtn = playstationRewardContainer.querySelector(".redeem-btn");
-playstationRedeemBtn.onclick = function() {
+const playstationRedeemBtn =
+  playstationRewardContainer.querySelector(".redeem-btn");
+playstationRedeemBtn.onclick = function () {
   saveRewardSelectionAndRedirect("$25 PlayStation Gift Card");
-}
+};
 
 const steamRedeemBtn = steamRewardContainer.querySelector(".redeem-btn");
-steamRedeemBtn.onclick = function() {
+steamRedeemBtn.onclick = function () {
   saveRewardSelectionAndRedirect("$50 Steam Gift Card");
-}
+};
 
 const uberRedeemBtn = uberRewardContainer.querySelector(".redeem-btn");
-uberRedeemBtn.onclick = function() {
+uberRedeemBtn.onclick = function () {
   saveRewardSelectionAndRedirect("$50 Uber Gift Card");
-}
+};
 
 const amazonRedeemBtn = amazonRewardContainer.querySelector(".redeem-btn");
-amazonRedeemBtn.onclick = function() {
+amazonRedeemBtn.onclick = function () {
   saveRewardSelectionAndRedirect("$100 Amazon Gift Card");
-}
+};
 
 const bestbuyRedeemBtn = bestbuyRewardContainer.querySelector(".redeem-btn");
-bestbuyRedeemBtn.onclick = function() {
+bestbuyRedeemBtn.onclick = function () {
   saveRewardSelectionAndRedirect("$100 Best Buy Gift Card");
-}
+};
 
 const visaRedeemBtn = visaRewardContainer.querySelector(".redeem-btn");
-visaRedeemBtn.onclick = function() {
+visaRedeemBtn.onclick = function () {
   saveRewardSelectionAndRedirect("$100 Visa Gift Card");
-}
-
+};

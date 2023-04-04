@@ -7,10 +7,8 @@ function loadSkeleton() {
     if (user) {
       // User is signed in.
       // Do something for the user here.
-      $("#afterlogin").load("/nav_after_login.html", function () {
-      })
-      $("#navmobile").load("/nav_mobile.html", function () {
-      })
+      $("#afterlogin").load("/nav_after_login.html", function () {});
+      $("#navmobile").load("/nav_mobile.html", function () {});
       $("#footerapp").load(
         "/footer_after_login.html",
         function (response, status, xhr) {
@@ -24,8 +22,7 @@ function loadSkeleton() {
   });
 
   if ($("#beforelogin").length) {
-    $("#beforelogin").load("/nav_before_login.html", function () {
-    });
+    $("#beforelogin").load("/nav_before_login.html", function () {});
   }
 
   $("#footerPlaceholder").load(
@@ -43,10 +40,14 @@ loadSkeleton(); // Invoke the function
 // Call this function when the "logout" button is clicked
 //-------------------------------------------------
 function logout() {
-    firebase.auth().signOut().then(() => {
-        // Sign-out successful.
-        // window.location.href = 'index.html';
-      }).catch((error) => {
-        // An error happened.
-      });
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      // Sign-out successful.
+      // window.location.href = 'index.html';
+    })
+    .catch((error) => {
+      // An error happened.
+    });
 }

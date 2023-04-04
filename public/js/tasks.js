@@ -1,4 +1,4 @@
-import { API_KEY } from '/js/api-key.js';
+import { API_KEY } from "/js/api-key.js";
 
 function readPoints() {
   firebase.auth().onAuthStateChanged((user) => {
@@ -7,7 +7,8 @@ function readPoints() {
         .doc(user.uid)
         .onSnapshot((doc) => {
           const userPoints = doc.data().points;
-          document.getElementById("points-goes-here").innerHTML = userPoints + " points";
+          document.getElementById("points-goes-here").innerHTML =
+            userPoints + " points";
         });
     } else {
     }
@@ -54,14 +55,10 @@ async function addTask() {
               // Update the table after the task is added
               updateTable();
             })
-            .catch(function (error) {
-              console.error("Error adding task: ", error);
-            });
+            .catch(function (error) {});
         }
       })
-      .catch(function (error) {
-        console.log("Error getting documents: ", error);
-      });
+      .catch(function (error) {});
   }
 }
 
@@ -124,24 +121,25 @@ function updateTable() {
           var progress = doc.data().progress;
           var image = `<button data-task-id="${doc.id}" class="task">Upload Image</button>`;
           if (doc.data().image) {
-            image += `<br><img class="hidden" src="${doc.data().image}" alt="Task Image">`;
+            image += `<br><img class="hidden" src="${
+              doc.data().image
+            }" alt="Task Image">`;
           }
-        
-          if (!progress) { // Only add the row if the task is not completed
+
+          if (!progress) {
+            // Only add the row if the task is not completed
             var row = `<tr><td>${task}</td><td>${score}</td><td>${
               progress ? "Completed" : "Not completed"
             }</td><td>${image}</td></tr>`;
             rows.push(row);
           }
         });
-        
+
         table.insertAdjacentHTML("beforeend", rows.join(""));
 
         attachImageUploadToTasks();
       })
-      .catch(function (error) {
-        console.log("Error getting documents: ", error);
-      });
+      .catch(function (error) {});
   }
 }
 
@@ -227,95 +225,115 @@ async function attachImageUploadToTasks() {
               },
               { merge: true }
             )
-        .then(() => {
-            // Check if any ecoActions match the descriptions and update user points accordingly
-            const currentUser = firebase.auth().currentUser;
-            const userRef = firebase
-              .firestore()
-              .collection("users")
-              .doc(currentUser.uid);
-            const taskDescRef = firebase
-              .firestore()
-              .collection("users")
-              .doc(currentUser.uid)
-              .collection("tasks")
-              .doc(taskId);
+            .then(() => {
+              // Check if any ecoActions match the descriptions and update user points accordingly
+              const currentUser = firebase.auth().currentUser;
+              const userRef = firebase
+                .firestore()
+                .collection("users")
+                .doc(currentUser.uid);
+              const taskDescRef = firebase
+                .firestore()
+                .collection("users")
+                .doc(currentUser.uid)
+                .collection("tasks")
+                .doc(taskId);
 
               taskRef.get().then(async (doc) => {
                 if (doc.exists) {
-                  const descriptions = labelAnnotations.flatMap((label) => {
-                    return label.description.split(" ");
-                  }).map((word) => {
-                    return word.toLowerCase();
-                  });
+                  const descriptions = labelAnnotations
+                    .flatMap((label) => {
+                      return label.description.split(" ");
+                    })
+                    .map((word) => {
+                      return word.toLowerCase();
+                    });
                   let pointsToAdd = 0;
                   let actionWords = [];
-              
+
                   if (Array.isArray(descriptions)) {
                     const flatDescriptions = descriptions.flat();
-              
-                    const tasksRef = firebase.firestore().collection("users").doc(currentUser.uid).collection("tasks");
+
+                    const tasksRef = firebase
+                      .firestore()
+                      .collection("users")
+                      .doc(currentUser.uid)
+                      .collection("tasks");
                     const taskDoc = await tasksRef.doc(taskId).get();
                     const taskData = taskDoc.data();
-              
+
                     taskData.task.split(",").forEach((action) => {
-                      actionWords = action.split(/[\s-]+/).map((word) => word.toLowerCase());
+                      actionWords = action
+                        .split(/[\s-]+/)
+                        .map((word) => word.toLowerCase());
                       let actionPointsToAdd = 0;
                       actionWords.forEach((word) => {
-                        if (flatDescriptions.includes(word) && (actionPointsToAdd == 0)) {
+                        if (
+                          flatDescriptions.includes(word) &&
+                          actionPointsToAdd == 0
+                        ) {
                           actionPointsToAdd += taskData.score;
                         }
                       });
                       pointsToAdd += actionPointsToAdd;
                     });
-              
+
                     console.log("pointsToAdd:", pointsToAdd);
                     console.log("actionWords:", actionWords);
                     console.log("flatDescriptions:", flatDescriptions);
-              
-                    if (pointsToAdd > 0) {
 
+                    if (pointsToAdd > 0) {
                       // Mark the task as completed
-                      taskDescRef.update({ progress: true })
-                      .then(() => console.log("Task marked as completed."))
-                      .catch((error) => console.error("Error marking task as completed:", error));
+                      taskDescRef
+                        .update({ progress: true })
+                        .then(() => console.log("Task marked as completed."))
+                        .catch((error) =>
+                          console.error(
+                            "Error marking task as completed:",
+                            error
+                          )
+                        );
 
                       // Remove the completed task from the table
-                      var completedTask = document.querySelector(`[data-task-id="${taskId}"]`);
+                      var completedTask = document.querySelector(
+                        `[data-task-id="${taskId}"]`
+                      );
                       if (completedTask) {
-                      completedTask.parentNode.parentNode.remove();
+                        completedTask.parentNode.parentNode.remove();
                       }
 
                       // Update the user's points
                       userRef
-                      .update({
-                        points: firebase.firestore.FieldValue.increment(pointsToAdd),
-                      })
-                      .then(function () {
-                        console.log("User points updated successfully!");
-                        // Remove the completed task from the table
-                        var completedTask = document.querySelector(`[data-task-id="${taskId}"]`);
-                        if (completedTask) {
-                          completedTask.parentNode.parentNode.remove();
-                        }
-                        // Display success modal
-                        displayModal("Task passed! Points added successfully.");
-                        updateTable();
-                      })
-                      .catch(function (error) {
-                        console.error("Error updating user points: ", error);
-                      });
+                        .update({
+                          points:
+                            firebase.firestore.FieldValue.increment(
+                              pointsToAdd
+                            ),
+                        })
+                        .then(function () {
+                          // Remove the completed task from the table
+                          var completedTask = document.querySelector(
+                            `[data-task-id="${taskId}"]`
+                          );
+                          if (completedTask) {
+                            completedTask.parentNode.parentNode.remove();
+                          }
+                          // Display success modal
+                          displayModal(
+                            "Task passed! Points added successfully."
+                          );
+                          updateTable();
+                        })
+                        .catch(function (error) {});
                     } else {
                       // Display error modal
                       displayModal("Task failed. No points added.");
                       updateTable();
                     }
                   } else {
-                    console.error("Error: descriptions is not an array.");
                   }
                 }
               });
-              
             })
             .catch((error) => {
               console.error("Error adding task: ", error);
@@ -330,7 +348,10 @@ async function displayCompletedTasks() {
   const user = firebase.auth().currentUser;
   if (user) {
     const currentUser = db.collection("users").doc(user.uid);
-    const querySnapshot = await currentUser.collection("tasks").where("progress", "==", true).get();
+    const querySnapshot = await currentUser
+      .collection("tasks")
+      .where("progress", "==", true)
+      .get();
     const tableBody = document.getElementById("completed-tasks-table");
     tableBody.innerHTML = "";
 
@@ -344,7 +365,6 @@ async function displayCompletedTasks() {
     });
     if (querySnapshot.empty) {
     } else {
-      console.log(`Found ${querySnapshot.size} completed tasks`);
     }
   }
 }
@@ -376,7 +396,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const button = document.getElementById("add-task");
   button.addEventListener("click", addTask);
-
 });
 
 function displayModal(message) {
@@ -397,4 +416,3 @@ function displayModal(message) {
     }, 500);
   }, 2000);
 }
-

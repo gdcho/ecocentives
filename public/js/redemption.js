@@ -15,8 +15,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         } else {
         }
       })
-      .catch((error) => {
-      });
+      .catch((error) => {});
   } else {
   }
 });
@@ -125,4 +124,3 @@ function submitRedemption() {
     }
   });
 }
-

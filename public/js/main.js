@@ -25,8 +25,7 @@ function readEcoTip() {
       } else {
       }
     })
-    .catch((error) => {
-    });
+    .catch((error) => {});
 }
 readEcoTip();
 

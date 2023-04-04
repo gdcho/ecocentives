@@ -156,11 +156,10 @@ a {
   background-color: transparent;
 }
 
+  /* Styles for screens smaller than 768px */
 @media screen and (max-width: 768px) {
-  /* styles for screens smaller than 768px */
-
   body {
-    padding-top: 80px; /* Replace 56px with the height of your navbar */
+    padding-top: 80px;
   }
 
   .landing {
@@ -252,7 +251,6 @@ a {
   }
 
   #beforelogin {
-    background-color: #3e8e41;
-    border-bottom: 2px solid yellowgreen;
+    background-color: rgba(0, 0, 0, 0.25);
   }
 }

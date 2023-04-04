@@ -126,14 +126,13 @@ body {
     border: none;
   }
 
-  #footerapp{
+  #footerapp {
     display: flex;
     text-align: center !important;
     justify-content: center;
   }
 
-  .text-md-right{
+  .text-md-right {
     margin-left: -15px;
   }
-
 }

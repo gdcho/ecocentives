@@ -108,7 +108,7 @@ body {
 
   .navbar-nav .nav-item {
     display: block;
-    text-align: right;
+    text-align: center;
     margin-right: 20px;
     margin-bottom: 10px;
   }
@@ -116,7 +116,7 @@ body {
   .navbar-nav .nav-link {
     padding: 5px 0;
     display: block;
-    text-align: right;
+    text-align: center;
   }
 
   .small-dropdown {
@@ -125,4 +125,15 @@ body {
     box-shadow: none;
     border: none;
   }
+
+  #footerapp{
+    display: flex;
+    text-align: center !important;
+    justify-content: center;
+  }
+
+  .text-md-right{
+    margin-left: -15px;
+  }
+
 }

@@ -32,6 +32,11 @@ form {
   display:none;
 }
 
+#navmobile{
+  display:none;
+}
+
+
 @media only screen and (max-width: 768px) {
 
   html, body {
@@ -40,8 +45,16 @@ form {
     width: auto;
   }
 
+  #afterlogin{
+    display:none;
+  }
+
+  #navmobile{
+    display: inline-block;
+  }
+
   .container {
-    margin-top: 80px;
+    margin-top: 30%;
     max-width: 380px;
     border-radius: 10px;
   }

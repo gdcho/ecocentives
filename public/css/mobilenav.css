@@ -7,8 +7,9 @@
     border-bottom: 2px solid yellowgreen;
   }
   
-.navbar-brand{
-    margin-top: 3%;
+#nav-brand-mobile{
+    padding-top: 10px;
+    margin-left: -35px;
 }
 
 .navbar-nav {
@@ -20,8 +21,10 @@
 .nav-link-mobile {
     display: inline-block;
     text-align: center;
+    margin-top: 5px;
     margin-right: 5px;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     background-color: transparent;
+    text-decoration: none;
 }
   

@@ -73,12 +73,28 @@ th {
   display:none;
 }
 
+#navmobile{
+  display:none;
+}
+
 @media only screen and (max-width: 768px) {
 
   html, body {
     font-size: 14px;
     height: 100vh;
     width: auto;
+  }
+
+  h1 {
+    margin-top: 30%;
+  }
+
+  #afterlogin{
+    display:none;
+  }
+
+  #navmobile{
+    display: inline-block;
   }
 
   .container {
@@ -106,8 +122,5 @@ th {
   .nav-link{
     color:white;
   }
-
-
-  
 
 }

@@ -74,6 +74,10 @@ app.get('/footer.html', (req, res) => {
   res.sendFile(__dirname + '/text/footer.html');
 });
 
+app.get('/nav_mobile.html', (req, res) => {
+  res.sendFile(__dirname + '/text/nav_mobile.html');
+});
+
 app.get('/footer_after_login.html', (req, res) => {
   res.sendFile(__dirname + '/text/footer_after_login.html');
 });

@@ -9,6 +9,8 @@ function loadSkeleton() {
       // Do something for the user here.
       $("#afterlogin").load("/nav_after_login.html", function () {
       })
+      $("#navmobile").load("/nav_mobile.html", function () {
+      })
       $("#footerapp").load(
         "/footer_after_login.html",
         function (response, status, xhr) {

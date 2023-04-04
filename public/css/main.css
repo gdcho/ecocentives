@@ -107,12 +107,24 @@ th {
   display: none;
 }
 
+#navmobile{
+  display:none;
+}
+
 @media only screen and (max-width: 768px) {
 
   html, body {
     font-size: 14px;
     height: 100vh;
     width: auto;
+  }
+
+  #afterlogin{
+    display:none;
+  }
+
+  #navmobile{
+    display: inline-block;
   }
 
   .container {

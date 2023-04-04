@@ -261,9 +261,8 @@ async function attachImageUploadToTasks() {
                     taskData.task.split(",").forEach((action) => {
                       actionWords = action.split(/[\s-]+/).map((word) => word.toLowerCase());
                       let actionPointsToAdd = 0;
-              
                       actionWords.forEach((word) => {
-                        if (flatDescriptions.includes(word)) {
+                        if (flatDescriptions.includes(word) && (actionPointsToAdd == 0)) {
                           actionPointsToAdd += taskData.score;
                         }
                       });

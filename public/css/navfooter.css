@@ -66,7 +66,7 @@ body {
   margin: auto;
 }
 
-/* Media query */
+/* Media Query */
 
 @media only screen and (max-width: 768px) {
   html {
@@ -78,6 +78,12 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
+  }
+
+  #footerapp {
+    display: flex;
+    text-align: center !important;
+    justify-content: center;
   }
 
   .navbar-brand {
@@ -103,20 +109,18 @@ body {
   }
 
   .navbar-nav {
-    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
   }
 
   .navbar-nav .nav-item {
-    display: block;
-    text-align: center;
-    margin-right: 20px;
-    margin-bottom: 10px;
+    margin-right: 0;
+    margin-bottom: 20px;
   }
 
   .navbar-nav .nav-link {
-    padding: 5px 0;
-    display: block;
-    text-align: center;
+    padding: 5px 10px;
   }
 
   .small-dropdown {
@@ -124,12 +128,6 @@ body {
     background-color: transparent;
     box-shadow: none;
     border: none;
-  }
-
-  #footerapp {
-    display: flex;
-    text-align: center !important;
-    justify-content: center;
   }
 
   .text-md-right {

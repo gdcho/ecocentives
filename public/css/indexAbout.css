@@ -98,7 +98,6 @@ a {
 }
 
 .about-header h2 {
-  margin-top: 10%;
   font-size: 48px;
   position: relative;
   display: block;
@@ -156,7 +155,9 @@ a {
   background-color: transparent;
 }
 
-  /* Styles for screens smaller than 768px */
+
+/* Media Query */
+
 @media screen and (max-width: 768px) {
   body {
     padding-top: 80px;

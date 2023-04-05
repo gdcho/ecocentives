@@ -42,7 +42,7 @@ body {
   display: block !important;
 }
 
-/* Toggle Menu CSS */
+/* Toggle Menu CSS. */
 
 .navbar-toggler-about {
   margin-right: 5%;
@@ -104,7 +104,7 @@ body {
   margin: auto;
 }
 
-/* Media Query */
+/* Media Query. */
 
 @media only screen and (max-width: 768px) {
   html {

@@ -42,6 +42,44 @@ body {
   display: block !important;
 }
 
+/* Toggle Menu CSS */
+
+.navbar-toggler-about {
+  margin-right: 5%;
+  font-size: 0.75rem;
+  border-radius: 3px;
+  border: 2px solid #000;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+.navbar-toggler-about-icon {
+  background-image: url("path/to/about-icon.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+}
+
+.navbar-toggler-login {
+  margin-right: 5%;
+  font-size: 0.75rem;
+  border-radius: 3px;
+  border: 2px solid #000;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+.navbar-toggler-login-icon {
+  background-image: url("path/to/login-icon.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+}
+
 /* Footer CSS. */
 
 .footer {

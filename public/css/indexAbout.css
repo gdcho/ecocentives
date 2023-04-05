@@ -98,6 +98,7 @@ a {
 }
 
 .about-header h2 {
+  margin-top: 10%;
   font-size: 48px;
   position: relative;
   display: block;

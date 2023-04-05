@@ -1,5 +1,6 @@
 import { API_KEY } from "/js/api-key.js";
 
+/* Display points balance from Firestore Database. */
 function readPoints() {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
@@ -14,9 +15,9 @@ function readPoints() {
     }
   });
 }
-
 readPoints();
 
+/* Add chosen task(s) for user in Firestore. */
 var table = document.getElementById("task-tracker");
 var lastSelectionTime = null;
 
@@ -71,6 +72,7 @@ async function getEcoActions() {
   return ecoActions;
 }
 
+/* Display available tasks from Firestore Database. */
 async function displayRandomTasks() {
   // Generate a random seed value for the day
   const now = new Date();
@@ -143,6 +145,7 @@ function updateTable() {
   }
 }
 
+/* Allow users to upload proof of completion for tasks. */
 async function attachImageUploadToTasks() {
   const taskElements = document.querySelectorAll(".task");
 
@@ -344,6 +347,7 @@ async function attachImageUploadToTasks() {
   });
 }
 
+/* Display completed tasks from Firestore Database. */
 async function displayCompletedTasks() {
   const user = firebase.auth().currentUser;
   if (user) {

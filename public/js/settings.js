@@ -1,4 +1,4 @@
-/* Saving user settings in a subcollection for the user. */
+/* Saves user settings in a subcollection for the user. */
 firebase.auth().onAuthStateChanged(async function (user) {
   if (user) {
     const userId = user.uid;

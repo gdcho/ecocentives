@@ -344,6 +344,7 @@ document.getElementById("saveChanges").addEventListener("click", () => {
   updatePhone();
 });
 
+/* Display user's current points balance and redemption history. */
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     const currentUser = firebase.auth().currentUser;

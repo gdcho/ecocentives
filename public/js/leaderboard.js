@@ -1,3 +1,4 @@
+/* Display ranks based off of highest to lowest points balance for each user. */
 function retrieveBoard() {
   db.collection("users")
     .orderBy("points", "desc")
@@ -27,7 +28,7 @@ function retrieveBoard() {
         var profilePicture = document.createElement("img");
         profilePicture.src = user.photoURL
           ? user.photoURL
-          : "/img/placeholder-profile.png"; // set default image if photoURL is undefined
+          : "/img/placeholder-profile.png"; 
         profilePicture.alt = user.displayName;
         profilePicture.width = 30;
         nameCell.appendChild(profilePicture);

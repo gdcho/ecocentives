@@ -153,8 +153,19 @@ body {
     padding: 5px 10px;
   }
 
+  #mobile-link{
+    margin:-10px;
+    text-align: right;
+    margin-right: 5px;
+  }
+
+  #socials{
+    margin: -10px;
+  }
+
   .nav-link {
     padding: 5px 10px;
+    margin: 5px;
   }
 
   .small-dropdown {

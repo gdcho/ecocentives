@@ -168,10 +168,10 @@ th {
 
   .points-container {
     position: relative;
-    margin-top: 30px;
     max-width: 380px;
     border-radius: 10px;
-    margin-left: 16px;
+    margin: auto;
+    margin-top: 30px;
   }
 
   .leaderboard-container {

@@ -129,7 +129,7 @@ body {
   }
 
   .navbar-toggler {
-    margin-right: 5%;
+    margin-right: 4%;
     font-size: 0.75rem;
     border-radius: 3px;
     border: 2px solid #000;
@@ -149,16 +149,13 @@ body {
   .navbar-nav {
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
-  }
-
-  .navbar-nav .nav-item {
-    margin-right: 0;
-    margin-bottom: 20px;
-  }
-
-  .navbar-nav .nav-link {
+    margin-top: 20px;
     padding: 5px 10px;
+  }
+
+  .nav-link {
+    padding: 5px 10px;
+    margin-left: 407px;
   }
 
   .small-dropdown {

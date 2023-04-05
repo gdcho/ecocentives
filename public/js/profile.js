@@ -222,6 +222,8 @@ function updateName() {
         })
         .then(() => {
           insertName();
+          window.alert("Changes saved successfully!");
+          $("#editModal").modal("hide");
         })
         .catch((error) => {});
 
@@ -251,7 +253,10 @@ function updateLocation() {
         .update({
           location: newLocation,
         })
-        .then(() => {})
+        .then(() => {
+          window.alert("Changes saved successfully!");
+          $("#editModal").modal("hide");
+        })
         .catch((error) => {});
     }
   });
@@ -280,7 +285,10 @@ function updateEmail() {
 
       user
         .updateEmail(newEmail)
-        .then(() => {})
+        .then(() => {
+          window.alert("Changes saved successfully!");
+          $("#editModal").modal("hide");
+        })
         .catch((error) => {});
     }
   });
@@ -291,9 +299,22 @@ function updatePhone() {
   const newPhone = phoneInput.value.trim();
   const phoneRegex = /^\(\d{3}\) \d{3}\-\d{4}$/;
 
+  // Check if all other fields are valid before checking phone format.
+  const nameInput = document.getElementById("nameInput");
+  const newName = nameInput.value.trim();
+  const locationInput = document.getElementById("locationInput");
+  const newLocation = locationInput.value.trim();
+  const emailInput = document.getElementById("emailInput");
+  const newEmail = emailInput.value.trim();
+
+  if (newName === "" || newLocation === "" || newEmail === "") {
+    // Other fields are empty.
+    return;
+  }
+
   if (!phoneRegex.test(newPhone)) {
     // Phone input does not match the desired format.
-    alert("Phone number should be in the format (xxx) xxx-xxxx");
+    window.alert("Phone number should be in the format (xxx) xxx-xxxx");
     return false;
   }
 
@@ -305,7 +326,7 @@ function updatePhone() {
           phone: newPhone,
         })
         .then(() => {
-          alert("Changes saved successfully!");
+          window.alert("Changes saved successfully!");
           $("#editModal").modal("hide");
           return true;
         })

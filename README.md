@@ -7,16 +7,18 @@ A web-based application to encourage Canadians to practice environmentally-frien
 ## Contributors
  David |  Gin  |  Sohee
 --- | --- | ---
-*Hi, my name is David. I am excited for this project because I like the environment.* | *Hi, my name is Gin. I am looking forward to the outcome of this project.* | *Hi, my name is Sohee. This project is interesting.*
+*Hi, my name is David. I like the environment.* | *Hi, my name is Gin. I am looking forward to the outcome of this project.* | *Hi, my name is Sohee. This project is interesting.*
 	
-## 3. Technologies and Resources Used
-List technologies (with version numbers), API's, icons, fonts, images, media or data sources, and other resources that were used.
-* HTML, CSS, JavaScript
-* Bootstrap 5.0 (Frontend library)
-* Firebase 8.0 (BAAS - Backend as a Service)
-* Google Vision API
+## Technologies and Resources Used
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
+![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase)
+![Google Cloud](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 
-## 4. Complete setup/installion/usage
+## Complete setup/installion/usage
 State what a user needs to do when they come to your project.  How do others start using your code or application?
 Here are the steps ...
 
@@ -35,19 +37,19 @@ Instructions:
 * Upload proof of completion for each task to earn points.
 * Browse through the rewards and select a reward to redeem.
 
-## 5. Known Bugs and Limitations
+## Known Bugs and Limitations
 Here are some known bugs:
 * ...
 * ...
 * ...
 
-## 6. Features for Future
+## Features for Future
 What we'd like to build in the future:
 * Add in progress bars for each task that increments whenever proof of completion images are uploaded.
 * ...
 * ...
 	
-## 7. Contents of Folder
+## Contents of Folder
 Content of the project folder:
 
 ```

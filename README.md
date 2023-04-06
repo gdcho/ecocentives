@@ -1,14 +1,13 @@
-# Project Title
+# Ecocentives
 BCIT CST COMP 1800 Projects 1
 
-## 1. Project Description
+## Project Description
 A web-based application to encourage Canadians to practice environmentally-friendly habits with an incentive program, allowing users to complete recurring tasks while competing with one another to collect points for reward redemption.
 
-## 2. Names of Contributors
-List team members and/or short bio's here... 
-* Hi, my name is Gin. I am looking forward to the outcome of this project.
-* Hi, my name is David. I am excited for this project because I like the environment.
-* Hi, my name is Sohee. This project is interesting.
+## Contributors
+ David |  Gin  |  Sohee
+--- | --- | ---
+*Hi, my name is David. I am excited for this project because I like the environment.* | *Hi, my name is Gin. I am looking forward to the outcome of this project.* | *Hi, my name is Sohee. This project is interesting.*
 	
 ## 3. Technologies and Resources Used
 List technologies (with version numbers), API's, icons, fonts, images, media or data sources, and other resources that were used.

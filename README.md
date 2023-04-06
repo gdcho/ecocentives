@@ -35,7 +35,8 @@ git clone https://github.com/gdcho/1800_202310_BBY10
 ```
 * Install node.js by running this in Command Prompt or Terminal 
 ```sh
-npm install -g npm
+npm install -g npm (Mac)
+npm install express (Windows)
 ```
 * Check to make sure node was installed successfully
 ```sh

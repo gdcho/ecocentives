@@ -1,4 +1,4 @@
-# Ecocentives
+# Ecocentives (logo.png)
 BCIT CST COMP 1800 Projects 1
 
 ## Project Description

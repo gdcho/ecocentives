@@ -1,6 +1,14 @@
 # Ecocentives
 BCIT CST COMP 1800 Projects 1
 
+<br />
+<div align="center">
+  <a href="https://github.com/gdcho/1800_202310_BBY10">
+    <img src="https://github.com/gdcho/1800_202310_BBY10/blob/main/public/img/logo.png" alt="Logo" width="80" height="80">
+  </a>
+  <h3 align="center">Ecocentives</h3>
+</div>
+
 ## Project Description
 A web-based application to encourage Canadians to practice environmentally-friendly habits with an incentive program, allowing users to complete recurring tasks while competing with one another to collect points for reward redemption.
 

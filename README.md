@@ -54,16 +54,32 @@ Content of the project folder:
 ```
  Top level of project folder:
 
-├── app                      # Firebase and HTML files
-├── node_modules             # Module files
-├── public                   # CSS, JS, and img files
-├── text                     # Navbar and footer files
-├── .gitignore               # Git ignore file
-├── node.js                  # Serves the website on Port 8000
-├── package-lock.json        # JSON files
-├── package.json             # JSON files
-└── README.md                # Project description
+/1800_202310_BBY10
+├── app                             # Firebase and HTML files
+├── public                          # CSS, JS, and img files
+├── text                            # Navbar and footer files
+├── .gitignore                      # Git ignore file
+├── README.md                       # Project description
+├── node.js                         # Serves the website on Port 8000
+├── package-lock.json               # JSON files
+└── package.json                    # JSON files
 
+It has the following subfolders and files:
+├── app/                            # Firebase and HTML files
+│   ├── firebase                    # Firebase initialization
+│   └── html                        # HTML files
+│
+├── public/                         # CSS, JS, and img files
+│   ├── css                         # CSS files
+│   ├── img                         # img files
+│   └── js                          # JS files
+│
+└── text/                           # HTML files for footer and nav
+    ├── footer.html                 # footer for web
+    ├── footer_after_login.html     # footer for web after login
+    ├── nav_after_login.html        # navigation after login
+    ├── nav_before_login.html       # navigation before login
+    └── nav_mobile.html             # footer for mobile after login
 ```
 
 

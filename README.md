@@ -13,7 +13,7 @@ A web-based application to encourage Canadians to practice environmentally-frien
 ## Contributors
 | <img src="https://github.com/gdcho/1800_202310_BBY10/blob/main/public/img/david-memoji.png" alt="David" width="70"> | <img src="https://github.com/gdcho/1800_202310_BBY10/blob/main/public/img/gin-memoji.png" alt="Gin" width="70"> | <img src="https://github.com/gdcho/1800_202310_BBY10/blob/main/public/img/sohee-memoji.png" alt="Sohee" width="70"> |
 | :---: | :---: | :---: |
-| David | Gin | Sohee |
+| David Cho | Gin Lu | Sohee Hwang |
 *Hi, my name is David. I like the environment.* | *Hi, my name is Gin. I am looking forward to the outcome of this project.* | *Hi, my name is Sohee. This project is interesting.*
 	
 ## Technologies and Resources Used
@@ -62,15 +62,13 @@ Instructions:
 
 ## Known Bugs and Limitations
 Here are some known bugs:
-* ...
-* ...
+* Task completion loophole by uploading an image with keyword.
 * ...
 
 ## Features for Future
 What we'd like to build in the future:
-* Add in progress bars for each task that increments whenever proof of completion images are uploaded.
-* ...
-* ...
+* Communities and forums for users to share their eco-actions for the day.
+* Implementing OpenAI 4.0 API for task image recognition.
 	
 ## Contents of Folder
 Content of the project folder:

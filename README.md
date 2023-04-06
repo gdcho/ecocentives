@@ -10,7 +10,7 @@ BCIT CST COMP 1800 Projects 1
 A web-based application to encourage Canadians to practice environmentally-friendly habits with an incentive program, allowing users to complete recurring tasks while competing with one another to collect points for reward redemption.
 
 ## Contributors
- David |  Gin  |  Sohee
+<img src="https://github.com/gdcho/1800_202310_BBY10/blob/main/public/img/david-memoji.png" alt="Logo" width="30"> David |  <img src="https://github.com/gdcho/1800_202310_BBY10/blob/main/public/img/gin-memoji.png" alt="Logo" width="30">Gin  |  <img src="https://github.com/gdcho/1800_202310_BBY10/blob/main/public/img/sohee-memoji.png" alt="Logo" width="30"> Sohee
 --- | --- | ---
 *Hi, my name is David. I like the environment.* | *Hi, my name is Gin. I am looking forward to the outcome of this project.* | *Hi, my name is Sohee. This project is interesting.*
 	

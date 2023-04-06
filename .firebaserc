@@ -1,5 +1,19 @@
 {
   "projects": {
-    "default": "comp1800-202310-3a4f1"
-  }
+    "default": "comp1800-202310-3a4f1",
+    "Ecocentives": "comp1800-202310-3a4f1"
+  },
+  "targets": {
+    "comp1800-202310-3a4f1": {
+      "hosting": {
+        "app": [
+          "app/html"
+        ],
+        "public": [
+          "public/"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

@@ -8,6 +8,7 @@
 ## Project Description
 A web-based application to encourage Canadians to practice environmentally-friendly habits with an incentive program, allowing users to complete recurring tasks while competing with one another to collect points for reward redemption.
 <br>
+<br>
 <img align="center" src="https://github.com/gdcho/1800_202310_BBY10/blob/main/public/img/ecoincentives.png" alt="Landing" width="1000">
 
 ## Contributors

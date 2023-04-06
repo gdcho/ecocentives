@@ -1,17 +1,18 @@
-# BCIT CST COMP 1800 Projects 1
- <div align="center">
+<h1 align="center"> Ecocentives </h1> 
+<div align="center">
   <a align="center" href="https://github.com/gdcho/1800_202310_BBY10">
     <img src="https://github.com/gdcho/1800_202310_BBY10/blob/main/public/img/logo.png" alt="Logo" width="80" height="80">
   </a>
-  <h3 align="center">Ecocentives</h3>
-  <img src="https://github.com/gdcho/1800_202310_BBY10/blob/main/public/img/ecoincentives.png" alt="Landing" width="1000">
 </div>
 
 ## Project Description
 A web-based application to encourage Canadians to practice environmentally-friendly habits with an incentive program, allowing users to complete recurring tasks while competing with one another to collect points for reward redemption.
+<br>
+<br>
+<img align="center" src="https://github.com/gdcho/1800_202310_BBY10/blob/main/public/img/ecoincentives.png" alt="Landing" width="1000">
 
 ## Contributors
-| <img src="https://github.com/gdcho/1800_202310_BBY10/blob/main/public/img/david-memoji.png" alt="David" width="70"> | <img src="https://github.com/gdcho/1800_202310_BBY10/blob/main/public/img/gin-memoji.png" alt="Gin" width="70"> | <img src="https://github.com/gdcho/1800_202310_BBY10/blob/main/public/img/sohee-memoji.png" alt="Sohee" width="70"> |
+| <img src="https://github.com/gdcho/1800_202310_BBY10/blob/main/public/img/david-memoji.png" alt="David" width="80"> | <img src="https://github.com/gdcho/1800_202310_BBY10/blob/main/public/img/gin-memoji.png" alt="Gin" width="80"> | <img src="https://github.com/gdcho/1800_202310_BBY10/blob/main/public/img/sohee-memoji.png" alt="Sohee" width="80"> |
 | :---: | :---: | :---: |
 | David Cho | Gin Lu | Sohee Hwang |
 *Hi, my name is David. I like the environment.* | *Hi, my name is Gin. I am looking forward to the outcome of this project.* | *Hi, my name is Sohee. This project is interesting.*
@@ -63,16 +64,15 @@ Instructions:
 ## Known Bugs and Limitations
 Here are some known bugs:
 * Task completion loophole by uploading an image with keyword.
-* ...
+* Task refreshes on reload rather being updating every 24 hours.
 
 ## Features for Future
 What we'd like to build in the future:
 * Communities and forums for users to share their eco-actions for the day.
 * Implementing OpenAI 4.0 API for task image recognition.
+* Connect notification settings to mobile.
 	
 ## Contents of Folder
-Content of the project folder:
-
 ```
  Top level of project folder:
 

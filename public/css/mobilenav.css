@@ -1,6 +1,19 @@
-html body {
-  overflow-x: hidden;
-  height: 100vh;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-size: 14px;
+  max-height: 100%;
+  width: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 #navmobile {

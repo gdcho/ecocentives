@@ -42,44 +42,6 @@ body {
   display: block !important;
 }
 
-/* Toggle Menu CSS. */
-
-.navbar-toggler-about {
-  margin-right: 5%;
-  font-size: 0.75rem;
-  border-radius: 3px;
-  border: 2px solid #000;
-  background-color: transparent;
-  border: none;
-  padding: 0;
-}
-
-.navbar-toggler-about-icon {
-  background-image: url("path/to/about-icon.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 30px;
-  height: 30px;
-}
-
-.navbar-toggler-login {
-  margin-right: 5%;
-  font-size: 0.75rem;
-  border-radius: 3px;
-  border: 2px solid #000;
-  background-color: transparent;
-  border: none;
-  padding: 0;
-}
-
-.navbar-toggler-login-icon {
-  background-image: url("path/to/login-icon.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 30px;
-  height: 30px;
-}
-
 /* Footer CSS. */
 
 .footer {
@@ -124,6 +86,22 @@ body {
     justify-content: center;
   }
 
+  #home-link,
+  #about-link {
+    display: none;
+  }
+
+  #mobile-link {
+    margin: -10px;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+  }
+
+  #socials {
+    margin: -10px;
+  }
+
   .navbar-brand {
     font-size: 28px;
   }
@@ -151,16 +129,6 @@ body {
     flex-direction: column;
     margin-top: 20px;
     padding: 5px 10px;
-  }
-
-  #mobile-link{
-    margin:-10px;
-    text-align: right;
-    margin-right: 5px;
-  }
-
-  #socials{
-    margin: -10px;
   }
 
   .nav-link {

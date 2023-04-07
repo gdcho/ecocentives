@@ -46,11 +46,22 @@ p {
 }
 
 @media only screen and (max-width: 768px) {
-  html,
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    height: 100%;
+  }
+
   body {
     font-size: 14px;
-    height: 100vh;
+    max-height: 100%;
     width: auto;
+    display: flex;
+    flex-direction: column;
   }
 
   #afterlogin {
@@ -68,6 +79,7 @@ p {
     margin-bottom: 50px;
     border-radius: 10px;
     max-width: 380px;
+    margin-bottom: 30%;
   }
 
   #wrapper {

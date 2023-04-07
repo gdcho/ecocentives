@@ -121,12 +121,25 @@ th {
 }
 
 @media only screen and (max-width: 768px) {
-  html,
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    height: 100%;
+  }
+  
   body {
     font-size: 14px;
-    height: 100vh;
+    max-height: 100%;
     width: auto;
+    display: flex;
+    flex-direction: column;
   }
+  
 
   #afterlogin {
     display: none;
@@ -146,7 +159,7 @@ th {
   }
 
   #footerapp {
-    display: flex;
+    display: inline-flex;
     position: absolute;
     bottom: 0;
     background-image: url("/img/gradient-main.png");

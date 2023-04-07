@@ -86,6 +86,16 @@ body {
     justify-content: center;
   }
 
+  #wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+
+  .content-wrapper {
+    flex-grow: 1;
+  }
+  
   #home-link,
   #about-link {
     display: none;

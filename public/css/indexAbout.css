@@ -1,6 +1,7 @@
 /* Index CSS. */
 
 body {
+  height: 100vh;
   font-family: "Inter", sans-serif;
   background-image: url("/img/gradient.png");
   background-size: cover;
@@ -155,7 +156,6 @@ a {
 #img-background {
   background-color: transparent;
 }
-
 
 /* Media Query */
 

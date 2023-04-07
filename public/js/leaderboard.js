@@ -28,7 +28,7 @@ function retrieveBoard() {
         var profilePicture = document.createElement("img");
         profilePicture.src = user.photoURL
           ? user.photoURL
-          : "/img/placeholder-profile.png"; 
+          : "/img/placeholder-profile.png";
         profilePicture.alt = user.displayName;
         profilePicture.width = 30;
         nameCell.appendChild(profilePicture);

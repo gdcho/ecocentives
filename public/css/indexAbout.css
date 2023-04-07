@@ -208,7 +208,8 @@ a {
     width: 400px;
     height: 400px;
     height: auto;
-    margin-left: -10%;
+    margin-top: 20px;
+    margin-left: 0;
   }
 
   .about-header {

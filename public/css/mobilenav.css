@@ -1,3 +1,8 @@
+html {
+  overflow-x: hidden;
+  height: 100vh;
+}
+
 #navmobile {
   position: fixed;
   top: 0;
@@ -9,7 +14,6 @@
 
 #nav-brand-mobile {
   padding-top: 10px;
-  margin-left: -35px;
 }
 
 .navbar-nav {
@@ -26,4 +30,8 @@
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   background-color: transparent;
   text-decoration: none;
+}
+
+.mobile-container{
+  margin-left: -20%;
 }

@@ -159,7 +159,7 @@ a {
 
 /* Media Query */
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1000px) {
   * {
     box-sizing: border-box;
     margin: 0;

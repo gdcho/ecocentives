@@ -68,7 +68,7 @@ body {
 
 /* Media Query. */
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1000px) {
   html {
     overflow-x: hidden;
   }

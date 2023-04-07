@@ -45,7 +45,7 @@ p {
   display: none;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1000px) {
   * {
     box-sizing: border-box;
     margin: 0;

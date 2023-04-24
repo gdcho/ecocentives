@@ -1,3 +1,3 @@
-const API_KEY = 'AIzaSyBfNJULtscjUA9CK1SslQBO-19xkzsXtgg';
+const API_KEY = ''; //Input Google Vision API key
 
 export { API_KEY };

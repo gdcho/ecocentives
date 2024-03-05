@@ -2,6 +2,6 @@
   "dependencies": {
     "@firebase/storage": "^0.12.2",
     "express": "^4.18.2",
-    "firebase": "^10.8.0"
+    "firebase": "^10.8.1"
   }
 }
